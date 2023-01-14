@@ -13,8 +13,14 @@ while (repeat)
         case "Trainer":
             menu =new Trainer();
             break;
-        case "":
+        case "TSignUp":
+            menu= new TSignUp();
+            break;
+        case "Exit":
             repeat= false;
+            break;
+        case "Menu":
+            menu = new Menu();
             break;
 
         default:

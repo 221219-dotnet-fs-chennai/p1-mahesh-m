@@ -4,8 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FT_UIConsole", "FindTrainers\FT_UIConsole.csproj", "{2E7B87E5-A31F-4F63-99AF-764778617445}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0845C429-BF52-47D3-A3B0-5853698A2ADA} = {0845C429-BF52-47D3-A3B0-5853698A2ADA}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{0845C429-BF52-47D3-A3B0-5853698A2ADA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{0845C429-BF52-47D3-A3B0-5853698A2ADA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

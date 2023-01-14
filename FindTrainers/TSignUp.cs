@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data;
 
 namespace FT_UIConsole
 {
     internal class TSignUp : IMenu
-    {
+    {   TrainerDetails details = new TrainerDetails();
         public void Display()
         {
+            Console.WriteLine();
+            Console.WriteLine("-----------Add Your Details------------");
             Console.WriteLine("[0] Go Back :)");
             Console.WriteLine("[1] Save");
             Console.WriteLine("[2] First Name");

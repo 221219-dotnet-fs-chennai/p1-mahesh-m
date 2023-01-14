@@ -27,7 +27,7 @@ namespace FT_UIConsole
                 case "0":
                     return "Menu";
                 case "1":
-                    return "SignUp";
+                    return "TSignUp";
                 case "2":
                     return "LogIn";
                 default:
