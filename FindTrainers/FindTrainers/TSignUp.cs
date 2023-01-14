@@ -10,6 +10,7 @@ namespace FindTrainers
     internal class TSignUp : IMenu
     {
         private static TrainerDetails trainer = new TrainerDetails();
+        IRepo repo = new SqlRepo();
         public void Display()
         {
             Console.WriteLine();
@@ -46,6 +47,8 @@ namespace FindTrainers
                 case "0":
                     return "Menu";
                 case "1":
+                    repo.Insert(trainer);
+
                     return "Menu";
 
                 case "2":
@@ -123,6 +126,10 @@ namespace FindTrainers
                 case "20":
                     Console.WriteLine("Enter your Quaternary Skill");
                     trainer.Skill4 = Console.ReadLine();
+                    return "TSignUp";
+                case "21":
+                    Console.WriteLine("Enter your Password");
+                    trainer.Password = Console.ReadLine();
                     return "TSignUp";
 
                 default:

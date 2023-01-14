@@ -36,7 +36,7 @@ namespace FindTrainers
                     return "Menu";
             }
 
-            return "hello";
+           
         }
     }
 }

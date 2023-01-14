@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Maheshabi\\source\\repos\\FindTrainers\\Data\\Data.csproj",
+      "projectUniqueName": "C:\\Users\\Maheshabi\\newRepo\\p1-mahesh-m\\FindTrainers\\Data\\Data.csproj",
       "projectName": "Data",
-      "projectPath": "C:\\Users\\Maheshabi\\source\\repos\\FindTrainers\\Data\\Data.csproj",
+      "projectPath": "C:\\Users\\Maheshabi\\newRepo\\p1-mahesh-m\\FindTrainers\\Data\\Data.csproj",
       "packagesPath": "C:\\Users\\Maheshabi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Maheshabi\\source\\repos\\FindTrainers\\Data\\obj\\",
+      "outputPath": "C:\\Users\\Maheshabi\\newRepo\\p1-mahesh-m\\FindTrainers\\Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Maheshabi\\AppData\\Roaming\\NuGet\\NuGet.Config",
