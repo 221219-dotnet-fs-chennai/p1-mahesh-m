@@ -1,0 +1,12 @@
+C:\Users\Maheshabi\source\repos\FindTrainers\Datafile\bin\Debug\net6.0\Datafile.deps.json
+C:\Users\Maheshabi\source\repos\FindTrainers\Datafile\bin\Debug\net6.0\Datafile.dll
+C:\Users\Maheshabi\source\repos\FindTrainers\Datafile\bin\Debug\net6.0\Datafile.pdb
+C:\Users\Maheshabi\source\repos\FindTrainers\Datafile\obj\Debug\net6.0\Datafile.csproj.AssemblyReference.cache
+C:\Users\Maheshabi\source\repos\FindTrainers\Datafile\obj\Debug\net6.0\Datafile.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Maheshabi\source\repos\FindTrainers\Datafile\obj\Debug\net6.0\Datafile.AssemblyInfoInputs.cache
+C:\Users\Maheshabi\source\repos\FindTrainers\Datafile\obj\Debug\net6.0\Datafile.AssemblyInfo.cs
+C:\Users\Maheshabi\source\repos\FindTrainers\Datafile\obj\Debug\net6.0\Datafile.csproj.CoreCompileInputs.cache
+C:\Users\Maheshabi\source\repos\FindTrainers\Datafile\obj\Debug\net6.0\Datafile.dll
+C:\Users\Maheshabi\source\repos\FindTrainers\Datafile\obj\Debug\net6.0\refint\Datafile.dll
+C:\Users\Maheshabi\source\repos\FindTrainers\Datafile\obj\Debug\net6.0\Datafile.pdb
+C:\Users\Maheshabi\source\repos\FindTrainers\Datafile\obj\Debug\net6.0\ref\Datafile.dll

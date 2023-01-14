@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "FindTrainers/1.0.0": {
+        "dependencies": {
+          "Data": "1.0.0",
+          "Datafile": "1.0.0"
+        },
+        "runtime": {
+          "FindTrainers.dll": {}
+        }
+      },
+      "Data/1.0.0": {
+        "runtime": {
+          "Data.dll": {}
+        }
+      },
+      "Datafile/1.0.0": {
+        "runtime": {
+          "Datafile.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FindTrainers/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Datafile/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
