@@ -12,9 +12,11 @@ namespace Data
         string? password;
         string? fName;
         string? lName;
+        string? phoneNo;
 
         string? uGCName;
         string? uGPYear;
+        string? uGDegree;
         string? uGDept;
 
         string? hSCName;
@@ -135,6 +137,18 @@ namespace Data
         }
 
         public int? TotalExp
+        {
+            get;
+            set;
+        }
+
+        public string? PhoneNo
+        {
+            get;
+            set;
+        }
+
+        public string? UGDegree
         {
             get;
             set;

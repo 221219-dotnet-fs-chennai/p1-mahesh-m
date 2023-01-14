@@ -6,8 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-	<ItemGroup>
+
+  <ItemGroup>
 		<ProjectReference Include="..\Data\Data.csproj" />
-	</ItemGroup>
+  </ItemGroup>
+	
+	
+
 
 </Project>
