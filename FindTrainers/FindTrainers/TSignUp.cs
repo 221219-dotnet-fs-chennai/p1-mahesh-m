@@ -10,6 +10,12 @@ namespace FindTrainers
     internal class TSignUp : IMenu
     {
         internal static TrainerDetails trainer = new TrainerDetails();
+
+        public TSignUp(TrainerDetails newTrainer) {
+        trainer=newTrainer;
+        }
+        public TSignUp() { }
+       
         IRepo repo = new SqlRepo();
         public void Display()
         {

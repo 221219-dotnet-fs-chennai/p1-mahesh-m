@@ -80,12 +80,10 @@ namespace Datafile
             return trainer;
         }
 
-      public void Login()
-        {
-            Console.WriteLine("Enter email id");
-            string? email = Console.ReadLine();
-            Console.WriteLine("Enter password");
-            string? password = Console.ReadLine();  
+      public bool Login(string email)
+        { 
+
+          
             string query1 = $@"select email from trainers where email='{email}';";
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -94,27 +92,54 @@ namespace Datafile
             if (reader.Read())
             {
                 reader.Close();
+                Console.WriteLine("Enter password");
+                string? password = Console.ReadLine();
                 string query2 = $@"select email from trainers where password='{PasswordHasher(password)}';";
                 SqlCommand command2 = new SqlCommand(query2, con);
                using SqlDataReader reader1=command2.ExecuteReader();
                 if (reader1.Read())
                 {
                     Console.WriteLine("Login Success");
-                    reader1.Close();
-                }
+                  
+                    return true;
+;                }
                 else
                 {
                     Console.WriteLine("Wrong Password");
+                    reader1.Close();
+                    return false;
                 }
 
             }
             else
             {
                 Console.WriteLine("account not found! Please sign up first");
+                return false;
             }
 
 
             
+        }
+
+        public TrainerDetails GetATrainer(string email)
+        { TrainerDetails trainer = new TrainerDetails();
+            String[] arr = email.Split("@");
+            string userId = arr[0];
+          
+            string query1 = $@"select firstname,lastname,phoneno,city from trainers where trainerid='{userId}'";
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand command1 = new SqlCommand(query1,con);
+            SqlDataReader reader1= command1.ExecuteReader();
+            while (reader1.Read())
+            {
+                trainer.FName = reader1.GetString(0);
+                trainer.LName = reader1.GetString(1);
+                trainer.PhoneNo= reader1.GetString(2);
+            }
+
+            return trainer;
+
         }
 
         public TrainerDetails GetTrainer(string email)

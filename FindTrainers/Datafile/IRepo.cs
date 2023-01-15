@@ -9,6 +9,8 @@ namespace Datafile
     public interface IRepo
     {
         TrainerDetails Insert (TrainerDetails trainer);
-        void Login();
+        bool Login(string email);
+
+        TrainerDetails GetATrainer(string email);
     }
 }

@@ -21,7 +21,7 @@ namespace FindTrainers
             Console.WriteLine("Hope you are doing good!!");
             Console.WriteLine();
             Console.WriteLine("What do you want to do?");
-            Console.WriteLine("[0] Go Back :)");
+            Console.WriteLine("[0] Log Out :)");
             Console.WriteLine("[1] View your details");
             Console.WriteLine("[2] Update your details");
             Console.WriteLine("[3] Delete your details");
@@ -35,6 +35,9 @@ namespace FindTrainers
             switch (userInput)
             {
                 case "0":
+                    Console.WriteLine("Logging out.........");
+                    Console.WriteLine("Logged out successfully! :(");
+                    Console.WriteLine();
                     return "Menu";
                 case "1":
                     return "Profile";
