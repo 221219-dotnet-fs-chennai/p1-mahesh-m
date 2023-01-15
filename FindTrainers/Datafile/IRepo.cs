@@ -8,8 +8,7 @@ namespace Datafile
 {
     public interface IRepo
     {
-        TrainerDetails Insert (TrainerDetails trainer);  
-
-
+        TrainerDetails Insert (TrainerDetails trainer);
+        void Login();
     }
 }

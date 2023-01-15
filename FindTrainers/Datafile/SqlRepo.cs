@@ -80,6 +80,60 @@ namespace Datafile
             return trainer;
         }
 
+      public void Login()
+        {
+            Console.WriteLine("Enter email id");
+            string? email = Console.ReadLine();
+            Console.WriteLine("Enter password");
+            string? password = Console.ReadLine();  
+            string query1 = $@"select email from trainers where email='{email}';";
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand command1 = new SqlCommand(query1,con);
+             SqlDataReader reader=command1.ExecuteReader();
+            if (reader.Read())
+            {
+                reader.Close();
+                string query2 = $@"select email from trainers where password='{PasswordHasher(password)}';";
+                SqlCommand command2 = new SqlCommand(query2, con);
+               using SqlDataReader reader1=command2.ExecuteReader();
+                if (reader1.Read())
+                {
+                    Console.WriteLine("Login Success");
+                    reader1.Close();
+                }
+                else
+                {
+                    Console.WriteLine("Wrong Password");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("account not found! Please sign up first");
+            }
+
+
+            
+        }
+
+        public TrainerDetails GetTrainer(string email)
+        {  TrainerDetails trainer= new TrainerDetails();
+            string query1 = $@"select email from trainers where email='{email}';";
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand command1 = new SqlCommand(query1, con);
+            SqlDataReader reader = command1.ExecuteReader();
+
+
+
+
+            return  trainer;
+
+        }
+
+
+
         public string PasswordHasher(string password)
         {
             int decipher = 9;
@@ -95,5 +149,7 @@ namespace Datafile
             return newPassword;
 
         }
+
+ 
     }
 }

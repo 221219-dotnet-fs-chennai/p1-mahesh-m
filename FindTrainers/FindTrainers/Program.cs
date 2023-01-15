@@ -31,6 +31,9 @@ namespace FindTrainers
                     case "Profile":
                         menu = new Profile(trainer);
                         break;
+                    case "TLogIn":
+                        menu = new TLogIn();
+                        break;
             
                    default:
                         Console.WriteLine("Page does not exist!");

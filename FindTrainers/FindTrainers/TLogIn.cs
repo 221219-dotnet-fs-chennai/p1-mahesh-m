@@ -7,35 +7,37 @@ using System.Threading.Tasks;
 
 namespace FindTrainers
 {
-    internal class Trainer : IMenu
-    { IRepo repo=new SqlRepo();
+    internal class TLogIn : IMenu
+    {
+        IRepo repo = new SqlRepo();
         public void Display()
         {
-            Console.WriteLine("Hello Trainer!");
-            Console.WriteLine("[2] LogIn");
-            Console.WriteLine("[1] SignUp");
-            Console.WriteLine("[0] Go back :)");
-
-
+            Console.WriteLine($"<-------------------------- LOGIN PAGE ----------------------------->");
+            Console.WriteLine();
+            Console.WriteLine("[0] Go Back :)");
+            Console.WriteLine("[1] Continue with log In");
         }
 
         public string UserChoice()
         {
-            string? userInput = Console.ReadLine();
+            string userInput = Console.ReadLine();
 
             switch (userInput)
             {
                 case "0":
-                    return "Menu";
+                    return "Trainer";
                 case "1":
-                    return "TSignUp";
-                case "2":
+                    repo.Login();
                     return "TLogIn";
                 default:
                     Console.WriteLine("Please input a valid response");
                     Console.WriteLine("Please press Enter to continue");
                     Console.ReadLine();
-                    return "Trainer";
+                    return "TLogIn";
+
+
+
+
             }
         }
     }

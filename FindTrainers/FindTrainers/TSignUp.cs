@@ -45,7 +45,7 @@ namespace FindTrainers
             switch (userInput)
             {
                 case "0":
-                    return "Menu";
+                    return "Trainer";
                 case "1":
                     repo.Insert(trainer);
 
