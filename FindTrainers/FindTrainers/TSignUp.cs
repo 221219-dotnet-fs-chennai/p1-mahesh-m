@@ -9,7 +9,7 @@ namespace FindTrainers
 {
     internal class TSignUp : IMenu
     {
-        private static TrainerDetails trainer = new TrainerDetails();
+        internal static TrainerDetails trainer = new TrainerDetails();
         IRepo repo = new SqlRepo();
         public void Display()
         {
@@ -49,7 +49,7 @@ namespace FindTrainers
                 case "1":
                     repo.Insert(trainer);
 
-                    return "Menu";
+                    return "Profile";
 
                 case "2":
                     Console.WriteLine("Enter First Name");

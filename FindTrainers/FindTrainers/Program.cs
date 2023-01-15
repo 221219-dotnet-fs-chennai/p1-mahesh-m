@@ -1,32 +1,44 @@
 ﻿using FindTrainers;
 
-bool repeat = true;
-IMenu menu = new Menu();
-
-while (repeat)
+namespace FindTrainers
 {
-    menu.Display();
-    string ans = menu.UserChoice();
-
-    switch (ans)
+    internal class Initial:TSignUp
     {
-        case "Trainer":
-            menu = new Trainer();
-            break;
-        case "TSignUp":
-            menu = new TSignUp();
-            break;
-        case "Exit":
-            repeat = false;
-            break;
-        case "Menu":
-            menu = new Menu();
-            break;
+        static void Main(string[] args)
+        {
+            bool repeat = true;
+            IMenu menu = new Menu();
 
-        default:
-            Console.WriteLine("Page does not exist!");
-            Console.WriteLine("Please press Enter to continue");
-            Console.ReadLine();
-            break;
+            while (repeat)
+            {
+                menu.Display();
+                string ans = menu.UserChoice();
+
+                switch (ans)
+                {
+                    case "Trainer":
+                        menu = new Trainer();
+                        break;
+                    case "TSignUp":
+                        menu = new TSignUp();
+                        break;
+                    case "Exit":
+                        repeat = false;
+                        break;
+                    case "Menu":
+                        menu = new Menu();
+                        break;
+                    case "Profile":
+                        menu = new Profile(trainer);
+                        break;
+            
+                   default:
+                        Console.WriteLine("Page does not exist!");
+                        Console.WriteLine("Please press Enter to continue");
+                        Console.ReadLine();
+                        break;
+                }
+            }
+        }
     }
 }
