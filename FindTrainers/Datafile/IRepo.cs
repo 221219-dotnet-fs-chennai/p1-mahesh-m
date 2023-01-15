@@ -9,5 +9,7 @@ namespace Datafile
     public interface IRepo
     {
         TrainerDetails Insert (TrainerDetails trainer);  
+
+
     }
 }
