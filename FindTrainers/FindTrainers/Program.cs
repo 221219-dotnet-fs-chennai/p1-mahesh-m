@@ -26,6 +26,7 @@ namespace FindTrainers
                         repeat = false;
                         break;
                     case "Menu":
+                        trainer=new Datafile.TrainerDetails();
                         menu = new Menu();
                         break;
                     case "Profile":

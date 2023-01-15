@@ -12,5 +12,7 @@ namespace Datafile
         bool Login(string email);
 
         TrainerDetails GetATrainer(string email);
+
+
     }
 }

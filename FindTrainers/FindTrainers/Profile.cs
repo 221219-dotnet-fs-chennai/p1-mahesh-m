@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Datafile;
@@ -40,6 +41,7 @@ namespace FindTrainers
                     Console.WriteLine();
                     return "Menu";
                 case "1":
+                    ViewDetails();
                     return "Profile";
                 case "2":
                     return "Profile";
@@ -53,6 +55,45 @@ namespace FindTrainers
                     Console.ReadLine();
                     return " Menu";
 
+            }
+
+             void ViewDetails()
+            { 
+                Console.WriteLine();
+                Console.WriteLine("Basic Details");
+                Console.WriteLine("=====================");
+                Console.WriteLine("First Name" + " - " + newTrainer.FName);
+                Console.WriteLine("Last Name" + " - " + newTrainer.LName);
+                Console.WriteLine("Email ID" + " - " + newTrainer.Email);
+                Console.WriteLine("Phone No." + " - " + newTrainer.PhoneNo);
+
+
+                Console.WriteLine();
+                Console.WriteLine("Educational Details");
+                Console.WriteLine("=====================");
+                Console.WriteLine("Bachelor's College Name" + " - " + newTrainer.UGCName);
+                Console.WriteLine("Bachelor's Year of Passing" + " - " + newTrainer.UGPYear);
+                Console.WriteLine("Bachelor's Degree" + " - " + newTrainer.UGDegree);
+                Console.WriteLine("Bachelor's Specializaiton" + " - " + newTrainer.UGDept);
+                Console.WriteLine("HigherSecSchool Name" + " - " + newTrainer.HSCName);
+                Console.WriteLine("HigherSecSchool Year of Passing" + " - " + newTrainer.HSCPYear);
+                Console.WriteLine("HigherSecSchool Stream" + " - " + newTrainer.HSCStream);
+                Console.WriteLine("HighSchool Name" + " - " + newTrainer.HSName);
+                Console.WriteLine("HighSchool Year of Passing" + " - " + newTrainer.HSPYear);
+
+                Console.WriteLine();
+                Console.WriteLine("Experience Details");
+                Console.WriteLine("=====================");
+                Console.WriteLine("Last Company Worked" + " - " + newTrainer.LastCompany);
+                Console.WriteLine("Total Experience in Years" + " - " + newTrainer.TotalExp);
+
+                Console.WriteLine();
+                Console.WriteLine("Skills Details");
+                Console.WriteLine("=====================");
+                Console.WriteLine("Primary Skill" + " - " + newTrainer.Skill1);
+                Console.WriteLine("Secondary Skill" + " - " + newTrainer.Skill2);
+                Console.WriteLine("Tertiary Skill" + " - " + newTrainer.Skill3);
+                Console.WriteLine("Quaternary Skill" + " - " + newTrainer.Skill4);
             }
 
         }

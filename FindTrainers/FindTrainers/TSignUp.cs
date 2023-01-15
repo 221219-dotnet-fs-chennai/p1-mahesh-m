@@ -14,7 +14,10 @@ namespace FindTrainers
         public TSignUp(TrainerDetails newTrainer) {
         trainer=newTrainer;
         }
-        public TSignUp() { }
+        public TSignUp() {
+            
+        
+        }
        
         IRepo repo = new SqlRepo();
         public void Display()
