@@ -38,8 +38,12 @@ namespace FindTrainers
                     case "TUpdate":
                         menu = new TUpdate();
                         break;
-            
-                   default:
+                    case "TDelete":
+                        menu = new TDelete();
+                        break;
+
+
+                    default:
                         Console.WriteLine("Page does not exist!");
                         Console.WriteLine("Please press Enter to continue");
                         Console.ReadLine();

@@ -46,7 +46,7 @@ namespace FindTrainers
                 case "2":
                     return "TUpdate";
                 case "3":
-                    return "Profile";
+                    return "TDelete";
                 case "4":
                     return "Menu";
                 default:

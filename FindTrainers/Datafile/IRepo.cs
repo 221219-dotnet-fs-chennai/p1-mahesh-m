@@ -15,6 +15,9 @@ namespace Datafile
 
         void UpdateATrainer(string newValue, string columnName, string tableName,string trainerId);
 
+        void DeleteValues(string columnName, string tableName,string trainerId);
+
+        void DeleteAccount(string trainerId);
 
     }
 }
