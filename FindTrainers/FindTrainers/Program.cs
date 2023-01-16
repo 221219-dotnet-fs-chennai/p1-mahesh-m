@@ -41,6 +41,9 @@ namespace FindTrainers
                     case "TDelete":
                         menu = new TDelete();
                         break;
+                    case "User":
+                        menu = new Users();
+                        break;
 
 
                     default:

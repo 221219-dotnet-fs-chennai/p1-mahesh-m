@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
+using System.Xml.Linq;
 
 namespace Datafile
 {
@@ -303,6 +305,34 @@ namespace Datafile
             Console.WriteLine();
 
 
+        }
+
+        public List<TrainerDetails> GetAll()
+        {
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            List<TrainerDetails> listTrainer = new List<TrainerDetails>();
+            string query1 = $@"select firstname,lastname,phoneNo,email,skill_1 from trainers t inner join skills s on t.TrainerId=s.TrainerId ";
+          
+            SqlCommand command1 = new SqlCommand(query1, con);
+            SqlDataReader reader1 = command1.ExecuteReader();
+
+            string tr = "";
+            while (reader1.Read())
+            {
+                listTrainer.Add(new TrainerDetails()
+                {
+                    FName = reader1.GetString(0),
+                    LName = reader1.GetString(1),
+                    PhoneNo = reader1.GetString(2),
+                    Email = reader1.GetString(3),
+                    Skill1 = reader1.GetString(4),
+
+                });
+
+            }
+
+            return listTrainer;
         }
     }
 }

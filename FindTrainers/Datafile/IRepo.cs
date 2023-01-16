@@ -18,6 +18,7 @@ namespace Datafile
         void DeleteValues(string columnName, string tableName,string trainerId);
 
         void DeleteAccount(string trainerId);
+        List<TrainerDetails> GetAll();
 
     }
 }
