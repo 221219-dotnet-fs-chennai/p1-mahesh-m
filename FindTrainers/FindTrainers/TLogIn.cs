@@ -9,7 +9,9 @@ namespace FindTrainers
 {
     internal class TLogIn : IMenu
     {
-        IRepo repo = new SqlRepo();
+        static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
+
+        IRepo repo = new SqlRepo(s[0], s[1]);
         public void Display()
         {
             Console.WriteLine($"<-------------------------- LOGIN PAGE ----------------------------->");

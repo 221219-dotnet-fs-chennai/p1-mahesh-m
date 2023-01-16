@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Datafile;
-
 namespace FindTrainers
 {
     internal class TSignUp : IMenu
@@ -18,8 +17,10 @@ namespace FindTrainers
             
         
         }
-       
-        IRepo repo = new SqlRepo();
+       static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
+
+
+        IRepo repo = new SqlRepo(s[0], s[1]);
         public void Display()
         {
             Console.WriteLine();

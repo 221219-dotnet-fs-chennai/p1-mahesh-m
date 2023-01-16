@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace FindTrainers
 {
     internal class Trainer : IMenu
-    { IRepo repo=new SqlRepo();
+    { 
         public void Display()
         {
             Console.WriteLine("Hello Trainer!");
