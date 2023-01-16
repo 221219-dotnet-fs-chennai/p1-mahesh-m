@@ -13,6 +13,8 @@ namespace Datafile
 
         TrainerDetails GetATrainer(string email);
 
+        void UpdateATrainer(string newValue, string columnName, string tableName,string trainerId);
+
 
     }
 }

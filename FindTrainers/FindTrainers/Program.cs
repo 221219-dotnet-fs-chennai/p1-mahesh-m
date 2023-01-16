@@ -35,6 +35,9 @@ namespace FindTrainers
                     case "TLogIn":
                         menu = new TLogIn();
                         break;
+                    case "TUpdate":
+                        menu = new TUpdate();
+                        break;
             
                    default:
                         Console.WriteLine("Page does not exist!");

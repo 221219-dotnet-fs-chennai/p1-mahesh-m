@@ -44,7 +44,7 @@ namespace FindTrainers
                     ViewDetails();
                     return "Profile";
                 case "2":
-                    return "Profile";
+                    return "TUpdate";
                 case "3":
                     return "Profile";
                 case "4":

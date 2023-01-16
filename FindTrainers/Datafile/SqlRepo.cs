@@ -193,8 +193,8 @@ namespace Datafile
             SqlDataReader reader5 = command5.ExecuteReader();
             while (reader5.Read())
             {
-                trainer.HSName = reader4.GetString(0);
-                trainer.HSPYear = reader4.GetString(1);
+                trainer.HSName = reader5.GetString(0);
+                trainer.HSPYear = reader5.GetString(1);
                 
             }
             reader5.Close();
@@ -248,6 +248,28 @@ namespace Datafile
 
         }
 
- 
+        public void UpdateATrainer(string ? newValue, string columnName, string tableName,string trainerId)
+        {
+            string query1;
+            if (columnName == "totalexp")
+            {
+                int exp = int.Parse(newValue);
+                query1 = $@"update {tableName} set {columnName}={newValue} where trainerid='{trainerId}'";
+
+            }
+            else
+            {
+                query1 = $@"update {tableName} set {columnName}='{newValue}' where trainerid='{trainerId}'";
+
+            }
+
+           
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand command1 = new SqlCommand(query1,con);
+            command1.ExecuteNonQuery();
+            Console.WriteLine("Value update successfully!");
+
+        }
     }
 }
