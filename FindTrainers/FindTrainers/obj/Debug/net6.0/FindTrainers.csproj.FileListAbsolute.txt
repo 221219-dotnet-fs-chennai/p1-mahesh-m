@@ -50,3 +50,5 @@ C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\FindTrainers\obj\Debug\net6.
 C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\FindTrainers\obj\Debug\net6.0\FindTrainers.pdb
 C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\FindTrainers\obj\Debug\net6.0\FindTrainers.genruntimeconfig.cache
 C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\FindTrainers\obj\Debug\net6.0\ref\FindTrainers.dll
+C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\FindTrainers\bin\Debug\net6.0\Serilog.dll
+C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\FindTrainers\bin\Debug\net6.0\Serilog.Sinks.File.dll

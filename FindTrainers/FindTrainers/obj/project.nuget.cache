@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "aB8UMUjTR9fttdiesbqbnypW/Wg3fOSd5gZv3/ixQNEe6V7JGn6CAX09ZKYwKAy7Pa8RhJcarU9lwX9F+FFnVQ==",
+  "dgSpecHash": "2iMPyysQe7+SqdztYewVXLZUUhnATKL/ahq6nCCa+G7UqoGMPIr+7UTX459FYMwl2FMar3m2azoKKIMp/+KGXA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Maheshabi\\newRepo\\p1-mahesh-m\\FindTrainers\\FindTrainers\\FindTrainers.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,8 @@
     "C:\\Users\\Maheshabi\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Maheshabi\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Maheshabi\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Maheshabi\\.nuget\\packages\\serilog\\2.12.0\\serilog.2.12.0.nupkg.sha512",
+    "C:\\Users\\Maheshabi\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
     "C:\\Users\\Maheshabi\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
     "C:\\Users\\Maheshabi\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\Maheshabi\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
