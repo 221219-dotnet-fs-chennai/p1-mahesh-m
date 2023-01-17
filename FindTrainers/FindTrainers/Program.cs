@@ -1,4 +1,6 @@
-﻿using FindTrainers;
+﻿global using Serilog;
+using FindTrainers;
+
 
 namespace FindTrainers
 {
@@ -6,6 +8,10 @@ namespace FindTrainers
     {
         static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration().WriteTo.File(@"..\..\..\logs.txt", rollingInterval:RollingInterval.Day,rollOnFileSizeLimit:true).CreateLogger();
+
+            Log.Logger.Information("PROGRAM STARTS");
+
             bool repeat = true;
             IMenu menu = new Menu();
 
