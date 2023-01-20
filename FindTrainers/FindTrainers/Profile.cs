@@ -29,7 +29,7 @@ namespace FindTrainers
             Console.WriteLine("[1] View your details");
             Console.WriteLine("[2] Update your details");
             Console.WriteLine("[3] Delete your details");
-            Console.WriteLine("[4] Delete your account");
+           
         }
 
         public string UserChoice()
@@ -44,6 +44,8 @@ namespace FindTrainers
                     Console.WriteLine();
                     return "Menu";
                 case "1":
+                    Console.WriteLine("Viewing data..");
+                    
                     ViewDetails();
                     return "Profile";
                 case "2":
@@ -83,12 +85,20 @@ namespace FindTrainers
                 Console.WriteLine("HigherSecSchool Stream" + " - " + newTrainer.HSCStream);
                 Console.WriteLine("HighSchool Name" + " - " + newTrainer.HSName);
                 Console.WriteLine("HighSchool Year of Passing" + " - " + newTrainer.HSPYear);
+                Dictionary<string, string> cm = newTrainer.GetCompany();
 
                 Console.WriteLine();
                 Console.WriteLine("Experience Details");
                 Console.WriteLine("=====================");
-                Console.WriteLine("Last Company Worked" + " - " + newTrainer.LastCompany);
-                Console.WriteLine("Total Experience in Years" + " - " + newTrainer.TotalExp);
+                int k = 1;
+                foreach(var e in cm)
+                {
+                    Console.WriteLine($"Company {k}");
+                    Console.WriteLine(e.Key+ ": " + e.Value);
+                    Console.WriteLine();
+                    k++;
+                }
+                
 
                 Console.WriteLine();
                 Console.WriteLine("Skills Details");
@@ -97,6 +107,7 @@ namespace FindTrainers
                 Console.WriteLine("Secondary Skill" + " - " + newTrainer.Skill2);
                 Console.WriteLine("Tertiary Skill" + " - " + newTrainer.Skill3);
                 Console.WriteLine("Quaternary Skill" + " - " + newTrainer.Skill4);
+                Console.ReadLine();
             }
 
         }

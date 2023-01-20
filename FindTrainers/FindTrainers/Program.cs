@@ -17,6 +17,9 @@ namespace FindTrainers
 
             while (repeat)
             {
+                Console.Clear();
+
+                Log.Logger.Information("Showing the main menu to the trainer");
                 menu.Display();
                 string ans = menu.UserChoice();
 
@@ -26,28 +29,36 @@ namespace FindTrainers
                         menu = new Trainer();
                         break;
                     case "TSignUp":
+                        Log.Logger.Information("Trying to get into Sign Up Page");
                         menu = new TSignUp();
                         break;
                     case "Exit":
+                        Log.Logger.Information("PROGRAM ENDS");
                         repeat = false;
                         break;
                     case "Menu":
+                        Log.Logger.Information("Entering Main menu / Logging out");
                         trainer=new Datafile.TrainerDetails();
                         menu = new Menu();
                         break;
                     case "Profile":
+                        Log.Logger.Information("Logging into trainer profile page");
                         menu = new Profile(trainer);
                         break;
                     case "TLogIn":
+                        Log.Logger.Information("Displaying Trainer Login Page");
                         menu = new TLogIn();
                         break;
                     case "TUpdate":
+                        Log.Logger.Information("Displaying Trainer update Page");
                         menu = new TUpdate();
                         break;
                     case "TDelete":
+                        Log.Logger.Information("Displaying Trainer delete page");
                         menu = new TDelete();
                         break;
                     case "User":
+                        Log.Logger.Information("Enter into the Learner");
                         menu = new Users();
                         break;
 

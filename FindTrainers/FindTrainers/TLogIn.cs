@@ -29,16 +29,18 @@ namespace FindTrainers
                 case "0":
                     return "Trainer";
                 case "1":
+                    Log.Information("Trainer Tries Loggin in");
                     Console.WriteLine("Enter email id");
                     string? email = Console.ReadLine();
                     bool res= repo.Login(email);
                     if (res)
                     {
                         TSignUp newTrainer = new TSignUp(repo.GetATrainer(email));
+                        Log.Information("Trainer has logged in Successfully");
                         return "Profile";
                     }
                     else {
-                        Console.WriteLine("Bad Credentials! Retry again");
+                        Log.Information("Trainer Couldn't log in");
                         return "TLogIn";
                     }
                     

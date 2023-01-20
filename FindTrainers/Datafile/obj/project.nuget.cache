@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1OKjHp1z2wjV2L3af9QGS4i6yzrpH2sTeGs3HNLm95ZsP8a8L9/2QoLsLbADfh4AZActCChaPXXEc+b9i8VM/w==",
+  "dgSpecHash": "CFhdJgJJ6jIhN5S2LZMwO7R5/dGx6/LypAsDd7VIQLdkPvyBAgp0Y2yQbcfxYIb7mbXsBG7lPN93sr3A4iA0JA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Maheshabi\\newRepo\\p1-mahesh-m\\FindTrainers\\Datafile\\Datafile.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Maheshabi\\.nuget\\packages\\consoletableext\\3.2.0\\consoletableext.3.2.0.nupkg.sha512",
     "C:\\Users\\Maheshabi\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Maheshabi\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Maheshabi\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",

@@ -10,6 +10,7 @@ namespace FindTrainers
     {
         public void Display()
         {
+            
             Console.WriteLine("Hello Welcome to Find Trainers!");
             Console.WriteLine("Are you a Trainer or Learner?");
             Console.WriteLine("[2] Continue as User");

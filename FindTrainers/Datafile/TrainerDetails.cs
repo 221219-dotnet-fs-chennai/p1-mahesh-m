@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,8 +32,18 @@ namespace Datafile
         string? skill3;
         string? skill4;
 
-        string? lastCompany;
-        int? totalExp;
+        Dictionary<string, string> company = new Dictionary<string, string>();
+
+        public void SetCompany(string cname,string exp)
+        {
+            company.Add(cname, exp);
+        }
+
+        public Dictionary<string,string> GetCompany()
+        {
+            return company;
+        }
+
 
         public string? Email
         {
@@ -129,19 +140,7 @@ namespace Datafile
             set;
         }
 
-        public string? LastCompany
-        {
-            get;
-            set;
-
-        }
-
-        public int? TotalExp
-        {
-            get;
-            set;
-        }
-
+     
         public string? PhoneNo
         {
             get;
@@ -153,6 +152,6 @@ namespace Datafile
             get;
             set;
         }
-
+       
     }
 }

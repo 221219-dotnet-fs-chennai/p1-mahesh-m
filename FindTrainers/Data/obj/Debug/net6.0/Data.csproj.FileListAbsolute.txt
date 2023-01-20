@@ -28,3 +28,5 @@ C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Data\obj\Debug\net6.0\refint
 C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Data\obj\Debug\net6.0\Data.pdb
 C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Data\obj\Debug\net6.0\Data.genruntimeconfig.cache
 C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Data\obj\Debug\net6.0\ref\Data.dll
+C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Data\bin\Debug\net6.0\ConsoleTableExt.dll
+C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Data\obj\Debug\net6.0\Data.csproj.CopyComplete

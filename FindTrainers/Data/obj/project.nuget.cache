@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "LxJttMlIo1MAIfL+aVBq/fMFpNq1z8qPgQSvvn/aeW2gAlhyCTovwYQycWKYNfVgeJZRTaDzQPLJCxBzYeD9vQ==",
+  "dgSpecHash": "L0XS12J0zftSPcZOFk3P013lBNwF/9MQxfUIntPcsmpriDEU8IgGCTliXCQZBE07zPWFiSWYcI+bG6/tjPaJJQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Maheshabi\\newRepo\\p1-mahesh-m\\FindTrainers\\Data\\Data.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Maheshabi\\.nuget\\packages\\consoletableext\\3.2.0\\consoletableext.3.2.0.nupkg.sha512"
+  ],
   "logs": []
 }

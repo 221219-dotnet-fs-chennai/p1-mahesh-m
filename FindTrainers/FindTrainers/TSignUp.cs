@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using ConsoleTableExt;
 using Datafile;
 namespace FindTrainers
 {
@@ -30,45 +31,134 @@ namespace FindTrainers
 
         IRepo repo = new SqlRepo(s[0], s[1]);
         public void Display()
+
         {
+            
+            Dictionary<string, string> comp = trainer.GetCompany();
             Console.WriteLine();
-            Console.WriteLine("-----------Add Your Details------------");
+            Console.WriteLine("----------------------------------------------------- Sign Up  -------------------------------------------------------");
+            Console.WriteLine();
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++++PRESS THE RESPECTIVE NOS. TO GIVE RESPECTIVE INPUTS++++++++++++++++++++++++++++++++++++++");
+            Console.WriteLine("Controls");
+            Console.WriteLine("===========");
             Console.WriteLine("[0] Go Back :)");
             Console.WriteLine("[1] Save");
-            Console.WriteLine("[2] First Name" + " - "+ trainer.FName);
-            Console.WriteLine("[3] Last Name" + " - " + trainer.LName);
-            Console.WriteLine("[4] Email ID" + " - " + trainer.Email);
-            Console.WriteLine("[5] Phone No." + " - " + trainer.PhoneNo);
-            Console.WriteLine("[6] Bachelor's College Name" + " - " + trainer.UGCName);
-            Console.WriteLine("[7] Bachelor's Year of Passing" + " - " + trainer.UGPYear);
-            Console.WriteLine("[8] Bachelor's Degree" + " - " + trainer.UGDegree);
-            Console.WriteLine("[9] Bachelor's Specializaiton" + " - " + trainer.UGDept);
-            Console.WriteLine("[10] HigherSecSchool Name" + " - " + trainer.HSCName);
-            Console.WriteLine("[11] HigherSecSchool Year of Passing" + " - " + trainer.HSCPYear);
-            Console.WriteLine("[12] HigherSecSchool Stream" + " - " + trainer.HSCStream);
-            Console.WriteLine("[13] HighSchool Name" + " - " + trainer.HSName);
-            Console.WriteLine("[14] HighSchool Year of Passing" + " - " + trainer.HSPYear);
-            Console.WriteLine("[15] Last Company Worked" + " - " + trainer.LastCompany);
-            Console.WriteLine("[16] Total Experience in Years" + " - " + trainer.TotalExp);
-            Console.WriteLine("[17] Primary Skill" + " - " + trainer.Skill1);
-            Console.WriteLine("[18] Secondary Skill" + " - " + trainer.Skill2);
-            Console.WriteLine("[19] Tertiary Skill" + " - " + trainer.Skill3);
-            Console.WriteLine("[20] Quaternary Skill" + " - " + trainer.Skill4);
+            Console.WriteLine();
+
+
+            Console.WriteLine("Basic Details");
+            Console.WriteLine("=================");
+            Console.WriteLine();
+
+
+            Console.WriteLine("[2] First Name" + "                           - "+ trainer.FName);
+            Console.WriteLine("[3] Last Name" + "                            - " + trainer.LName);
+            Console.WriteLine("[4] Email ID" + "                             - " + trainer.Email);
+            Console.WriteLine("[5] Phone No." + "                            - " + trainer.PhoneNo);
+            Console.WriteLine();
+
+            Log.Logger.Information("Trainer basic details entered");
+
+
+            Console.WriteLine("UG Details");
+            Console.WriteLine("=============");
+            Console.WriteLine();
+
+
+            Console.WriteLine("[6] Bachelor's College Name" + "              - " + trainer.UGCName);
+            Console.WriteLine("[7] Bachelor's Year of Passing" + "           - " + trainer.UGPYear);
+            Console.WriteLine("[8] Bachelor's Degree" + "                    - " + trainer.UGDegree);
+            Console.WriteLine("[9] Bachelor's Specializaiton" + "            - " + trainer.UGDept);
+            Console.WriteLine();
+
+            Log.Logger.Information("Trainer College Details entered");
+
+            Console.WriteLine("Higher Secondary School Details");
+            Console.WriteLine("==================================");
+            Console.WriteLine();
+
+
+            Console.WriteLine("[10] HigherSecSchool Name" + "                - " + trainer.HSCName);
+            Console.WriteLine("[11] HigherSecSchool Year of Passing" + "     - " + trainer.HSCPYear);
+            Console.WriteLine("[12] HigherSecSchool Stream" + "              - " + trainer.HSCStream);
+            Console.WriteLine();
+
+
+
+            Console.WriteLine("High School Details");
+            Console.WriteLine("======================");
+            Console.WriteLine();
+
+
+            Console.WriteLine("[13] HighSchool Name" + "                     - " + trainer.HSName);
+            Console.WriteLine("[14] HighSchool Year of Passing" + "          - " + trainer.HSPYear);
+            Console.WriteLine();
+
+            Log.Logger.Information("Trainer School Details entered");
+
+            Console.WriteLine("Experience Details");
+            Console.WriteLine("=====================");
+            Console.WriteLine();
+
+            Console.WriteLine("[15] Company Details" + "                      ");
+           
+           
+
+            foreach(var e in comp)
+            {
+
+                Console.WriteLine("                                             ---------------------------");
+                Console.WriteLine("                                             |  " + e.Key + "        |      " + e.Value + "  |  ");
+                Console.WriteLine("                                             ---------------------------");
+
+            }
+            Console.WriteLine();
+
+            Log.Logger.Information("Trainer Experience details added");
+
+            Console.WriteLine("Skill set");
+            Console.WriteLine("============");
+            Console.WriteLine();
+
+
+            Console.WriteLine("[16] Primary Skill" + "                       - " + trainer.Skill1);
+            Console.WriteLine("[17] Secondary Skill" + "                     - " + trainer.Skill2);
+            Console.WriteLine("[18] Tertiary Skill" + "                      - " + trainer.Skill3);
+            Console.WriteLine("[19] Quaternary Skill" + "                    - " + trainer.Skill4);
+            Console.WriteLine();
+            Log.Logger.Information("Trainer Skillset has been entered!");
+
+            Console.WriteLine();
+        
         }
+
 
         public string UserChoice()
         {
-           
 
+          
             string? userInput = Console.ReadLine();
+            Console.WriteLine();
 
             switch (userInput)
             {
                 case "0":
                     return "Trainer";
                 case "1":
-                    repo.Insert(trainer);
-
+                    try
+                    {
+                        repo.Insert(trainer);
+                    }
+                    catch (NullReferenceException ex) {
+                        Console.Clear();
+                        Console.WriteLine("********************************************************PLEASE FILL ALL THE DETAILS***********************************************************");
+                        Console.WriteLine();
+                        Console.WriteLine("**************************************************************BEFORE SAVING********************************************************************");
+                        Console.ReadLine();
+                        Log.Logger.Information("Trainer didn't enter all details");
+                        return "TSignUp";
+                    }
+                    Log.Information("Trainer registeration Complete");
                     return "Profile";
 
                 case "2":
@@ -100,9 +190,24 @@ namespace FindTrainers
                         Console.WriteLine("Email format is invalid! Re-enter email");
                         str = Console.ReadLine();
                     }
-                    trainer.Email= str; 
+                    if(repo.IsExistEmail(str)) {
+                        Console.WriteLine("Email is Associated with another account. Try signing up with different account!");
+                        Console.ReadLine() ;
 
-                    return "TSignUp";
+                       
+                       
+                        return "TSignUp";
+
+                    }
+                    else
+                    {
+
+                        trainer.Email = str;
+                        return "TSignUp";
+
+                    }
+
+                 
                 case "5":
                     Console.WriteLine("Enter Phone No.");
                     str = Console.ReadLine();
@@ -152,6 +257,7 @@ namespace FindTrainers
                         Console.WriteLine("Specializtion should be 3 to 50 characters long");
                         str = Console.ReadLine();
                     }
+                    trainer.UGDept = str;
                     return "TSignUp";
                 case "10":
                     Console.WriteLine("Enter HigherSec School Name");
@@ -175,13 +281,15 @@ namespace FindTrainers
                     return "TSignUp";
                 case "12":
                     Console.WriteLine("Enter HigherSec School Stream");
-                    str= Console.ReadLine();
+            
                     str = Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
                     {
                         Console.WriteLine("Higher Secondary Stream should be 3 to 50 characters long");
                         str = Console.ReadLine();
                     }
+                    trainer.HSCStream = str;
+
                     return "TSignUp";
                 case "13":
                     Console.WriteLine("Enter High School Name");
@@ -204,20 +312,61 @@ namespace FindTrainers
                     trainer.HSPYear= str;   
                     return "TSignUp";
                 case "15":
-                    Console.WriteLine("Enter Last Company Name");
-                    str= Console.ReadLine();
-                    while (!FormatChecker(str, nameRegex))
+                    Console.WriteLine("Enter Company Name");
+                    string compny= Console.ReadLine();
+
+                    while (!FormatChecker(compny, nameRegex))
                     {
-                        Console.WriteLine("Last Company name should be 3 to 50 characters long");
-                        trainer.LastCompany = Console.ReadLine();
+                        Console.WriteLine("Company name should be 3 to 50 characters long");
+                         compny= Console.ReadLine();
                     }
-                    trainer.HSName = str;
+
+                    Console.WriteLine("Enter your experience");
+                    string experience= Console.ReadLine();
+                    int e = Convert.ToInt32(experience);
+                    while (e < 1 || e > 30)
+                    {
+                        Console.WriteLine("Give correct experience information");
+                        compny = Console.ReadLine();
+                    }
+
+                    trainer.SetCompany(compny, experience);
+
+                    Console.WriteLine("Do you have any other experience? Type (Y/N)");
+              
+                    string c = Console.ReadLine();
+                    while(c=="Y" || c == "y")
+                    {
+                        Console.WriteLine("Enter Company Name");
+                       compny = Console.ReadLine();
+
+                        while (!FormatChecker(compny, nameRegex))
+                        {
+                            Console.WriteLine("Company name should be 3 to 50 characters long");
+                            compny = Console.ReadLine();
+                        }
+
+                        Console.WriteLine("Enter your experience");
+                         experience = Console.ReadLine();
+                         e = Convert.ToInt32(experience);
+                        while (e<1 || e > 30)
+                        {
+                            Console.WriteLine("Give correct experience information");
+                            compny = Console.ReadLine();
+                        }
+
+                        trainer.SetCompany(compny, experience);
+
+                        Console.WriteLine("Do you have any other experience? Type (Y/N)");
+                        c= Console.ReadLine();
+         
+
+                    }
+
+
                     return "TSignUp";
+         
                 case "16":
-                    Console.WriteLine("Enter total experience in years");
-                    trainer.TotalExp = Convert.ToInt32(Console.ReadLine());
-                    return "TSignUp";
-                case "17":
                     Console.WriteLine("Enter your Primary Skill");
                     str= Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
@@ -227,7 +376,7 @@ namespace FindTrainers
                     }
                     trainer.Skill1 = str;
                     return "TSignUp";
-                case "18":
+                case "17":
                     Console.WriteLine("Enter your Secondary Skill");
                     str = Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
@@ -237,7 +386,7 @@ namespace FindTrainers
                     }
                     trainer.Skill2= str;
                     return "TSignUp";
-                case "19":
+                case "18":
                     Console.WriteLine("Enter your Tertiary Skill");
                     str = Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
@@ -247,7 +396,7 @@ namespace FindTrainers
                     }
                     trainer.Skill3 = str;
                     return "TSignUp";
-                case "20":
+                case "19":
                     Console.WriteLine("Enter your Quaternary Skill");
                     str = Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
@@ -257,7 +406,7 @@ namespace FindTrainers
                     }
                     trainer.Skill4 = str;
                     return "TSignUp";
-                case "21":
+                case "20":
                     Console.WriteLine("Enter your Password");
                     str = Console.ReadLine();
                     while (!FormatChecker(str, passwordRegex))
@@ -272,7 +421,7 @@ namespace FindTrainers
                         Console.WriteLine("Passwords are not matching! Re type confirm password! ");
                         cPass = Console.ReadLine();
                     }
-
+                    trainer.Password = str;
                     return "TSignUp";
 
                 default:

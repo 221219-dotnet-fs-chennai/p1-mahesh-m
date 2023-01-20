@@ -20,6 +20,7 @@ namespace FindTrainers
             Console.WriteLine();
             Console.WriteLine("[0] Go Back :)");
             Console.WriteLine("[1] View Trainers");
+    
         }
 
         public string UserChoice()
@@ -34,20 +35,21 @@ namespace FindTrainers
                     var listOfTrainers=repo.GetAll();
 
                     Console.WriteLine("==========================");
-
-                    foreach(var t in listOfTrainers)
+                    Console.WriteLine(listOfTrainers.Count);
+                    foreach (var t in listOfTrainers)
                     {
-                        Console.WriteLine(t.FName+" "+t.LName);
+                        Console.WriteLine(t.FName + " " + t.LName);
                         Console.WriteLine(t.Skill1);
                         Console.WriteLine(t.PhoneNo);
                         Console.WriteLine(t.Email);
-                        Console.WriteLine();    
+                        Console.WriteLine();
                         Console.WriteLine("==========================");
+                        
 
                     }
+                    Console.ReadLine();
 
-
-                    Console.WriteLine();
+              
                     return "User";
                 default:
                     Console.WriteLine("Please input a valid response");

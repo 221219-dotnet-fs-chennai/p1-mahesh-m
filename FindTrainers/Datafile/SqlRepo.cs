@@ -36,7 +36,8 @@ namespace Datafile
             command.Parameters.AddWithValue("@email", trainer.Email);
             command.Parameters.AddWithValue("@password", PasswordHasher(trainer.Password));
             command.Parameters.AddWithValue("@city", city);
-           
+            command.ExecuteNonQuery();
+
 
 
             string query2 = @"insert into skills (TrainerId,skill_1,skill_2,skill_3,skill_4) values(@userId,@skill_1,@skill_2,@skill_3,@skill_4)";
@@ -57,7 +58,8 @@ namespace Datafile
             command2.Parameters.AddWithValue("@yearpassed", trainer.UGPYear);
             command2.Parameters.AddWithValue("@degree", trainer.UGDept);
             command2.Parameters.AddWithValue("@branch", trainer.UGDept);
-           
+            command2.ExecuteNonQuery();
+
 
             string query4 = @"insert into HighSec (trainerid,SchoolName,yearpassed,course) values(@userId,@schoolname,@yearpassed,@course)";
             SqlCommand command3 = new SqlCommand(query4, conn);
@@ -65,31 +67,28 @@ namespace Datafile
             command3.Parameters.AddWithValue("@schoolname", trainer.HSCName);
             command3.Parameters.AddWithValue("@yearpassed", trainer.HSCPYear);
             command3.Parameters.AddWithValue("@course", trainer.HSCStream);
-           
+            command3.ExecuteNonQuery();
+
+
 
             string query5 = @"insert into HighSchool (trainerid,SchoolName,yearpassed) values(@userid,@schoolname,@yearpassed)";
             SqlCommand command4 = new SqlCommand(query5, conn);
             command4.Parameters.AddWithValue("@userId", userId);
             command4.Parameters.AddWithValue("@schoolname", trainer.HSName);
             command4.Parameters.AddWithValue("@yearpassed", trainer.HSPYear);
-            
+            command4.ExecuteNonQuery();
 
-            string query6 = @"insert into companies(trainerid,lastcompanyName,totalexp) values (@userId,@lastcompanyname,@totalexp)";
-            SqlCommand command5 = new SqlCommand(query6, conn);
-            command5.Parameters.AddWithValue("@userId", userId);
-            command5.Parameters.AddWithValue("@lastcompanyname", trainer.LastCompany);
-            command5.Parameters.AddWithValue("@totalexp", trainer.TotalExp);
-            try
+            Dictionary<String, String> cm = trainer.GetCompany();
+
+            foreach (var e in cm)
             {
-                command.ExecuteNonQuery();
-                command2.ExecuteNonQuery();
-                command3.ExecuteNonQuery();
-                command4.ExecuteNonQuery();
+                string query6 = @"insert into companies(trainerid,lastcompanyName,totalexp) values (@userId,@lastcompanyname,@totalexp)";
+                SqlCommand command5 = new SqlCommand(query6, conn);
+                command5.Parameters.AddWithValue("@userId", userId);
+                command5.Parameters.AddWithValue("@lastcompanyname", e.Key);
+                command5.Parameters.AddWithValue("@totalexp", e.Value);
                 command5.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e+" "+"Exception thrown");
+
             }
       
             Console.WriteLine("Signup Completed Successfully!");
@@ -123,7 +122,8 @@ namespace Datafile
 ;                }
                 else
                 {
-                    Console.WriteLine("Wrong Password");
+                    Console.WriteLine("Wrong Password! Try again");
+                    Console.ReadLine();
                     reader1.Close();
                     return false;
                 }
@@ -132,6 +132,7 @@ namespace Datafile
             else
             {
                 Console.WriteLine("account not found! Please sign up first");
+                Console.ReadLine();
                 return false;
             }
 
@@ -214,16 +215,14 @@ namespace Datafile
             SqlDataReader reader6 = command6.ExecuteReader();
             while (reader6.Read())
             {
-                trainer.LastCompany = reader6.GetString(0);
-                trainer.TotalExp = reader6.GetInt32(1);
+                //trainer.LastCompany = reader6.GetString(0);
+                //trainer.TotalExp = reader6.GetInt32(1);
+                int xp = reader6.GetInt32(1);
+         
+                trainer.SetCompany(reader6.GetString(0),xp.ToString());
                 
             }
             reader6.Close();
-
-
-
-
-
 
 
             return trainer;
@@ -260,18 +259,10 @@ namespace Datafile
 
         public void UpdateATrainer(string ? newValue, string columnName, string tableName,string trainerId)
         {
-            string query1;
-            if (columnName == "totalexp")
-            {
-                int exp = int.Parse(newValue);
-                query1 = $@"update {tableName} set {columnName}={newValue} where trainerid='{trainerId}'";
 
-            }
-            else
-            {
-                query1 = $@"update {tableName} set {columnName}='{newValue}' where trainerid='{trainerId}'";
+            string query1 = $@"update {tableName} set {columnName}='{newValue}' where trainerid='{trainerId}'";
 
-            }
+            
 
            
             using SqlConnection con = new SqlConnection(connectionString);
@@ -279,6 +270,7 @@ namespace Datafile
             SqlCommand command1 = new SqlCommand(query1,con);
             command1.ExecuteNonQuery();
             Console.WriteLine("Value update successfully!");
+            Console.ReadLine();
 
         }
 
@@ -290,7 +282,7 @@ namespace Datafile
             SqlCommand command1 = new SqlCommand(query1, con);
             command1.ExecuteNonQuery();
             Console.WriteLine("Value Deleted successfully!");
-
+            Console.ReadLine();
         }
 
         public void DeleteAccount(string trainerId)
@@ -303,6 +295,7 @@ namespace Datafile
             Console.WriteLine("Find Trainers Will miss you!!");
             Console.WriteLine("ACCOUNT DELETION COMPLETED SUCCESSFULLY");
             Console.WriteLine();
+            Console.ReadLine();
 
 
         }
@@ -331,8 +324,60 @@ namespace Datafile
                 });
 
             }
+            reader1.Close();    
 
             return listTrainer;
         }
+
+        public void UpdateCompanies(string newC, string newExp,string userId)
+        {
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+
+            string query1 = @"insert into companies(trainerid,lastcompanyName,totalexp) values (@userId,@lastcompanyname,@totalexp)";
+            SqlCommand command1 = new SqlCommand(query1, con);
+            command1.Parameters.AddWithValue("@userId", userId);
+            command1.Parameters.AddWithValue("@lastcompanyname", newC);
+            command1.Parameters.AddWithValue("@totalexp", newExp);
+            command1.ExecuteNonQuery();
+            Console.WriteLine("Updated Successfully");
+        }
+
+        public void DeleteCompanies(string userId)
+        {
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            string query = @$"delete from companies where trainerid='{userId}'";
+            SqlCommand command1 = new SqlCommand(query, con);
+            command1.ExecuteNonQuery();
+            Console.WriteLine("Deleted successfully");
+
+
+        }
+
+        public bool IsExistEmail(string email)
+        {
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            string query1 = @$"select email from trainers where email='{email}'";
+            SqlCommand cmd =new SqlCommand(query1,con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+
+
+           
+        }
+
+       
     }
 }

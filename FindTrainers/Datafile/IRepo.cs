@@ -15,10 +15,16 @@ namespace Datafile
 
         void UpdateATrainer(string newValue, string columnName, string tableName,string trainerId);
 
+        void UpdateCompanies(string newC, string newExp,string userId);
+
+        void DeleteCompanies(string userId);
+
         void DeleteValues(string columnName, string tableName,string trainerId);
 
         void DeleteAccount(string trainerId);
         List<TrainerDetails> GetAll();
+
+        bool IsExistEmail(string emailId);
 
     }
 }
