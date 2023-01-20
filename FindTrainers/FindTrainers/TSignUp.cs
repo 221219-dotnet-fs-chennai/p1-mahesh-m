@@ -101,7 +101,7 @@ namespace FindTrainers
             Console.WriteLine("=====================");
             Console.WriteLine();
 
-            Console.WriteLine("[16] Company Details" + "                      ");
+            Console.WriteLine("[16] Company Details and Experience in years" + "                      ");
            
            
 
@@ -160,7 +160,8 @@ namespace FindTrainers
                         Console.WriteLine();
                         Console.WriteLine("**************************************************************BEFORE SAVING********************************************************************");
                         Console.ReadLine();
-                        Log.Logger.Information("Trainer didn't enter all details");
+                        Log.Logger.Information("trainer didn't enter all details");
+                        //Log.Logger.Fatal("Trainer didn't enter all the details");
                         return "TSignUp";
                     }
                     Log.Information("Trainer registeration Complete");
@@ -356,7 +357,7 @@ namespace FindTrainers
                          compny= Console.ReadLine();
                     }
 
-                    Console.WriteLine("Enter your experience");
+                    Console.WriteLine("Enter your experience in years");
                     string experience= Console.ReadLine();
                     int e = Convert.ToInt32(experience);
                     while (e < 1 || e > 30)

@@ -72,7 +72,7 @@ namespace FindTrainers
             Console.WriteLine("=====================");
             Console.WriteLine();
 
-            Console.WriteLine("[12] Company Details" + "                     - ");
+            Console.WriteLine("[12] Company Details and Experience in years" + "                     - ");
             foreach (var e in comp)
             {
                 Console.WriteLine("          ---------------------------");
@@ -94,7 +94,7 @@ namespace FindTrainers
             Console.WriteLine();
         
 
-            Console.WriteLine("[18] DELETE YOUR ACCOUNT !!!!!");
+            Console.WriteLine("[17] DELETE YOUR ACCOUNT !!!!!");
         }
 
         public new string UserChoice()
@@ -341,9 +341,14 @@ namespace FindTrainers
                     if (val == "1")
                     {
                         repo.DeleteAccount(userId);
+                        Log.Information("Deletes the account");
+                        return "Trainer";
                     }
-                    Log.Information("Deletes the account");
-                    return "Trainer";
+                   
+                    else
+                    {
+                        return "Profile";
+                    }
 
 
                 default:

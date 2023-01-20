@@ -10,7 +10,7 @@ namespace FindTrainers
         {
             Log.Logger = new LoggerConfiguration().WriteTo.File(@"..\..\..\logs.txt", rollingInterval:RollingInterval.Day,rollOnFileSizeLimit:true).CreateLogger();
 
-            Log.Logger.Information("PROGRAM STARTS");
+            Log.Logger.Information("**********************************************************************PROGRAM STARTS***********************************************************************");
 
             bool repeat = true;
             IMenu menu = new Menu();
@@ -33,7 +33,7 @@ namespace FindTrainers
                         menu = new TSignUp();
                         break;
                     case "Exit":
-                        Log.Logger.Information("PROGRAM ENDS");
+                        Log.Logger.Information("*************************************************************************PROGRAM ENDS**********************************************************************");
                         repeat = false;
                         break;
                     case "Menu":

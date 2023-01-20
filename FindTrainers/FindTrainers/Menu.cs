@@ -13,7 +13,7 @@ namespace FindTrainers
             
             Console.WriteLine("Hello Welcome to Find Trainers!");
             Console.WriteLine("Are you a Trainer or Learner?");
-            Console.WriteLine("[2] Continue as User");
+            Console.WriteLine("[2] Continue as Learner");
             Console.WriteLine("[1] Continue as Trainer");
             Console.WriteLine("[0] Exit");
         }

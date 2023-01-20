@@ -73,12 +73,12 @@ namespace FindTrainers
             Console.WriteLine("=====================");
             Console.WriteLine();
 
-            Console.WriteLine("[12] Company Details" + "                     - ");
+            Console.WriteLine("[12] Company Details and Experience in years" + "                      ");
             foreach (var e in comp)
             {
-                Console.WriteLine("          ---------------------------");
-                Console.WriteLine("            " + e.Key + "        |          " + e.Value + "    ");
-                Console.WriteLine("          ---------------------------");
+                Console.WriteLine("                                      ---------------------------");
+                Console.WriteLine("                                      |  " + e.Key + "        |      " + e.Value + "  |  ");
+                Console.WriteLine("                                      ---------------------------");
             }
 
 

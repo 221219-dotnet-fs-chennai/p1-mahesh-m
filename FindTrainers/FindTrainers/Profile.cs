@@ -42,7 +42,7 @@ namespace FindTrainers
                     Console.WriteLine("Logging out.........");
                     Console.WriteLine("Logged out successfully! :(");
                     Console.WriteLine();
-                    return "Menu";
+                    return "Trainer";
                 case "1":
                     Console.WriteLine("Viewing data..");
                     
@@ -89,7 +89,7 @@ namespace FindTrainers
                 Dictionary<string, string> cm = newTrainer.GetCompany();
 
                 Console.WriteLine();
-                Console.WriteLine("Experience Details");
+                Console.WriteLine("Company Details and Experience in years");
                 Console.WriteLine("=====================");
 
                 foreach (var e in cm)

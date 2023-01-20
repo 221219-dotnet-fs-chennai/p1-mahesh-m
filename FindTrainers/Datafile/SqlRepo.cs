@@ -345,6 +345,7 @@ namespace Datafile
             command1.Parameters.AddWithValue("@totalexp", newExp);
             command1.ExecuteNonQuery();
             Console.WriteLine("Updated Successfully");
+            Console.ReadLine();
         }
 
         public void DeleteCompanies(string userId)
@@ -396,6 +397,16 @@ namespace Datafile
             
 
         }
+
+        //public void DeleteSingleCompany(string cnmae,string userid)
+        //{
+        //    using SqlConnection con = new SqlConnection(connectionString);
+        //    con.Open();
+        //    string query1 = @$"delete from companies where lastcompanyname='{cnmae}' and trainerid='{userid}'";
+        //    SqlCommand cmd = new SqlCommand(query1, con);
+        //    cmd.ExecuteNonQuery();
+
+        //}
 
        
     }
