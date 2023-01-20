@@ -42,6 +42,7 @@ namespace FindTrainers
                         Console.WriteLine(t.Skill1);
                         Console.WriteLine(t.PhoneNo);
                         Console.WriteLine(t.Email);
+                        Console.WriteLine(t.City);
                         Console.WriteLine();
                         Console.WriteLine("==========================");
                         

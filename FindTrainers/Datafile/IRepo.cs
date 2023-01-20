@@ -24,7 +24,11 @@ namespace Datafile
         void DeleteAccount(string trainerId);
         List<TrainerDetails> GetAll();
 
+        void NewPass(string pass, string email);
+
         bool IsExist(string value,string column);
+
+       
 
     }
 }

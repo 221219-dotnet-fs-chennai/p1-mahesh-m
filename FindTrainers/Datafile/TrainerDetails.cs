@@ -14,6 +14,7 @@ namespace Datafile
         string? fName;
         string? lName;
         string? phoneNo;
+        string? city;
 
         string? uGCName;
         string? uGPYear;
@@ -34,16 +35,17 @@ namespace Datafile
 
         Dictionary<string, string> company = new Dictionary<string, string>();
 
-        public void SetCompany(string cname,string exp)
+        public void SetCompany(string cname, string exp)
         {
             company.Add(cname, exp);
         }
 
-        public Dictionary<string,string> GetCompany()
+        public Dictionary<string, string> GetCompany()
         {
             return company;
         }
-
+       
+        public string ? City { get; set; }
 
         public string? Email
         {

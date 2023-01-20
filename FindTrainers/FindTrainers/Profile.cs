@@ -67,46 +67,49 @@ namespace FindTrainers
                 Console.WriteLine();
                 Console.WriteLine("Basic Details");
                 Console.WriteLine("=====================");
-                Console.WriteLine("First Name" + " - " + newTrainer.FName);
-                Console.WriteLine("Last Name" + " - " + newTrainer.LName);
-                Console.WriteLine("Email ID" + " - " + newTrainer.Email);
-                Console.WriteLine("Phone No." + " - " + newTrainer.PhoneNo);
+                Console.WriteLine("First Name" + "                            - " + newTrainer.FName);
+                Console.WriteLine("Last Name" + "                             - " + newTrainer.LName);
+                Console.WriteLine("Email ID" + "                              - " + newTrainer.Email);
+                Console.WriteLine("Phone No." + "                             - " + newTrainer.PhoneNo);
+                Console.WriteLine("City" + "                                  -" + newTrainer.City);
 
 
                 Console.WriteLine();
                 Console.WriteLine("Educational Details");
                 Console.WriteLine("=====================");
-                Console.WriteLine("Bachelor's College Name" + " - " + newTrainer.UGCName);
-                Console.WriteLine("Bachelor's Year of Passing" + " - " + newTrainer.UGPYear);
-                Console.WriteLine("Bachelor's Degree" + " - " + newTrainer.UGDegree);
-                Console.WriteLine("Bachelor's Specializaiton" + " - " + newTrainer.UGDept);
-                Console.WriteLine("HigherSecSchool Name" + " - " + newTrainer.HSCName);
-                Console.WriteLine("HigherSecSchool Year of Passing" + " - " + newTrainer.HSCPYear);
-                Console.WriteLine("HigherSecSchool Stream" + " - " + newTrainer.HSCStream);
-                Console.WriteLine("HighSchool Name" + " - " + newTrainer.HSName);
-                Console.WriteLine("HighSchool Year of Passing" + " - " + newTrainer.HSPYear);
+                Console.WriteLine("Bachelor's College Name" + "               - " + newTrainer.UGCName);
+                Console.WriteLine("Bachelor's Year of Passing" + "            - " + newTrainer.UGPYear);
+                Console.WriteLine("Bachelor's Degree" + "                     - " + newTrainer.UGDegree);
+                Console.WriteLine("Bachelor's Specializaiton" + "             - " + newTrainer.UGDept);
+                Console.WriteLine("HigherSecSchool Name" + "                  - " + newTrainer.HSCName);
+                Console.WriteLine("HigherSecSchool Year of Passing" + "       - " + newTrainer.HSCPYear);
+                Console.WriteLine("HigherSecSchool Stream" + "                - " + newTrainer.HSCStream);
+                Console.WriteLine("HighSchool Name" + "                       - " + newTrainer.HSName);
+                Console.WriteLine("HighSchool Year of Passing" + "            - " + newTrainer.HSPYear);
                 Dictionary<string, string> cm = newTrainer.GetCompany();
 
                 Console.WriteLine();
                 Console.WriteLine("Experience Details");
                 Console.WriteLine("=====================");
-                int k = 1;
-                foreach(var e in cm)
+
+                foreach (var e in cm)
                 {
-                    Console.WriteLine($"Company {k}");
-                    Console.WriteLine(e.Key+ ": " + e.Value);
-                    Console.WriteLine();
-                    k++;
+
+                    Console.WriteLine("                                      ---------------------------");
+                    Console.WriteLine("                                      |  " + e.Key + "        |      " + e.Value + "  |  ");
+                    Console.WriteLine("                                      ---------------------------");
+
                 }
-                
+                Console.WriteLine();
+
 
                 Console.WriteLine();
                 Console.WriteLine("Skills Details");
                 Console.WriteLine("=====================");
-                Console.WriteLine("Primary Skill" + " - " + newTrainer.Skill1);
-                Console.WriteLine("Secondary Skill" + " - " + newTrainer.Skill2);
-                Console.WriteLine("Tertiary Skill" + " - " + newTrainer.Skill3);
-                Console.WriteLine("Quaternary Skill" + " - " + newTrainer.Skill4);
+                Console.WriteLine("Primary Skill" + "                         - " + newTrainer.Skill1);
+                Console.WriteLine("Secondary Skill" + "                       - " + newTrainer.Skill2);
+                Console.WriteLine("Tertiary Skill" + "                        - " + newTrainer.Skill3);
+                Console.WriteLine("Quaternary Skill" + "                      - " + newTrainer.Skill4);
                 Console.ReadLine();
             }
 

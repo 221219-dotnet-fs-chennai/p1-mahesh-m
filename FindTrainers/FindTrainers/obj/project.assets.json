@@ -185,19 +185,6 @@
           }
         }
       },
-      "Data/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "ConsoleTableExt": "3.2.0"
-        },
-        "compile": {
-          "bin/placeholder/Data.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Data.dll": {}
-        }
-      },
       "Datafile/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -599,11 +586,6 @@
         "version.txt"
       ]
     },
-    "Data/1.0.0": {
-      "type": "project",
-      "path": "../Data/Data.csproj",
-      "msbuildProject": "../Data/Data.csproj"
-    },
     "Datafile/1.0.0": {
       "type": "project",
       "path": "../Datafile/Datafile.csproj",
@@ -613,7 +595,6 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "ConsoleTableExt >= 3.2.0",
-      "Data >= 1.0.0",
       "Datafile >= 1.0.0",
       "Serilog >= 2.12.0",
       "Serilog.Sinks.File >= 5.0.0"
@@ -648,9 +629,6 @@
           "projectReferences": {
             "C:\\Users\\Maheshabi\\newRepo\\p1-mahesh-m\\FindTrainers\\Datafile\\Datafile.csproj": {
               "projectPath": "C:\\Users\\Maheshabi\\newRepo\\p1-mahesh-m\\FindTrainers\\Datafile\\Datafile.csproj"
-            },
-            "C:\\Users\\Maheshabi\\newRepo\\p1-mahesh-m\\FindTrainers\\Data\\Data.csproj": {
-              "projectPath": "C:\\Users\\Maheshabi\\newRepo\\p1-mahesh-m\\FindTrainers\\Data\\Data.csproj"
             }
           }
         }

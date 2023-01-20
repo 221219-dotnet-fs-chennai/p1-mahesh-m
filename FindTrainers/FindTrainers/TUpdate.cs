@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace FindTrainers
@@ -30,6 +31,7 @@ namespace FindTrainers
             Console.WriteLine();
 
             Console.WriteLine("[1] Phone No." + "                            - " + trainer.PhoneNo);
+            Console.WriteLine("[2] City" + "                                 - " + trainer.City);
             Console.WriteLine();
 
 
@@ -38,10 +40,10 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("[2] Bachelor's College Name" + "              - " + trainer.UGCName);
-            Console.WriteLine("[3] Bachelor's Year of Passing" + "           - " + trainer.UGPYear);
-            Console.WriteLine("[4] Bachelor's Degree" + "                    - " + trainer.UGDegree);
-            Console.WriteLine("[5] Bachelor's Specializaiton" + "            - " + trainer.UGDept);
+            Console.WriteLine("[3] Bachelor's College Name" + "              - " + trainer.UGCName);
+            Console.WriteLine("[4] Bachelor's Year of Passing" + "           - " + trainer.UGPYear);
+            Console.WriteLine("[5] Bachelor's Degree" + "                    - " + trainer.UGDegree);
+            Console.WriteLine("[6] Bachelor's Specializaiton" + "            - " + trainer.UGDept);
             Console.WriteLine();
 
 
@@ -50,9 +52,9 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("[6] HigherSecSchool Name" + "                - " + trainer.HSCName);
-            Console.WriteLine("[7] HigherSecSchool Year of Passing" + "     - " + trainer.HSCPYear);
-            Console.WriteLine("[8] HigherSecSchool Stream" + "              - " + trainer.HSCStream);
+            Console.WriteLine("[7] HigherSecSchool Name" + "                - " + trainer.HSCName);
+            Console.WriteLine("[8] HigherSecSchool Year of Passing" + "     - " + trainer.HSCPYear);
+            Console.WriteLine("[9] HigherSecSchool Stream" + "              - " + trainer.HSCStream);
             Console.WriteLine();
 
 
@@ -62,8 +64,8 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("[9] HighSchool Name" + "                     - " + trainer.HSName);
-            Console.WriteLine("[10] HighSchool Year of Passing" + "          - " + trainer.HSPYear);
+            Console.WriteLine("[10] HighSchool Name" + "                     - " + trainer.HSName);
+            Console.WriteLine("[11] HighSchool Year of Passing" + "          - " + trainer.HSPYear);
             Console.WriteLine();
 
 
@@ -71,7 +73,7 @@ namespace FindTrainers
             Console.WriteLine("=====================");
             Console.WriteLine();
 
-            Console.WriteLine("[11] Company Details" + "                     - ");
+            Console.WriteLine("[12] Company Details" + "                     - ");
             foreach (var e in comp)
             {
                 Console.WriteLine("          ---------------------------");
@@ -85,10 +87,10 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("[12] Primary Skill" + "                       - " + trainer.Skill1);
-            Console.WriteLine("[13] Secondary Skill" + "                     - " + trainer.Skill2);
-            Console.WriteLine("[14] Tertiary Skill" + "                      - " + trainer.Skill3);
-            Console.WriteLine("[15] Quaternary Skill" + "                    - " + trainer.Skill4);
+            Console.WriteLine("[13] Primary Skill" + "                       - " + trainer.Skill1);
+            Console.WriteLine("[14] Secondary Skill" + "                     - " + trainer.Skill2);
+            Console.WriteLine("[15] Tertiary Skill" + "                      - " + trainer.Skill3);
+            Console.WriteLine("[16] Quaternary Skill" + "                    - " + trainer.Skill4);
             Console.WriteLine();
             Console.WriteLine();
            
@@ -97,6 +99,12 @@ namespace FindTrainers
 
         public new string UserChoice()
         {
+            string? nameRegex = @"\w{3,50}";
+            string? emailRegex = @"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-z]{2,6}$";
+            string? phoneRegex = @"^[9876]\d{9}$";
+            string? yearRegex = @"^\d{4}$";
+            string? degreeRegex = @"^B\.\w{1,6}$";
+            string? passwordRegex = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
             String[] arr = trainer.Email.Split("@");
             string userId = arr[0];
             string? userInput = Console.ReadLine();
@@ -108,97 +116,226 @@ namespace FindTrainers
 
                 case "1":
                     Console.WriteLine("Enter New Phone No.");
-                    trainer.PhoneNo = Console.ReadLine();
-                    repo.UpdateATrainer(trainer.PhoneNo, "phoneNo", "trainers", userId);
-                    Log.Information("Trainer updated his/her phone no.");
+                    string str= Console.ReadLine();
+                    while (!FormatChecker(str, phoneRegex))
+                    {
+                        Console.WriteLine("Phone No. format is invalid! Re-enter Phone No.");
+                        str = Console.ReadLine();
+                    }
+                    if (repo.IsExist(str, "phoneNo"))
+                    {
+                        Console.WriteLine("Phone No. is Associated with another account. Try add different phone number!");
+                        Console.ReadLine();
+
+
+
+                        return "TSignUp";
+
+                    }
+                    else
+                    {
+
+                        trainer.PhoneNo = str;
+                        repo.UpdateATrainer(trainer.PhoneNo, "phoneNo", "trainers", userId);
+                        Log.Information("Trainer updated his/her phone no.");
+                        return "Profile";
+
+                    }
+
+
+
                     
-                    return "Profile";
+
+
                 case "2":
+                    Console.WriteLine("Enter New City");
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, nameRegex))
+                    {
+                        Console.WriteLine("City name should be 3 to 50 characters long");
+                        str = Console.ReadLine();
+                    }
+                    trainer.City = str;
+                    repo.UpdateATrainer(trainer.City, "city", "trainers", userId);
+                    Log.Information("Trainer updated his/her City.");
+                    return "Profile";
+                case "3":
                     Console.WriteLine("Enter New Bachelor's College Name");
-                    trainer.UGCName = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, nameRegex))
+                    {
+                        Console.WriteLine("College Name should be 3 to 50 characters long");
+                        str = Console.ReadLine();
+                    }
+                    trainer.UGCName = str;
                     repo.UpdateATrainer(trainer.UGCName, "collegeName", "colleg_ug", userId);
                     Log.Information("Trainer update his/her College Name");
                     return "Profile";
-                case "3":
+                case "4":
                     Console.WriteLine("Enter New Bachelor's Year of Passing");
-                    trainer.UGPYear = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, yearRegex) || int.Parse(str) > 2023)
+                    {
+                        Console.WriteLine("Re-enter the correct year!");
+                        str = Console.ReadLine();
+                    }
+                    trainer.UGPYear = str;
+
                     repo.UpdateATrainer(trainer.UGPYear, "yearpassed", "college_ug", userId);
                     Log.Information("user updates his/her UG year");
                     return "Profile";
-                case "4":
+                case "5":
                     Console.WriteLine("Enter New Bachelor's Degree");
-                    trainer.UGDegree = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, degreeRegex))
+                    {
+                        Console.WriteLine("Please use the correct format for degree");
+                        str = Console.ReadLine();
+                    }
+                    trainer.UGDegree = str;
                     repo.UpdateATrainer(trainer.UGDegree, "degree", "college_ug", userId);
                     Log.Information("user updates his/her Bachelors degree");
                     return "Profile";
-                case "5":
+                case "6":
                     Console.WriteLine("Enter New Bachelor's Specialization");
-                    trainer.UGDept = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, nameRegex))
+                    {
+                        Console.WriteLine("Specializtion should be 3 to 50 characters long");
+                        str = Console.ReadLine();
+                    }
+                    trainer.UGDept = str;
                     repo.UpdateATrainer(trainer.UGDept, "branch", "college_ug", userId);
                     Log.Information("user updates his/her Bachelors specialization");
                     return "Profile";
-                case "6":
+                case "7":
                     Console.WriteLine("Enter New HigherSec School Name");
-                    trainer.HSCName = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, nameRegex))
+                    {
+                        Console.WriteLine("Higher Secondary School Name should be 3 to 50 characters long");
+                        str = Console.ReadLine();
+                    }
+                    trainer.HSCName = str;
                     repo.UpdateATrainer(trainer.HSCName, "Schoolname", "highsec", userId);
                     Log.Information("user updates his/her HSC school name");
                     return "Profile";
-                case "7":
+                case "8":
                     Console.WriteLine("Enter New HigherSec School Year of Passing");
                     repo.UpdateATrainer(trainer.HSCPYear, "yearpassed", "highsec", userId);
-                    trainer.HSCPYear = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, yearRegex) || int.Parse(str) > 2023)
+                    {
+                        Console.WriteLine("Re-enter the correct year!");
+                        str = Console.ReadLine();
+                    }
+                    trainer.HSCPYear = str;
                     Log.Information("user updates his/her HSCP year");
                     return "Profile";
-                case "8":
+                case "9":
                     Console.WriteLine("Enter New HigherSec School Stream");
-                    trainer.HSCStream = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, nameRegex))
+                    {
+                        Console.WriteLine("Higher Secondary Stream should be 3 to 50 characters long");
+                        str = Console.ReadLine();
+                    }
+                    trainer.HSCStream = str;
                     repo.UpdateATrainer(trainer.HSCStream, "course", "highsec", userId);
                     Log.Information("user updates his/her HSC stream");
                     return "Profile";
-                case "9":
+                case "10":
                     Console.WriteLine("Enter New High School Name");
-                    trainer.HSName = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, nameRegex))
+                    {
+                        Console.WriteLine("High School Name should be 3 to 50 characters long");
+                        str = Console.ReadLine();
+                    }
+                    trainer.HSName = str;
                     repo.UpdateATrainer(trainer.HSName, "schoolname", "highschool", userId);
                     Log.Information("User updates his/her HS Name");
                     return "Profile";
-                case "10":
+                case "11":
                     Console.WriteLine("Enter New High School Year of Passing");
-                    trainer.HSPYear = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, yearRegex) || int.Parse(str) > 2023)
+                    {
+                        Console.WriteLine("Re-enter the correct year!");
+                        str = Console.ReadLine();
+                    }
+                    trainer.HSPYear = str;
                     repo.UpdateATrainer(trainer.HSPYear, "yearpassed", "highschool", userId);
                     Log.Information("user updates his/her HS Year of Passing");
                     return "Profile";
-                case "11":
+                case "12":
                  
-                    Console.WriteLine("Enter the company name");
-                    string newC=Console.ReadLine();
-               
+                    Console.WriteLine("Enter the new company name");
+                    string newC = Console.ReadLine();
+
+                    while (!FormatChecker(newC, nameRegex))
+                    {
+                        Console.WriteLine("Company name should be 3 to 50 characters long");
+                        newC = Console.ReadLine();
+                    }
+
                     Console.WriteLine("Enter the experience to that company");
-                    string exp=Console.ReadLine();
+                    string exp= Console.ReadLine();
+                    int e = Convert.ToInt32(exp);
+                    while (e < 1 || e > 30)
+                    {
+                        Console.WriteLine("Give correct experience information");
+                        exp = Console.ReadLine();
+                    }
                     trainer.SetCompany(newC, exp);
                     repo.UpdateCompanies(newC,exp, userId);
                     Log.Information("User updates his/her Experience details");
                     return "Profile";
-                case "12":
+                case "13":
                     Console.WriteLine("Enter New your Primary Skill");
-                    trainer.Skill1 = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, nameRegex))
+                    {
+                        Console.WriteLine("Primary Skill should be 3 to 50 characters long");
+                        str = Console.ReadLine();
+                    }
+                    trainer.Skill1 = str;
                     repo.UpdateATrainer(trainer.Skill1, "skill_1", "Skills", userId);
                     Log.Information("User updates his/her Skill Details");
                     return "Profile";
-                case "13":
+                case "14":
                     Console.WriteLine("Enter New your Secondary Skill");
-                    trainer.Skill2 = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, nameRegex))
+                    {
+                        Console.WriteLine("Primary Skill should be 3 to 50 characters long");
+                        str = Console.ReadLine();
+                    }
+                    trainer.Skill2 = str;
                     repo.UpdateATrainer(trainer.Skill2, "skill_2", "Skills", userId);
                     Log.Information("User updates his/her Skill Details");
                     return "Profile";
-                case "14":
+                case "15":
                     Console.WriteLine("Enter New your Tertiary Skill");
-                    trainer.Skill3 = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, nameRegex))
+                    {
+                        Console.WriteLine("Primary Skill should be 3 to 50 characters long");
+                        str = Console.ReadLine();
+                    }
+                    trainer.Skill3 = str;
                     repo.UpdateATrainer(trainer.Skill3, "skill_3", "Skills", userId);
                     Log.Information("User updates his/her Skill Details");
                     return "Profile";
-                case "15":
+                case "16":
                     Console.WriteLine("Enter New your Quaternary Skill");
-                    trainer.Skill4 = Console.ReadLine();
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, nameRegex))
+                    {
+                        Console.WriteLine("Primary Skill should be 3 to 50 characters long");
+                        str = Console.ReadLine();
+                    }
+                    trainer.Skill4 = str;
                     repo.UpdateATrainer(trainer.Skill4, "skill_4", "Skills", userId);
                     Log.Information("User updates his/her Skill Details");
                     return "Profile";
@@ -209,6 +346,24 @@ namespace FindTrainers
                     Console.ReadLine();
                     return "Profile";
             }
+
+
+        }
+
+        public bool FormatChecker(string str, string regex)
+        {
+            Regex r = new Regex(regex);
+            if (r.IsMatch(str))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
+
         }
     }
 }

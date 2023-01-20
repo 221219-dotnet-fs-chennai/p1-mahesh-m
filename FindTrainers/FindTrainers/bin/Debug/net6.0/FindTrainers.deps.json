@@ -9,7 +9,6 @@
       "FindTrainers/1.0.0": {
         "dependencies": {
           "ConsoleTableExt": "3.2.0",
-          "Data": "1.0.0",
           "Datafile": "1.0.0",
           "Serilog": "2.12.0",
           "Serilog.Sinks.File": "5.0.0"
@@ -120,14 +119,6 @@
         }
       },
       "System.Security.Principal.Windows/4.7.0": {},
-      "Data/1.0.0": {
-        "dependencies": {
-          "ConsoleTableExt": "3.2.0"
-        },
-        "runtime": {
-          "Data.dll": {}
-        }
-      },
       "Datafile/1.0.0": {
         "dependencies": {
           "ConsoleTableExt": "3.2.0",
@@ -228,11 +219,6 @@
       "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
-    },
-    "Data/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "Datafile/1.0.0": {
       "type": "project",

@@ -22,7 +22,6 @@ namespace FindTrainers
             Console.WriteLine("Controls");
             Console.WriteLine("===========");
             Console.WriteLine("[0] Go Back :)");
-            Console.WriteLine("[1] Save");
             Console.WriteLine();
 
 
@@ -30,7 +29,8 @@ namespace FindTrainers
             Console.WriteLine("=================");
             Console.WriteLine();
 
-            Console.WriteLine("[2] Phone No." + "                            - " + trainer.PhoneNo);
+            Console.WriteLine("[1] Phone No." + "                              - " + trainer.PhoneNo);
+            Console.WriteLine("[2] City" + "                                   - " + trainer.City);
             Console.WriteLine();
 
 
@@ -107,12 +107,9 @@ namespace FindTrainers
             {
                 case "0":
                     return "Trainer";
+            
+
                 case "1":
-
-
-                    return "Profile";
-
-                case "2":
                     Console.WriteLine("Are you sure?");
                     Console.WriteLine("[1] Proceed");
                     Console.WriteLine("[0] Abort");
@@ -124,6 +121,20 @@ namespace FindTrainers
                     }
                     trainer.PhoneNo = "";
                     Log.Information("Deletes phno");
+
+                    return "Profile";
+
+                case "2":
+                    Console.WriteLine("Are you sure?");
+                    Console.WriteLine("[1] Proceed");
+                    Console.WriteLine("[0] Abort");
+                    val = Console.ReadLine();
+                    if (val == "1")
+                    {
+                        repo.DeleteValues("city", "trainers", userId);
+                    }
+                    trainer.City = "";
+                    Log.Information("Deletes City");
 
                     return "Profile";
                 case "3":

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Xml.Linq;
+using System.Data.Common;
 
 namespace Datafile
 {
@@ -25,7 +26,7 @@ namespace Datafile
         { using SqlConnection conn = new SqlConnection(connectionString);
             String[] arr = trainer.Email.Split("@");
             string userId = arr[0];
-            string city = "Chennai";
+            //string city = "Chennai";
             string query1 = @"insert into Trainers (TrainerId,firstname,lastname,phoneNo,email,password,city) values(@userid,@fname,@lname,@phoneNo,@email,@password,@city)";
             conn.Open();
             SqlCommand command = new SqlCommand(query1, conn);
@@ -35,7 +36,7 @@ namespace Datafile
             command.Parameters.AddWithValue("@phoneNo",trainer.PhoneNo);
             command.Parameters.AddWithValue("@email", trainer.Email);
             command.Parameters.AddWithValue("@password", PasswordHasher(trainer.Password));
-            command.Parameters.AddWithValue("@city", city);
+            command.Parameters.AddWithValue("@city", trainer.City);
             command.ExecuteNonQuery();
 
 
@@ -156,6 +157,7 @@ namespace Datafile
                 trainer.LName = reader1.GetString(1);
                 trainer.Email = email;
                 trainer.PhoneNo= reader1.GetString(2);
+                trainer.City= reader1.GetString(3);
                 
             }
             reader1.Close();
@@ -305,7 +307,7 @@ namespace Datafile
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             List<TrainerDetails> listTrainer = new List<TrainerDetails>();
-            string query1 = $@"select firstname,lastname,phoneNo,email,skill_1 from trainers t inner join skills s on t.TrainerId=s.TrainerId ";
+            string query1 = $@"select firstname,lastname,phoneNo,email,skill_1,city from trainers t inner join skills s on t.TrainerId=s.TrainerId ";
           
             SqlCommand command1 = new SqlCommand(query1, con);
             SqlDataReader reader1 = command1.ExecuteReader();
@@ -320,6 +322,7 @@ namespace Datafile
                     PhoneNo = reader1.GetString(2),
                     Email = reader1.GetString(3),
                     Skill1 = reader1.GetString(4),
+                    City= reader1.GetString(5),
 
                 });
 
@@ -379,6 +382,19 @@ namespace Datafile
 
 
            
+        }
+
+        public void NewPass(string pass,string email)
+        {
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            string query1 = @$"update trainers set password='{PasswordHasher(pass)}' where email='{email}'";
+            SqlCommand cmd = new SqlCommand(query1, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            Console.WriteLine("Password Changed Successfully");
+            
+
         }
 
        

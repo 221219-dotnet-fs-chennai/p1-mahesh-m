@@ -55,6 +55,7 @@ namespace FindTrainers
             Console.WriteLine("[3] Last Name" + "                            - " + trainer.LName);
             Console.WriteLine("[4] Email ID" + "                             - " + trainer.Email);
             Console.WriteLine("[5] Phone No." + "                            - " + trainer.PhoneNo);
+            Console.WriteLine("[6] City"+"                                   - "+ trainer.City) ;
             Console.WriteLine();
 
             Log.Logger.Information("Trainer basic details entered");
@@ -65,10 +66,10 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("[6] Bachelor's College Name" + "              - " + trainer.UGCName);
-            Console.WriteLine("[7] Bachelor's Year of Passing" + "           - " + trainer.UGPYear);
-            Console.WriteLine("[8] Bachelor's Degree" + "                    - " + trainer.UGDegree);
-            Console.WriteLine("[9] Bachelor's Specializaiton" + "            - " + trainer.UGDept);
+            Console.WriteLine("[7] Bachelor's College Name" + "              - " + trainer.UGCName);
+            Console.WriteLine("[8] Bachelor's Year of Passing" + "           - " + trainer.UGPYear);
+            Console.WriteLine("[9] Bachelor's Degree" + "                    - " + trainer.UGDegree);
+            Console.WriteLine("[10] Bachelor's Specializaiton" + "            - " + trainer.UGDept);
             Console.WriteLine();
 
             Log.Logger.Information("Trainer College Details entered");
@@ -78,9 +79,9 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("[10] HigherSecSchool Name" + "                - " + trainer.HSCName);
-            Console.WriteLine("[11] HigherSecSchool Year of Passing" + "     - " + trainer.HSCPYear);
-            Console.WriteLine("[12] HigherSecSchool Stream" + "              - " + trainer.HSCStream);
+            Console.WriteLine("[11] HigherSecSchool Name" + "                - " + trainer.HSCName);
+            Console.WriteLine("[12] HigherSecSchool Year of Passing" + "     - " + trainer.HSCPYear);
+            Console.WriteLine("[13] HigherSecSchool Stream" + "              - " + trainer.HSCStream);
             Console.WriteLine();
 
 
@@ -90,8 +91,8 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("[13] HighSchool Name" + "                     - " + trainer.HSName);
-            Console.WriteLine("[14] HighSchool Year of Passing" + "          - " + trainer.HSPYear);
+            Console.WriteLine("[14] HighSchool Name" + "                     - " + trainer.HSName);
+            Console.WriteLine("[15] HighSchool Year of Passing" + "          - " + trainer.HSPYear);
             Console.WriteLine();
 
             Log.Logger.Information("Trainer School Details entered");
@@ -100,7 +101,7 @@ namespace FindTrainers
             Console.WriteLine("=====================");
             Console.WriteLine();
 
-            Console.WriteLine("[15] Company Details" + "                      ");
+            Console.WriteLine("[16] Company Details" + "                      ");
            
            
 
@@ -121,15 +122,19 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("[16] Primary Skill" + "                       - " + trainer.Skill1);
-            Console.WriteLine("[17] Secondary Skill" + "                     - " + trainer.Skill2);
-            Console.WriteLine("[18] Tertiary Skill" + "                      - " + trainer.Skill3);
-            Console.WriteLine("[19] Quaternary Skill" + "                    - " + trainer.Skill4);
+            Console.WriteLine("[17] Primary Skill" + "                       - " + trainer.Skill1);
+            Console.WriteLine("[18] Secondary Skill" + "                     - " + trainer.Skill2);
+            Console.WriteLine("[19] Tertiary Skill" + "                      - " + trainer.Skill3);
+            Console.WriteLine("[20] Quaternary Skill" + "                    - " + trainer.Skill4);
+            
+
             Console.WriteLine();
             Log.Logger.Information("Trainer Skillset has been entered!");
 
             Console.WriteLine();
-        
+
+            Console.WriteLine("[21] Password" );
+
         }
 
 
@@ -206,7 +211,7 @@ namespace FindTrainers
                         return "TSignUp";
 
                     }
-                //7891889173
+              
 
 
                 case "5":
@@ -235,7 +240,20 @@ namespace FindTrainers
 
                     }
 
+
+
                 case "6":
+                    Console.WriteLine("Enter City name");
+                    str = Console.ReadLine();
+                    while (!FormatChecker(str, nameRegex))
+                    {
+                        Console.WriteLine("City should be 3 to 50 characters long");
+                        str = Console.ReadLine();
+                    }
+                    trainer.City = str;
+                    return "TSignUp";
+
+                case "7":
                     Console.WriteLine("Enter Bachelor's College Name");
                     str = Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
@@ -245,7 +263,7 @@ namespace FindTrainers
                     }
                     trainer.UGCName= str;
                     return "TSignUp";
-                case "7":
+                case "8":
                     Console.WriteLine("Enter Bachelor's Year of Passing");
                      str = Console.ReadLine();
                     while (!FormatChecker(str, yearRegex) || int.Parse(str)>2023)
@@ -255,7 +273,7 @@ namespace FindTrainers
                     }
                     trainer.UGPYear = str;
                     return "TSignUp";
-                case "8":
+                case "9":
                     Console.WriteLine("Enter Bachelor's Degree (Format eg: B.Tech,B.A,B.Sc");
                     str = Console.ReadLine();
                     while (!FormatChecker(str,degreeRegex ))
@@ -266,7 +284,7 @@ namespace FindTrainers
                     trainer.UGDegree= str;
 
                     return "TSignUp";
-                case "9":
+                case "10":
                     Console.WriteLine("Enter Bachelor's Specialization");
                     str= Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
@@ -276,7 +294,7 @@ namespace FindTrainers
                     }
                     trainer.UGDept = str;
                     return "TSignUp";
-                case "10":
+                case "11":
                     Console.WriteLine("Enter HigherSec School Name");
                     str= Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
@@ -286,7 +304,7 @@ namespace FindTrainers
                     }
                     trainer.HSCName= str;
                     return "TSignUp";
-                case "11":
+                case "12":
                     Console.WriteLine("Enter HigherSec School Year of Passing");
                     str= Console.ReadLine();
                     while (!FormatChecker(str, yearRegex) || int.Parse(str) > 2023)
@@ -296,7 +314,7 @@ namespace FindTrainers
                     }
                     trainer.HSCPYear= str;
                     return "TSignUp";
-                case "12":
+                case "13":
                     Console.WriteLine("Enter HigherSec School Stream");
             
                     str = Console.ReadLine();
@@ -308,7 +326,7 @@ namespace FindTrainers
                     trainer.HSCStream = str;
 
                     return "TSignUp";
-                case "13":
+                case "14":
                     Console.WriteLine("Enter High School Name");
                     str = Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
@@ -318,7 +336,7 @@ namespace FindTrainers
                     }
                     trainer.HSName= str;
                     return "TSignUp";
-                case "14":
+                case "15":
                     Console.WriteLine("Enter High School Year of Passing");
                     str = Console.ReadLine();
                     while (!FormatChecker(str, yearRegex) || int.Parse(str) > 2023)
@@ -328,7 +346,7 @@ namespace FindTrainers
                     }
                     trainer.HSPYear= str;   
                     return "TSignUp";
-                case "15":
+                case "16":
                     Console.WriteLine("Enter Company Name");
                     string compny= Console.ReadLine();
 
@@ -344,7 +362,7 @@ namespace FindTrainers
                     while (e < 1 || e > 30)
                     {
                         Console.WriteLine("Give correct experience information");
-                        compny = Console.ReadLine();
+                        experience = Console.ReadLine();
                     }
 
                     trainer.SetCompany(compny, experience);
@@ -383,7 +401,7 @@ namespace FindTrainers
 
                     return "TSignUp";
          
-                case "16":
+                case "17":
                     Console.WriteLine("Enter your Primary Skill");
                     str= Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
@@ -393,7 +411,7 @@ namespace FindTrainers
                     }
                     trainer.Skill1 = str;
                     return "TSignUp";
-                case "17":
+                case "18":
                     Console.WriteLine("Enter your Secondary Skill");
                     str = Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
@@ -403,7 +421,7 @@ namespace FindTrainers
                     }
                     trainer.Skill2= str;
                     return "TSignUp";
-                case "18":
+                case "19":
                     Console.WriteLine("Enter your Tertiary Skill");
                     str = Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
@@ -413,7 +431,7 @@ namespace FindTrainers
                     }
                     trainer.Skill3 = str;
                     return "TSignUp";
-                case "19":
+                case "20":
                     Console.WriteLine("Enter your Quaternary Skill");
                     str = Console.ReadLine();
                     while (!FormatChecker(str, nameRegex))
@@ -423,7 +441,7 @@ namespace FindTrainers
                     }
                     trainer.Skill4 = str;
                     return "TSignUp";
-                case "20":
+                case "21":
                     Console.WriteLine("Enter your Password");
                     str = Console.ReadLine();
                     while (!FormatChecker(str, passwordRegex))

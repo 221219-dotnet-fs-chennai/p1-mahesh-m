@@ -1,0 +1,55 @@
+2023-01-20 07:19:06.447 +05:30 [INF] PROGRAM STARTS
+2023-01-20 07:19:06.493 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:19:08.390 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:19:09.300 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:19:09.302 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:19:14.027 +05:30 [INF] Trainer Tries Loggin in
+2023-01-20 07:19:25.358 +05:30 [INF] Trainer Couldn't log in
+2023-01-20 07:19:25.358 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:19:25.359 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:19:27.483 +05:30 [INF] Trainer Tries Loggin in
+2023-01-20 07:19:38.419 +05:30 [INF] Trainer has logged in Successfully
+2023-01-20 07:19:38.419 +05:30 [INF] Logging into trainer profile page
+2023-01-20 07:19:38.419 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:19:49.963 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 07:19:49.964 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:44:03.155 +05:30 [INF] PROGRAM STARTS
+2023-01-20 07:44:03.193 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:44:06.268 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:44:08.423 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:44:08.425 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:45:41.296 +05:30 [INF] PROGRAM STARTS
+2023-01-20 07:45:41.334 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:45:43.167 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:45:44.079 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:45:44.080 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:46:00.366 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:46:00.366 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:47:12.820 +05:30 [INF] PROGRAM STARTS
+2023-01-20 07:47:12.857 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:47:14.496 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:47:20.389 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:47:20.392 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:47:30.864 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:47:30.865 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:48:14.798 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:48:14.799 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:48:36.799 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:48:36.800 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:50:00.996 +05:30 [INF] PROGRAM STARTS
+2023-01-20 07:50:01.034 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:50:06.362 +05:30 [INF] Enter into the Learner
+2023-01-20 07:50:06.364 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:50:08.638 +05:30 [INF] Entering Main menu / Logging out
+2023-01-20 07:50:08.639 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:50:09.588 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:50:10.663 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:50:10.664 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:50:49.312 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:50:49.312 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:51:15.045 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:51:15.045 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:51:17.543 +05:30 [INF] Trainer Tries Loggin in
+2023-01-20 07:51:29.184 +05:30 [INF] Trainer has logged in Successfully
+2023-01-20 07:51:29.184 +05:30 [INF] Logging into trainer profile page
+2023-01-20 07:51:29.184 +05:30 [INF] Showing the main menu to the trainer

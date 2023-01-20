@@ -344,3 +344,78 @@
 2023-01-20 06:18:59.669 +05:30 [INF] Trainer School Details entered
 2023-01-20 06:18:59.669 +05:30 [INF] Trainer Experience details added
 2023-01-20 06:18:59.669 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 06:55:44.808 +05:30 [INF] PROGRAM STARTS
+2023-01-20 06:55:44.850 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 06:55:47.566 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 06:55:48.728 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 06:55:48.730 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 06:55:49.983 +05:30 [INF] Trainer Tries Loggin in
+2023-01-20 06:56:12.323 +05:30 [INF] Trainer has logged in Successfully
+2023-01-20 06:56:12.323 +05:30 [INF] Logging into trainer profile page
+2023-01-20 06:56:12.324 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 06:56:54.572 +05:30 [INF] Logging into trainer profile page
+2023-01-20 06:56:54.573 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 06:56:55.933 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 06:56:55.934 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 06:57:11.871 +05:30 [INF] user updates his/her HSC stream
+2023-01-20 06:57:11.871 +05:30 [INF] Logging into trainer profile page
+2023-01-20 06:57:11.871 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 06:57:19.009 +05:30 [INF] Logging into trainer profile page
+2023-01-20 06:57:19.010 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 06:57:20.326 +05:30 [INF] Displaying Trainer delete page
+2023-01-20 06:57:20.327 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 06:57:26.160 +05:30 [INF] Deletes City
+2023-01-20 06:57:26.160 +05:30 [INF] Logging into trainer profile page
+2023-01-20 06:57:26.161 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 06:57:33.138 +05:30 [INF] Logging into trainer profile page
+2023-01-20 06:57:33.139 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 06:57:34.331 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 06:57:34.332 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 06:57:50.067 +05:30 [INF] Trainer updated his/her City.
+2023-01-20 06:57:50.067 +05:30 [INF] Logging into trainer profile page
+2023-01-20 06:57:50.068 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:15:12.976 +05:30 [INF] PROGRAM STARTS
+2023-01-20 07:15:13.014 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:15:23.368 +05:30 [INF] PROGRAM STARTS
+2023-01-20 07:15:23.404 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:15:28.725 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:15:29.894 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:15:29.897 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:15:31.721 +05:30 [INF] Trainer Tries Loggin in
+2023-01-20 07:15:43.024 +05:30 [INF] Trainer has logged in Successfully
+2023-01-20 07:15:43.024 +05:30 [INF] Logging into trainer profile page
+2023-01-20 07:15:43.024 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:15:52.534 +05:30 [INF] Logging into trainer profile page
+2023-01-20 07:15:52.535 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:15:53.278 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 07:15:53.279 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:16:59.195 +05:30 [INF] PROGRAM STARTS
+2023-01-20 07:16:59.241 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:17:02.849 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:17:04.144 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 07:17:04.146 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:17:05.174 +05:30 [INF] Trainer Tries Loggin in
+2023-01-20 07:17:18.442 +05:30 [INF] Trainer has logged in Successfully
+2023-01-20 07:17:18.442 +05:30 [INF] Logging into trainer profile page
+2023-01-20 07:17:18.443 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:17:23.210 +05:30 [INF] Logging into trainer profile page
+2023-01-20 07:17:23.211 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:17:23.835 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 07:17:23.836 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:17:34.507 +05:30 [INF] Trainer updated his/her City.
+2023-01-20 07:17:34.507 +05:30 [INF] Logging into trainer profile page
+2023-01-20 07:17:34.507 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:17:44.661 +05:30 [INF] Logging into trainer profile page
+2023-01-20 07:17:44.662 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:17:45.440 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 07:17:45.441 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:18:14.215 +05:30 [INF] user updates his/her Bachelors degree
+2023-01-20 07:18:14.215 +05:30 [INF] Logging into trainer profile page
+2023-01-20 07:18:14.215 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:18:22.764 +05:30 [INF] Logging into trainer profile page
+2023-01-20 07:18:22.764 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:18:24.036 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 07:18:24.037 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 07:18:32.309 +05:30 [INF] User updates his/her Experience details
+2023-01-20 07:18:32.309 +05:30 [INF] Logging into trainer profile page
+2023-01-20 07:18:32.310 +05:30 [INF] Showing the main menu to the trainer
