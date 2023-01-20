@@ -12,7 +12,7 @@ namespace FindTrainers
     {
         internal static TrainerDetails trainer = new TrainerDetails();
         string? nameRegex = @"\w{3,50}";
-        string? emailRegex = @"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+        string? emailRegex = @"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-z]{2,6}$";
         string? phoneRegex = @"^[9876]\d{9}$";
         string? yearRegex= @"^\d{4}$";
         string? degreeRegex = @"^B\.\w{1,6}$";
@@ -190,7 +190,7 @@ namespace FindTrainers
                         Console.WriteLine("Email format is invalid! Re-enter email");
                         str = Console.ReadLine();
                     }
-                    if(repo.IsExistEmail(str)) {
+                    if(repo.IsExist(str,"email")) {
                         Console.WriteLine("Email is Associated with another account. Try signing up with different account!");
                         Console.ReadLine() ;
 
@@ -206,8 +206,9 @@ namespace FindTrainers
                         return "TSignUp";
 
                     }
+                //7891889173
 
-                 
+
                 case "5":
                     Console.WriteLine("Enter Phone No.");
                     str = Console.ReadLine();
@@ -216,8 +217,24 @@ namespace FindTrainers
                         Console.WriteLine("Phone No. format is invalid! Re-enter Phone No.");
                         str = Console.ReadLine();
                     }
-                    trainer.PhoneNo= str;   
-                    return "TSignUp";
+                    if (repo.IsExist(str, "phoneNo"))
+                    {
+                        Console.WriteLine("Phone No. is Associated with another account. Try add different phone number!");
+                        Console.ReadLine();
+
+
+
+                        return "TSignUp";
+
+                    }
+                    else
+                    {
+
+                        trainer.PhoneNo = str;
+                        return "TSignUp";
+
+                    }
+
                 case "6":
                     Console.WriteLine("Enter Bachelor's College Name");
                     str = Console.ReadLine();

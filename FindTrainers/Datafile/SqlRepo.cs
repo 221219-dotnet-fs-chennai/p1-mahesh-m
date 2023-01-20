@@ -349,6 +349,9 @@ namespace Datafile
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
 
+
+
+
             string query = @$"delete from companies where trainerid='{userId}'";
             SqlCommand command1 = new SqlCommand(query, con);
             command1.ExecuteNonQuery();
@@ -357,11 +360,11 @@ namespace Datafile
 
         }
 
-        public bool IsExistEmail(string email)
+        public bool IsExist(string value,string column)
         {
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            string query1 = @$"select email from trainers where email='{email}'";
+            string query1 = @$"select email from trainers where {column}='{value}'";
             SqlCommand cmd =new SqlCommand(query1,con);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())

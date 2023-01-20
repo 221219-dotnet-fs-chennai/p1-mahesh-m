@@ -24,7 +24,7 @@ namespace Datafile
         void DeleteAccount(string trainerId);
         List<TrainerDetails> GetAll();
 
-        bool IsExistEmail(string emailId);
+        bool IsExist(string value,string column);
 
     }
 }
