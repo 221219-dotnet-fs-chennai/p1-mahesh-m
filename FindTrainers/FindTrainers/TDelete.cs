@@ -106,7 +106,7 @@ namespace FindTrainers
             switch (userInput)
             {
                 case "0":
-                    return "Trainer";
+                    return "Profile";
             
 
                 case "1":

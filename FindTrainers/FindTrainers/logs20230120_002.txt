@@ -53,3 +53,270 @@
 2023-01-20 07:51:29.184 +05:30 [INF] Trainer has logged in Successfully
 2023-01-20 07:51:29.184 +05:30 [INF] Logging into trainer profile page
 2023-01-20 07:51:29.184 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:23:05.591 +05:30 [INF] PROGRAM STARTS
+2023-01-20 08:23:05.636 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:23:11.148 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:23:28.664 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:23:32.339 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:23:32.341 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:23:32.342 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:23:32.343 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:23:32.343 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:23:32.344 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:23:32.344 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:23:48.411 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:23:48.411 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:23:48.411 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:23:48.412 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:23:48.412 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:23:48.412 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:23:48.412 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:23:54.569 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:23:54.569 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:23:54.570 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:23:54.570 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:23:54.571 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:23:54.571 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:23:54.571 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:24:06.289 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:24:06.290 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:24:06.291 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:24:06.291 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:24:06.291 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:24:06.292 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:24:06.292 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:24:33.165 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:24:33.166 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:24:33.167 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:24:33.168 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:24:33.168 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:24:33.168 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:24:33.169 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:24:53.386 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:24:53.386 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:24:53.387 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:24:53.387 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:24:53.387 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:24:53.387 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:24:53.387 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:25:03.562 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:25:03.562 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:25:03.563 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:25:03.563 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:25:03.563 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:25:03.563 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:25:03.563 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:25:10.093 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:25:10.094 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:25:10.094 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:25:10.094 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:25:10.095 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:25:10.095 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:25:10.095 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:25:20.294 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:25:20.294 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:25:20.295 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:25:20.295 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:25:20.295 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:25:20.295 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:25:20.296 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:25:52.407 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:25:52.407 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:25:52.408 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:25:52.408 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:25:52.408 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:25:52.408 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:25:52.409 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:26:03.434 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:26:03.434 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:26:03.436 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:26:03.436 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:26:03.436 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:26:03.436 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:26:03.436 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:26:11.263 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:26:11.264 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:26:11.264 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:26:11.265 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:26:11.265 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:26:11.265 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:26:11.265 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:26:16.207 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:26:16.208 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:26:16.208 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:26:16.208 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:26:16.209 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:26:16.209 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:26:16.209 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:26:27.527 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:26:27.528 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:26:27.528 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:26:27.528 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:26:27.528 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:26:27.529 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:26:27.529 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:26:35.237 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:26:35.238 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:26:35.239 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:26:35.239 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:26:35.239 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:26:35.239 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:26:35.239 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:26:38.858 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:26:38.859 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:26:38.859 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:26:38.859 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:26:38.860 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:26:38.860 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:26:38.860 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:27:11.728 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:27:11.729 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:27:11.730 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:27:11.730 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:27:11.731 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:27:11.731 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:27:11.732 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:27:25.270 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:27:25.271 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:27:25.272 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:27:25.272 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:27:25.272 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:27:25.273 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:27:25.273 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:27:28.776 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:27:28.776 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:27:28.777 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:27:28.777 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:27:28.777 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:27:28.778 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:27:28.778 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:27:35.739 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:27:35.740 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:27:35.741 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:27:35.741 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:27:35.742 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:27:35.742 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:27:35.742 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:28:04.355 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:28:04.355 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:28:04.356 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:28:04.356 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:28:04.356 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:28:04.356 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:28:04.357 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:29:00.450 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:29:00.450 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:29:00.450 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:29:00.451 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:29:00.451 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:29:00.451 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:29:00.452 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:29:03.474 +05:30 [INF] Trainer registeration Complete
+2023-01-20 08:29:03.474 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:29:03.475 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:29:11.492 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:29:11.492 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:29:12.753 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 08:29:12.754 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:30:03.047 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:30:03.047 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:30:03.049 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:30:03.049 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:30:03.050 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:30:03.050 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:30:03.051 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:30:23.665 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:30:25.932 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 08:30:25.933 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:31:05.167 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 08:31:05.168 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:31:07.714 +05:30 [INF] Trainer Tries Loggin in
+2023-01-20 08:31:21.983 +05:30 [INF] Trainer has logged in Successfully
+2023-01-20 08:31:21.983 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:31:21.984 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:31:24.788 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 08:31:24.788 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:31:41.753 +05:30 [INF] Trying to get into Sign Up Page
+2023-01-20 08:31:41.753 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:31:41.755 +05:30 [INF] Trainer basic details entered
+2023-01-20 08:31:41.755 +05:30 [INF] Trainer College Details entered
+2023-01-20 08:31:41.755 +05:30 [INF] Trainer School Details entered
+2023-01-20 08:31:41.755 +05:30 [INF] Trainer Experience details added
+2023-01-20 08:31:41.756 +05:30 [INF] Trainer Skillset has been entered!
+2023-01-20 08:33:05.204 +05:30 [INF] PROGRAM STARTS
+2023-01-20 08:33:05.240 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:33:39.391 +05:30 [INF] Enter into the Learner
+2023-01-20 08:33:39.393 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:33:43.206 +05:30 [INF] Enter into the Learner
+2023-01-20 08:33:43.206 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:33:45.034 +05:30 [INF] Entering Main menu / Logging out
+2023-01-20 08:33:45.035 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:34:02.555 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:34:03.860 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 08:34:03.861 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:34:09.470 +05:30 [INF] Trainer Tries Loggin in
+2023-01-20 08:34:28.426 +05:30 [INF] Trainer has logged in Successfully
+2023-01-20 08:34:28.426 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:34:28.427 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:34:30.400 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 08:34:30.401 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:34:55.264 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 08:34:55.264 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:35:22.677 +05:30 [INF] Trainer updated his/her phone no.
+2023-01-20 08:35:22.677 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:35:22.678 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:35:34.767 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:35:34.768 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:35:35.879 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 08:35:35.880 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:36:03.902 +05:30 [INF] User updates his/her Experience details
+2023-01-20 08:36:03.903 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:36:03.903 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:36:26.348 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:36:26.348 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:36:26.779 +05:30 [INF] Displaying Trainer delete page
+2023-01-20 08:36:26.780 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:36:33.575 +05:30 [INF] Deletes HS Name
+2023-01-20 08:36:33.575 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:36:33.575 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:36:36.699 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:36:36.700 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:36:37.754 +05:30 [INF] Displaying Trainer delete page
+2023-01-20 08:36:37.755 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:36:43.066 +05:30 [INF] Deletes Experience details
+2023-01-20 08:36:43.066 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:36:43.067 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:36:47.311 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:36:47.312 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:36:48.386 +05:30 [INF] Displaying Trainer delete page
+2023-01-20 08:36:48.387 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:36:55.771 +05:30 [INF] Deletes City
+2023-01-20 08:36:55.771 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:36:55.772 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:37:01.733 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:37:01.733 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:37:03.253 +05:30 [INF] Displaying Trainer delete page
+2023-01-20 08:37:03.253 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:37:08.713 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:39:00.274 +05:30 [INF] PROGRAM STARTS
+2023-01-20 08:39:00.311 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:39:06.793 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:39:09.189 +05:30 [INF] Entering Main menu / Logging out
+2023-01-20 08:39:09.190 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:39:10.834 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:39:12.229 +05:30 [INF] Displaying Trainer Login Page
+2023-01-20 08:39:12.231 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:39:16.665 +05:30 [INF] Trainer Tries Loggin in
+2023-01-20 08:39:29.057 +05:30 [INF] Trainer has logged in Successfully
+2023-01-20 08:39:29.057 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:39:29.058 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:39:33.879 +05:30 [INF] Displaying Trainer delete page
+2023-01-20 08:39:33.880 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:39:35.966 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:39:35.967 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:39:37.739 +05:30 [INF] Displaying Trainer update Page
+2023-01-20 08:39:37.740 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:39:38.711 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:39:38.712 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 08:39:43.059 +05:30 [INF] Logging into trainer profile page
+2023-01-20 08:39:43.060 +05:30 [INF] Showing the main menu to the trainer
