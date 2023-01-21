@@ -291,3 +291,5 @@
 2023-01-20 14:21:55.547 +05:30 [INF] Showing the main menu to the trainer
 2023-01-20 14:22:01.274 +05:30 [INF] Enter into the Learner
 2023-01-20 14:22:01.275 +05:30 [INF] Showing the main menu to the trainer
+2023-01-20 15:50:21.038 +05:30 [INF] **********************************************************************PROGRAM STARTS***********************************************************************
+2023-01-20 15:50:21.100 +05:30 [INF] Showing the main menu to the trainer
