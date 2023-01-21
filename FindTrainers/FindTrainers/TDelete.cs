@@ -117,7 +117,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("phoneNo", "trainers", userId);
+                        repo.UpdateATrainer("","phoneNo", "trainers", userId);
                     }
                     trainer.PhoneNo = "";
                     Log.Information("Deletes phno");
@@ -131,7 +131,7 @@ namespace FindTrainers
                     val = Console.ReadLine();
                     if (val == "1")
                     {
-                        repo.DeleteValues("city", "trainers", userId);
+                        repo.UpdateATrainer("","city", "trainers", userId);
                     }
                     trainer.City = "";
                     Log.Information("Deletes City");
@@ -145,7 +145,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("collegename", "college_ug", userId);
+                        repo.UpdateATrainer("","collegename", "college_ug", userId);
                     }
                     trainer.UGCName = "";
                     Log.Information("Deletes UGC name");
@@ -159,7 +159,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("yearpassed", "college_ug", userId);
+                        repo.UpdateATrainer("", "yearpassed", "college_ug", userId);
                     }
                     trainer.UGPYear="";
                     Log.Information("Deletes UGP year");
@@ -172,7 +172,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("degree", "college_ug", userId);
+                        repo.UpdateATrainer("", "degree", "college_ug", userId);
                     }
                     trainer.UGDegree = "";
                     Log.Information("Deletes UG Degree");
@@ -186,7 +186,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("branch", "college_ug", userId);
+                        repo.UpdateATrainer("", "branch", "college_ug", userId);
                     }
                     trainer.UGDept = "";
                     Log.Information("Deletes UG Dept");
@@ -199,7 +199,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("Schoolname", "highsec", userId);
+                        repo.UpdateATrainer("", "Schoolname", "highsec", userId);
                     }
 
                     trainer.HSCName = "";
@@ -215,7 +215,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("yearpassed", "highsec", userId);
+                        repo.UpdateATrainer("", "yearpassed", "highsec", userId);
                     }
 
                     trainer.HSCPYear = "";
@@ -230,7 +230,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("course", "highsec", userId);
+                        repo.UpdateATrainer("", "course", "highsec", userId);
                     }
                     trainer.HSCStream = "";
                     Log.Information("Deletes HSC stream");
@@ -245,7 +245,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("schoolname", "highschool", userId);
+                        repo.UpdateATrainer("", "schoolname", "highschool", userId);
                     }
                     trainer.HSName = "";
                     Log.Information("Deletes HS Name");
@@ -259,7 +259,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("yearpassed", "highschool", userId);
+                        repo.UpdateATrainer("", "yearpassed", "highschool", userId);
                     }
                     trainer.HSPYear = "";
                     Log.Information("Deletes HSP year");
@@ -288,7 +288,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("skill_1", "Skills", userId);
+                        repo.UpdateATrainer("", "skill_1", "Skills", userId);
                     }
                     trainer.Skill1 = "";
                     Log.Information("Deletes Skillset details");
@@ -301,7 +301,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("skill_2", "Skills", userId);
+                        repo.UpdateATrainer("", "skill_2", "Skills", userId);
                     }
                     trainer.Skill2 = "";
                     Log.Information("Deletes Skillset details");
@@ -314,7 +314,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("skill_3", "Skills", userId);
+                        repo.UpdateATrainer("", "skill_3", "Skills", userId);
                     }
                     trainer.Skill3 = "";
                     Log.Information("Deletes Skillset details");
@@ -327,7 +327,7 @@ namespace FindTrainers
 
                     if (val == "1")
                     {
-                        repo.DeleteValues("skill_4", "Skills", userId);
+                        repo.UpdateATrainer("", "skill_4", "Skills", userId);
                     }
                     trainer.Skill4 = "";
                     Log.Information("Deletes Skillset details");

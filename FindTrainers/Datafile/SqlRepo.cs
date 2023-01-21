@@ -230,16 +230,16 @@ namespace Datafile
 
         }
 
-        public TrainerDetails GetTrainer(string email)
-        {  TrainerDetails trainer= new TrainerDetails();
-            string query14 = $@"select email from trainers where email='{email}';";
-            using SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-            SqlCommand command1 = new SqlCommand(query14, con);
-            SqlDataReader reader = command1.ExecuteReader();
-            return  trainer;
+        //public TrainerDetails GetTrainer(string email)
+        //{  TrainerDetails trainer= new TrainerDetails();
+        //    string query14 = $@"select email from trainers where email='{email}';";
+        //    using SqlConnection con = new SqlConnection(connectionString);
+        //    con.Open();
+        //    SqlCommand command1 = new SqlCommand(query14, con);
+        //    SqlDataReader reader = command1.ExecuteReader();
+        //    return  trainer;
 
-        }
+        //}
 
 
 
@@ -261,30 +261,74 @@ namespace Datafile
         public void UpdateATrainer(string ? newValue, string columnName, string tableName,string trainerId)
         {
 
-            string query15 = $@"update {tableName} set {columnName}='{newValue}' where trainerid='{trainerId}'";
+            //string query15 = $@"update {tableName} set {columnName}='{newValue}' where trainerid='{trainerId}'";
 
-            
 
-           
+
+
+            //using SqlConnection con = new SqlConnection(connectionString);
+            //con.Open();
+            //SqlCommand command1 = new SqlCommand(query15,con);
+            //command1.ExecuteNonQuery();
+            string query="null";
+            switch (tableName)
+            {
+                case "trainers":
+                    query = $@"exec updateTrainers '{trainerId}','{columnName}','{newValue}' ";
+                    break;
+                case "college_ug":
+                     query = $@"exec updatecollege '{trainerId}','{columnName}','{newValue}' ";
+                    break;
+                case "highschool":
+                    query = $@"exec updatehs '{trainerId}','{columnName}','{newValue}' ";
+                    break;
+                case "highsec":
+                    query = $@"exec updatehsc '{trainerId}','{columnName}','{newValue}' ";
+                    break;
+                case "Skills":
+                    query = $@"exec updateskills '{trainerId}','{columnName}','{newValue}' ";
+                    break;
+                default:
+                    Console.WriteLine("Please input a valid response");
+                    Console.WriteLine("Please press Enter to continue");
+                    Console.ReadLine();
+                    break;
+
+
+            }
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand command1 = new SqlCommand(query15,con);
-            command1.ExecuteNonQuery();
-            Console.WriteLine("Value update successfully!");
-            Console.ReadLine();
+            try
+            {
+                SqlCommand command1 = new SqlCommand(query, con);
+                if (newValue == "")
+                {
+                    Console.WriteLine("Value Deleted successfully!");
+                }
+                else {
+                    Console.WriteLine("Value updated successfully!");
+                }
+                
+                Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
 
         }
 
 
-        public void DeleteValues(string columnName, string tableName, string trainerId)
-        { string query16= $@"update {tableName} set {columnName}='' where trainerid='{trainerId}'";
-            using SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-            SqlCommand command1 = new SqlCommand(query16, con);
-            command1.ExecuteNonQuery();
-            Console.WriteLine("Value Deleted successfully!");
-            Console.ReadLine();
-        }
+        //public void DeleteValues(string columnName, string tableName, string trainerId)
+        //{ string query16= $@"update {tableName} set {columnName}='' where trainerid='{trainerId}'";
+        //    using SqlConnection con = new SqlConnection(connectionString);
+        //    con.Open();
+        //    SqlCommand command1 = new SqlCommand(query16, con);
+        //    command1.ExecuteNonQuery();
+        //    Console.WriteLine("Value Deleted successfully!");
+        //    Console.ReadLine();
+        //}
 
         public void DeleteAccount(string trainerId)
         {

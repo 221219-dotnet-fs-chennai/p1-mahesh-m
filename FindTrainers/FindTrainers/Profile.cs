@@ -96,7 +96,7 @@ namespace FindTrainers
                 {
 
                     Console.WriteLine("                                      ---------------------------");
-                    Console.WriteLine("                                      |  " + e.Key + "        |      " + e.Value + "  |  ");
+                    Console.WriteLine("                                      |  " + e.Key + "          |      " + e.Value + "  |    ");
                     Console.WriteLine("                                      ---------------------------");
 
                 }

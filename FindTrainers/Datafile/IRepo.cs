@@ -42,7 +42,7 @@ namespace Datafile
 
         void DeleteCompanies(string userId);
 
-        void DeleteValues(string columnName, string tableName,string trainerId);
+        //void DeleteValues(string columnName, string tableName,string trainerId);
 
         void DeleteAccount(string trainerId);
 
