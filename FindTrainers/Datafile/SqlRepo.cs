@@ -22,7 +22,7 @@ namespace Datafile
             this.decipher = Convert.ToInt32(deci);
         }
 
-        string[] Queries = File.ReadAllLines("C:\\Users\\Maheshabi\\newRepo\\p1-mahesh-m\\FindTrainers\\Datafile\\Queries.txt");
+        
 
        
 
@@ -102,86 +102,128 @@ namespace Datafile
         { TrainerDetails trainer = new TrainerDetails();
             String[] arr = email.Split("@");
             string userId = arr[0];
-          
-            string query8 = $@"select firstname,lastname,phoneno,city from trainers where trainerid='{userId}'";
-            using SqlConnection con = new SqlConnection(connectionString);
+
+            //string query8 = $@"select firstname,lastname,phoneno,city from trainers where trainerid='{userId}'";
+            //using SqlConnection con = new SqlConnection(connectionString);
+            //con.Open();
+            //SqlCommand command1 = new SqlCommand(query8, con);
+            //SqlDataReader reader1 = command1.ExecuteReader();
+            //while (reader1.Read())
+            //{
+            //    trainer.FName = reader1.GetString(0);
+            //    trainer.LName = reader1.GetString(1);
+            //    trainer.Email = email;
+            //    trainer.PhoneNo = reader1.GetString(2);
+            //    trainer.City = reader1.GetString(3);
+
+            //}
+            //reader1.Close();
+
+            //string query9 = $@"select skill_1,skill_2,skill_3,skill_4 from skills where trainerid='{userId}'";
+
+            //SqlCommand command2 = new SqlCommand(query9, con);
+            //SqlDataReader reader2 = command2.ExecuteReader();
+            //while (reader2.Read())
+            //{
+            //    trainer.Skill1 = reader2.GetString(0);
+            //    trainer.Skill2 = reader2.GetString(1);
+            //    trainer.Skill3 = reader2.GetString(2);
+            //    trainer.Skill4 = reader2.GetString(3);
+
+            //}
+            //reader2.Close();
+
+            //string query10 = $@"select collegename,yearpassed,degree,branch from college_ug where trainerid='{userId}'";
+            //SqlCommand command3 = new SqlCommand(query10, con);
+            //SqlDataReader reader3 = command3.ExecuteReader();
+            //while (reader3.Read())
+            //{
+            //    trainer.UGCName = reader3.GetString(0);
+            //    trainer.UGPYear = reader3.GetString(1);
+            //    trainer.UGDegree = reader3.GetString(2);
+            //    trainer.UGDept = reader3.GetString(3);
+
+            //}
+            //reader3.Close();
+
+            //string query11 = $@"select schoolname,yearpassed,course from HighSec where trainerid='{userId}'";
+            //SqlCommand command4 = new SqlCommand(query11, con);
+            //SqlDataReader reader4 = command4.ExecuteReader();
+            //while (reader4.Read())
+            //{
+            //    trainer.HSCName = reader4.GetString(0);
+            //    trainer.HSCPYear = reader4.GetString(1);
+            //    trainer.HSCStream = reader4.GetString(2);
+
+            //}
+            //reader4.Close();
+
+            //string query12 = $@"select schoolname,yearpassed from HighSchool where trainerid='{userId}'";
+            //SqlCommand command5 = new SqlCommand(query12, con);
+            //SqlDataReader reader5 = command5.ExecuteReader();
+            //while (reader5.Read())
+            //{
+            //    trainer.HSName = reader5.GetString(0);
+            //    trainer.HSPYear = reader5.GetString(1);
+
+            //}
+            //reader5.Close();
+
+            //string query13 = $@"select LastcompanyName,totalexp from companies where trainerid='{userId}'";
+            //SqlCommand command6 = new SqlCommand(query13, con);
+            //SqlDataReader reader6 = command6.ExecuteReader();
+            //while (reader6.Read())
+            //{
+            //    //trainer.LastCompany = reader6.GetString(0);
+            //    //trainer.TotalExp = reader6.GetInt32(1);
+            //    int xp = reader6.GetInt32(1);
+
+            //    trainer.SetCompany(reader6.GetString(0), xp.ToString());
+
+            //}
+            //reader6.Close();
+
+            string query = $@"exec getAtrainer '{userId}'";
+            SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand command1 = new SqlCommand(query8,con);
-            SqlDataReader reader1= command1.ExecuteReader();
+            SqlCommand command = new SqlCommand(query, con);
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                trainer.FName = reader.GetString(1);
+                trainer.LName = reader.GetString(2);
+                trainer.PhoneNo = reader.GetString(3);
+                trainer.Email = reader.GetString(4);
+                trainer.Password = reader.GetString(5);
+                trainer.City = reader.GetString(6);
+                trainer.Skill1 = reader.GetString(8);
+                trainer.Skill2 = reader.GetString(9);
+                trainer.Skill3 = reader.GetString(10);
+                trainer.Skill4 = reader.GetString(11);
+                trainer.HSName = reader.GetString(13);
+                trainer.HSPYear = reader.GetString(14);
+                trainer.HSCName = reader.GetString(16);
+                trainer.HSCPYear = reader.GetString(17);
+                trainer.HSCStream = reader.GetString(18);
+                trainer.UGCName = reader.GetString(20);
+                trainer.HSCPYear = reader.GetString(21);
+                trainer.UGDegree = reader.GetString(22);
+                trainer.UGDept = reader.GetString(23);
+
+               
+            }
+            reader.Close();
+
+            string query1 = $@"exec gettrainercompany '{userId}'";
+
+            SqlCommand command1 = new SqlCommand(query1, con);
+            SqlDataReader reader1 = command1.ExecuteReader();
             while (reader1.Read())
             {
-                trainer.FName = reader1.GetString(0);
-                trainer.LName = reader1.GetString(1);
-                trainer.Email = email;
-                trainer.PhoneNo= reader1.GetString(2);
-                trainer.City= reader1.GetString(3);
-                
+                int xp = reader1.GetInt32(2);
+                trainer.SetCompany(reader1.GetString(1),xp.ToString());
             }
-            reader1.Close();
 
-            string query9 = $@"select skill_1,skill_2,skill_3,skill_4 from skills where trainerid='{userId}'";
-
-            SqlCommand command2 = new SqlCommand(query9, con);
-            SqlDataReader reader2 = command2.ExecuteReader();
-            while (reader2.Read())
-            {
-                trainer.Skill1 = reader2.GetString(0);
-                trainer.Skill2 = reader2.GetString(1);
-                trainer.Skill3 = reader2.GetString(2);
-                trainer.Skill4 = reader2.GetString(3);
-                
-            }
-            reader2.Close();
-
-            string query10 = $@"select collegename,yearpassed,degree,branch from college_ug where trainerid='{userId}'";
-            SqlCommand command3 = new SqlCommand(query10, con);
-            SqlDataReader reader3 = command3.ExecuteReader();
-            while (reader3.Read())
-            {
-                trainer.UGCName = reader3.GetString(0);
-                trainer.UGPYear = reader3.GetString(1);
-                trainer.UGDegree = reader3.GetString(2);
-                trainer.UGDept = reader3.GetString(3);
-                
-            }
-            reader3.Close();
-
-            string query11 = $@"select schoolname,yearpassed,course from HighSec where trainerid='{userId}'";
-            SqlCommand command4 = new SqlCommand(query11, con);
-            SqlDataReader reader4 = command4.ExecuteReader();
-            while (reader4.Read())
-            {
-                trainer.HSCName = reader4.GetString(0);
-                trainer.HSCPYear = reader4.GetString(1);
-                trainer.HSCStream = reader4.GetString(2);
-                
-            }
-            reader4.Close();
-
-            string query12 = $@"select schoolname,yearpassed from HighSchool where trainerid='{userId}'";
-            SqlCommand command5 = new SqlCommand(query12, con);
-            SqlDataReader reader5 = command5.ExecuteReader();
-            while (reader5.Read())
-            {
-                trainer.HSName = reader5.GetString(0);
-                trainer.HSPYear = reader5.GetString(1);
-                
-            }
-            reader5.Close();
-
-            string query13 = $@"select LastcompanyName,totalexp from companies where trainerid='{userId}'";
-            SqlCommand command6 = new SqlCommand(query13, con);
-            SqlDataReader reader6 = command6.ExecuteReader();
-            while (reader6.Read())
-            {
-                //trainer.LastCompany = reader6.GetString(0);
-                //trainer.TotalExp = reader6.GetInt32(1);
-                int xp = reader6.GetInt32(1);
-         
-                trainer.SetCompany(reader6.GetString(0),xp.ToString());
-                
-            }
-            reader6.Close();
 
 
             return trainer;
