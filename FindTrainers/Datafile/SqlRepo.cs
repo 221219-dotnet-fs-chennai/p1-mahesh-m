@@ -59,18 +59,18 @@ namespace Datafile
         { 
 
           
-            string query6 = $@"select email from trainers where email='{email}';";
+            string query3 = $@"exec sp_login '{email}'";
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand command1 = new SqlCommand(query6,con);
+            SqlCommand command1 = new SqlCommand(query3,con);
              SqlDataReader reader=command1.ExecuteReader();
             if (reader.Read())
             {
                 reader.Close();
                 Console.WriteLine("Enter password");
                 string? password = Console.ReadLine();
-                string query7 = $@"select email from trainers where password='{PasswordHasher(password)}';";
-                SqlCommand command2 = new SqlCommand(query7, con);
+                string query4 = $@"exec sp_loginpass '{PasswordHasher(password)}'";
+                SqlCommand command2 = new SqlCommand(query4, con);
                using SqlDataReader reader1=command2.ExecuteReader();
                 if (reader1.Read())
                 {
