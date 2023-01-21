@@ -22,74 +22,31 @@ namespace Datafile
             this.decipher = Convert.ToInt32(deci);
         }
 
+        string[] Queries = File.ReadAllLines("C:\\Users\\Maheshabi\\newRepo\\p1-mahesh-m\\FindTrainers\\Datafile\\Queries.txt");
+
+       
+
         public TrainerDetails Insert(TrainerDetails trainer)
         { using SqlConnection conn = new SqlConnection(connectionString);
             String[] arr = trainer.Email.Split("@");
             string userId = arr[0];
             //string city = "Chennai";
-            string query1 = @"insert into Trainers (TrainerId,firstname,lastname,phoneNo,email,password,city) values(@userid,@fname,@lname,@phoneNo,@email,@password,@city)";
+         
             conn.Open();
-            SqlCommand command = new SqlCommand(query1, conn);
-            command.Parameters.AddWithValue("@userId", userId);
-            command.Parameters.AddWithValue("@fname", trainer.FName);
-            command.Parameters.AddWithValue("@lname", trainer.LName);
-            command.Parameters.AddWithValue("@phoneNo",trainer.PhoneNo);
-            command.Parameters.AddWithValue("@email", trainer.Email);
-            command.Parameters.AddWithValue("@password", PasswordHasher(trainer.Password));
-            command.Parameters.AddWithValue("@city", trainer.City);
-            command.ExecuteNonQuery();
-
-
-
-            string query2 = @"insert into skills (TrainerId,skill_1,skill_2,skill_3,skill_4) values(@userId,@skill_1,@skill_2,@skill_3,@skill_4)";
-            SqlCommand command1 = new SqlCommand(query2, conn);
-
-            command1.Parameters.AddWithValue("@userId", userId);
-            command1.Parameters.AddWithValue("@skill_1", trainer.Skill1);
-            command1.Parameters.AddWithValue("@skill_2", trainer.Skill2);
-            command1.Parameters.AddWithValue("@skill_3", trainer.Skill3);
-            command1.Parameters.AddWithValue("@skill_4", trainer.Skill4);
-            command1.ExecuteNonQuery();
-
-
-            string query3 = @"insert into college_ug (TrainerId,CollegeName,yearpassed,degree,branch) values(@userId,@collegename,@yearpassed,@degree,@branch)";
-            SqlCommand command2 = new SqlCommand(query3, conn);
-            command2.Parameters.AddWithValue("@userId", userId);
-            command2.Parameters.AddWithValue("@collegename", trainer.UGCName);
-            command2.Parameters.AddWithValue("@yearpassed", trainer.UGPYear);
-            command2.Parameters.AddWithValue("@degree", trainer.UGDept);
-            command2.Parameters.AddWithValue("@branch", trainer.UGDept);
-            command2.ExecuteNonQuery();
-
-
-            string query4 = @"insert into HighSec (trainerid,SchoolName,yearpassed,course) values(@userId,@schoolname,@yearpassed,@course)";
-            SqlCommand command3 = new SqlCommand(query4, conn);
-            command3.Parameters.AddWithValue("@userId", userId);
-            command3.Parameters.AddWithValue("@schoolname", trainer.HSCName);
-            command3.Parameters.AddWithValue("@yearpassed", trainer.HSCPYear);
-            command3.Parameters.AddWithValue("@course", trainer.HSCStream);
-            command3.ExecuteNonQuery();
-
-
-
-            string query5 = @"insert into HighSchool (trainerid,SchoolName,yearpassed) values(@userid,@schoolname,@yearpassed)";
-            SqlCommand command4 = new SqlCommand(query5, conn);
-            command4.Parameters.AddWithValue("@userId", userId);
-            command4.Parameters.AddWithValue("@schoolname", trainer.HSName);
-            command4.Parameters.AddWithValue("@yearpassed", trainer.HSPYear);
-            command4.ExecuteNonQuery();
+            string query1 = @$"exec sp_insert1 '{userId}','{trainer.FName}','{trainer.LName}','{trainer.Email}','{trainer.PhoneNo}','{trainer.City}','{PasswordHasher(trainer.Password)}','{trainer.Skill1}','{trainer.Skill2}','{trainer.Skill3}','{trainer.Skill4}',   
+                                '{trainer.UGCName}','{trainer.UGPYear}','{trainer.UGDegree}','{trainer.UGDept}','{trainer.HSCName}','{trainer.HSCPYear}','{trainer.HSCStream}','{trainer.HSName}','{trainer.HSPYear}'";
+            SqlCommand command1 = new SqlCommand(query1, conn);
+            command1.ExecuteNonQuery();  
+            
 
             Dictionary<String, String> cm = trainer.GetCompany();
 
             foreach (var e in cm)
             {
-                string query6 = @"insert into companies(trainerid,lastcompanyName,totalexp) values (@userId,@lastcompanyname,@totalexp)";
-                SqlCommand command5 = new SqlCommand(query6, conn);
-                command5.Parameters.AddWithValue("@userId", userId);
-                command5.Parameters.AddWithValue("@lastcompanyname", e.Key);
-                command5.Parameters.AddWithValue("@totalexp", e.Value);
-                command5.ExecuteNonQuery();
-
+                string query2 = @$"exec sp_insertcompanies '{userId}', '{e.Key}','{e.Value}'";
+                SqlCommand command2 = new SqlCommand(query2, conn);
+               
+                command2.ExecuteNonQuery();
             }
       
             Console.WriteLine("Signup Completed Successfully!");
@@ -102,18 +59,18 @@ namespace Datafile
         { 
 
           
-            string query1 = $@"select email from trainers where email='{email}';";
+            string query6 = $@"select email from trainers where email='{email}';";
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand command1 = new SqlCommand(query1,con);
+            SqlCommand command1 = new SqlCommand(query6,con);
              SqlDataReader reader=command1.ExecuteReader();
             if (reader.Read())
             {
                 reader.Close();
                 Console.WriteLine("Enter password");
                 string? password = Console.ReadLine();
-                string query2 = $@"select email from trainers where password='{PasswordHasher(password)}';";
-                SqlCommand command2 = new SqlCommand(query2, con);
+                string query7 = $@"select email from trainers where password='{PasswordHasher(password)}';";
+                SqlCommand command2 = new SqlCommand(query7, con);
                using SqlDataReader reader1=command2.ExecuteReader();
                 if (reader1.Read())
                 {
@@ -146,10 +103,10 @@ namespace Datafile
             String[] arr = email.Split("@");
             string userId = arr[0];
           
-            string query1 = $@"select firstname,lastname,phoneno,city from trainers where trainerid='{userId}'";
+            string query8 = $@"select firstname,lastname,phoneno,city from trainers where trainerid='{userId}'";
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand command1 = new SqlCommand(query1,con);
+            SqlCommand command1 = new SqlCommand(query8,con);
             SqlDataReader reader1= command1.ExecuteReader();
             while (reader1.Read())
             {
@@ -162,9 +119,9 @@ namespace Datafile
             }
             reader1.Close();
 
-            string query2 = $@"select skill_1,skill_2,skill_3,skill_4 from skills where trainerid='{userId}'";
+            string query9 = $@"select skill_1,skill_2,skill_3,skill_4 from skills where trainerid='{userId}'";
 
-            SqlCommand command2 = new SqlCommand(query2, con);
+            SqlCommand command2 = new SqlCommand(query9, con);
             SqlDataReader reader2 = command2.ExecuteReader();
             while (reader2.Read())
             {
@@ -176,8 +133,8 @@ namespace Datafile
             }
             reader2.Close();
 
-            string query3 = $@"select collegename,yearpassed,degree,branch from college_ug where trainerid='{userId}'";
-            SqlCommand command3 = new SqlCommand(query3, con);
+            string query10 = $@"select collegename,yearpassed,degree,branch from college_ug where trainerid='{userId}'";
+            SqlCommand command3 = new SqlCommand(query10, con);
             SqlDataReader reader3 = command3.ExecuteReader();
             while (reader3.Read())
             {
@@ -189,8 +146,8 @@ namespace Datafile
             }
             reader3.Close();
 
-            string query4 = $@"select schoolname,yearpassed,course from HighSec where trainerid='{userId}'";
-            SqlCommand command4 = new SqlCommand(query4, con);
+            string query11 = $@"select schoolname,yearpassed,course from HighSec where trainerid='{userId}'";
+            SqlCommand command4 = new SqlCommand(query11, con);
             SqlDataReader reader4 = command4.ExecuteReader();
             while (reader4.Read())
             {
@@ -201,8 +158,8 @@ namespace Datafile
             }
             reader4.Close();
 
-            string query5 = $@"select schoolname,yearpassed from HighSchool where trainerid='{userId}'";
-            SqlCommand command5 = new SqlCommand(query5, con);
+            string query12 = $@"select schoolname,yearpassed from HighSchool where trainerid='{userId}'";
+            SqlCommand command5 = new SqlCommand(query12, con);
             SqlDataReader reader5 = command5.ExecuteReader();
             while (reader5.Read())
             {
@@ -212,8 +169,8 @@ namespace Datafile
             }
             reader5.Close();
 
-            string query6 = $@"select LastcompanyName,totalexp from companies where trainerid='{userId}'";
-            SqlCommand command6 = new SqlCommand(query6, con);
+            string query13 = $@"select LastcompanyName,totalexp from companies where trainerid='{userId}'";
+            SqlCommand command6 = new SqlCommand(query13, con);
             SqlDataReader reader6 = command6.ExecuteReader();
             while (reader6.Read())
             {
@@ -233,10 +190,10 @@ namespace Datafile
 
         public TrainerDetails GetTrainer(string email)
         {  TrainerDetails trainer= new TrainerDetails();
-            string query1 = $@"select email from trainers where email='{email}';";
+            string query14 = $@"select email from trainers where email='{email}';";
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand command1 = new SqlCommand(query1, con);
+            SqlCommand command1 = new SqlCommand(query14, con);
             SqlDataReader reader = command1.ExecuteReader();
             return  trainer;
 
@@ -262,14 +219,14 @@ namespace Datafile
         public void UpdateATrainer(string ? newValue, string columnName, string tableName,string trainerId)
         {
 
-            string query1 = $@"update {tableName} set {columnName}='{newValue}' where trainerid='{trainerId}'";
+            string query15 = $@"update {tableName} set {columnName}='{newValue}' where trainerid='{trainerId}'";
 
             
 
            
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand command1 = new SqlCommand(query1,con);
+            SqlCommand command1 = new SqlCommand(query15,con);
             command1.ExecuteNonQuery();
             Console.WriteLine("Value update successfully!");
             Console.ReadLine();
@@ -278,10 +235,10 @@ namespace Datafile
 
 
         public void DeleteValues(string columnName, string tableName, string trainerId)
-        { string query1= $@"update {tableName} set {columnName}='' where trainerid='{trainerId}'";
+        { string query16= $@"update {tableName} set {columnName}='' where trainerid='{trainerId}'";
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand command1 = new SqlCommand(query1, con);
+            SqlCommand command1 = new SqlCommand(query16, con);
             command1.ExecuteNonQuery();
             Console.WriteLine("Value Deleted successfully!");
             Console.ReadLine();
@@ -307,9 +264,9 @@ namespace Datafile
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             List<TrainerDetails> listTrainer = new List<TrainerDetails>();
-            string query1 = $@"select firstname,lastname,phoneNo,email,skill_1,city from trainers t inner join skills s on t.TrainerId=s.TrainerId ";
+            string query17 = $@"select firstname,lastname,phoneNo,email,skill_1,city from trainers t inner join skills s on t.TrainerId=s.TrainerId ";
           
-            SqlCommand command1 = new SqlCommand(query1, con);
+            SqlCommand command1 = new SqlCommand(query17, con);
             SqlDataReader reader1 = command1.ExecuteReader();
 
             string tr = "";
@@ -338,8 +295,8 @@ namespace Datafile
             con.Open();
 
 
-            string query1 = @"insert into companies(trainerid,lastcompanyName,totalexp) values (@userId,@lastcompanyname,@totalexp)";
-            SqlCommand command1 = new SqlCommand(query1, con);
+            string query18 = @"insert into companies(trainerid,lastcompanyName,totalexp) values (@userId,@lastcompanyname,@totalexp)";
+            SqlCommand command1 = new SqlCommand(query18, con);
             command1.Parameters.AddWithValue("@userId", userId);
             command1.Parameters.AddWithValue("@lastcompanyname", newC);
             command1.Parameters.AddWithValue("@totalexp", newExp);
@@ -356,8 +313,8 @@ namespace Datafile
 
 
 
-            string query = @$"delete from companies where trainerid='{userId}'";
-            SqlCommand command1 = new SqlCommand(query, con);
+            string query19 = @$"delete from companies where trainerid='{userId}'";
+            SqlCommand command1 = new SqlCommand(query19, con);
             command1.ExecuteNonQuery();
             Console.WriteLine("Deleted successfully");
 
@@ -368,8 +325,8 @@ namespace Datafile
         {
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            string query1 = @$"select email from trainers where {column}='{value}'";
-            SqlCommand cmd =new SqlCommand(query1,con);
+            string query20 = @$"select email from trainers where {column}='{value}'";
+            SqlCommand cmd =new SqlCommand(query20,con);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
@@ -389,8 +346,8 @@ namespace Datafile
         {
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            string query1 = @$"update trainers set password='{PasswordHasher(pass)}' where email='{email}'";
-            SqlCommand cmd = new SqlCommand(query1, con);
+            string query21 = @$"update trainers set password='{PasswordHasher(pass)}' where email='{email}'";
+            SqlCommand cmd = new SqlCommand(query21, con);
             SqlDataReader reader = cmd.ExecuteReader();
 
             Console.WriteLine("Password Changed Successfully");
