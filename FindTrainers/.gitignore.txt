@@ -1,3 +1,7 @@
+###text files
+*.txt
+
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
