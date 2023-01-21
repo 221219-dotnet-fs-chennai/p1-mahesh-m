@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using ConsoleTableExt;
+using ConsoleTables;
 using Datafile;
 namespace FindTrainers
 {
@@ -24,6 +24,7 @@ namespace FindTrainers
             
         
         }
+        
 
 
        static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
@@ -102,17 +103,25 @@ namespace FindTrainers
             Console.WriteLine();
 
             Console.WriteLine("[16] Company Details and Experience in years" + "                      ");
-           
-           
 
-            foreach(var e in comp)
+            var table = new ConsoleTable("Companies","Experience in Years");
+
+            foreach (var e in comp)
             {
 
-                Console.WriteLine("                                             ---------------------------");
-                Console.WriteLine("                                             |  " + e.Key + "        |      " + e.Value + "  |  ");
-                Console.WriteLine("                                             ---------------------------");
+                //Console.WriteLine("                                             ---------------------------");
+                //Console.WriteLine("                                             |  " + e.Key + "        |      " + e.Value + "  |  ");
+                //Console.WriteLine("                                             ---------------------------");
+
+                table.AddRow(e.Key,e.Value);
+                   
+
+               
+
 
             }
+            table.Write();
+            Console.WriteLine();
             Console.WriteLine();
 
             Log.Logger.Information("Trainer Experience details added");
@@ -366,7 +375,7 @@ namespace FindTrainers
                         experience = Console.ReadLine();
                     }
 
-                    trainer.SetCompany(compny, experience);
+                    trainer.SetCompany(compny.ToLower(), experience);
 
                     Console.WriteLine("Do you have any other experience? Type (Y/N)");
               

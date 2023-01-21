@@ -441,16 +441,16 @@ namespace Datafile
 
         }
 
-        //public void DeleteSingleCompany(string cnmae,string userid)
-        //{
-        //    using SqlConnection con = new SqlConnection(connectionString);
-        //    con.Open();
-        //    string query1 = @$"delete from companies where lastcompanyname='{cnmae}' and trainerid='{userid}'";
-        //    SqlCommand cmd = new SqlCommand(query1, con);
-        //    cmd.ExecuteNonQuery();
+        public void DeleteSingleCompany(string cnmae, string userid)
+        {
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            string query1 = @$"delete from companies where lastcompanyname='{cnmae}' and trainerid='{userid}'";
+            SqlCommand cmd = new SqlCommand(query1, con);
+            cmd.ExecuteNonQuery();
 
-        //}
+        }
 
-       
+
     }
 }

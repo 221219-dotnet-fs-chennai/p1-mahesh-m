@@ -1,10 +1,12 @@
-﻿using Datafile;
+﻿using ConsoleTables;
+using Datafile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using ConsoleTables;
 
 namespace FindTrainers
 {
@@ -73,14 +75,21 @@ namespace FindTrainers
             Console.WriteLine("=====================");
             Console.WriteLine();
 
-            Console.WriteLine("[12] Company Details and Experience in years" + "                      ");
+            Console.WriteLine("[12] Company Details and Experience in years" );
+          
+
+
+            Console.WriteLine();
+            var table = new ConsoleTable("Companies", "Experience in Years");
+
+
             foreach (var e in comp)
             {
-                Console.WriteLine("                                      ---------------------------");
-                Console.WriteLine("                                      |  " + e.Key + "        |      " + e.Value + "  |  ");
-                Console.WriteLine("                                      ---------------------------");
-            }
+                table.AddRow(e.Key, e.Value);
 
+            }
+            table.Write(Format.MarkDown);
+            Console.WriteLine();
 
             Console.WriteLine("Skill set");
             Console.WriteLine("============");

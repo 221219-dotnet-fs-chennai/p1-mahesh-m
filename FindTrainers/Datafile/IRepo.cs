@@ -60,9 +60,9 @@ namespace Datafile
 
         bool IsExist(string value,string column);
 
-        //void DeleteSingleCompany(string cname, string userid);
+        void DeleteSingleCompany(string cname, string userid);
 
-       
+
 
     }
 }

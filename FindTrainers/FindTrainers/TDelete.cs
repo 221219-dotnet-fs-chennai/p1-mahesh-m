@@ -1,4 +1,5 @@
-﻿using Datafile;
+﻿using ConsoleTables;
+using Datafile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,14 +72,17 @@ namespace FindTrainers
             Console.WriteLine("Experience Details");
             Console.WriteLine("=====================");
             Console.WriteLine();
+            var table = new ConsoleTable("Companies", "Experience in Years");
 
-            Console.WriteLine("[12] Company Details and Experience in years" + "                     - ");
+
             foreach (var e in comp)
             {
-                Console.WriteLine("          ---------------------------");
-                Console.WriteLine("            " + e.Key + "        |          " + e.Value + "    ");
-                Console.WriteLine("          ---------------------------");
+                table.AddRow(e.Key, e.Value);
+
             }
+            table.Write(Format.MarkDown);
+            Console.WriteLine();
+            Console.WriteLine();
 
 
             Console.WriteLine("Skill set");
@@ -265,17 +269,36 @@ namespace FindTrainers
                     Log.Information("Deletes HSP year");
                     return "Profile";
                 case "12":
-                    Console.WriteLine("Are you sure?");
-                    Console.WriteLine("[1] Proceed");
-                    Console.WriteLine("[0] Abort");
-                    val = Console.ReadLine();
+                    Console.WriteLine("Enter the company name to delete the record");
+                    string cname=Console.ReadLine();
 
-                    if (val == "1")
+                 
+
+                    if (trainer.GetCompany().ContainsKey(cname))
                     {
-                        repo.DeleteCompanies(userId);
-                        trainer.GetCompany().Clear();
+                        Console.WriteLine("Are you sure?");
+                        Console.WriteLine("[1] Proceed");
+                        Console.WriteLine("[0] Abort");
+                        val = Console.ReadLine();
+                        if (val == "1")
+                        {
+                            //repo.DeleteCompanies(userId);
+                            //trainer.GetCompany().Clear();
+                            repo.DeleteSingleCompany(cname, userId);
+                            trainer.GetCompany().Remove(cname);
+
+
+                        }
+
+
+                        
                     }
-                   
+                    else
+                    {
+                        Console.WriteLine("Company not found (or) Type the Company name properly again");
+                        Console.ReadLine();
+                    }
+
                     Log.Information("Deletes Experience details");
 
                     return "Profile";

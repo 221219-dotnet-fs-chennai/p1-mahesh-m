@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleTables;
 using Datafile;
 using Serilog;
 namespace FindTrainers
@@ -91,15 +92,17 @@ namespace FindTrainers
                 Console.WriteLine();
                 Console.WriteLine("Company Details and Experience in years");
                 Console.WriteLine("=====================");
+                Console.WriteLine();
+                var table = new ConsoleTable("Companies", "Experience in Years");
+
 
                 foreach (var e in cm)
                 {
-
-                    Console.WriteLine("                                      ---------------------------");
-                    Console.WriteLine("                                      |  " + e.Key + "          |      " + e.Value + "  |    ");
-                    Console.WriteLine("                                      ---------------------------");
+                    table.AddRow(e.Key, e.Value);
 
                 }
+                table.Write(Format.MarkDown);
+                Console.WriteLine();
                 Console.WriteLine();
 
 
