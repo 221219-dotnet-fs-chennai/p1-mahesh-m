@@ -1,4 +1,6 @@
-# Find Trainers
+#### Project 0
+# Find Trainers 
+
 
 ### Objective 
  - to create a console application using C# and related technologies to perform the CRUD functions
@@ -13,10 +15,18 @@
 
 
  ### Concepts Used
- - Abstraction
- - Encapsulation
- - Polymorphism
- - Regex
- - Exception handling
- - Logging
+ - #### C#
+   - Abstraction
+   - Encapsulation
+   - Polymorphism
+   - Regex
+   - Exception handling
+   - Logging
+   - File handling
+ - #### SQL
+   - Stored Procedures
   
+  ### Nugets Packages Used
+  - Microsoft SQL Data Client
+  - Serilog
+  - Console Table
