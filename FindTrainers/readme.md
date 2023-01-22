@@ -24,3 +24,7 @@
  - #### SQL
    - Stored Procedures
   
+  ### Nugets Packages Used
+  - Microsoft SQL Data Client
+  - Serilog
+  - Console Table
