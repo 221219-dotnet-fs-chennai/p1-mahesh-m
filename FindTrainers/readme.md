@@ -13,10 +13,14 @@
 
 
  ### Concepts Used
- - Abstraction
- - Encapsulation
- - Polymorphism
- - Regex
- - Exception handling
- - Logging
+ - #### C#
+  - Abstraction
+  - Encapsulation
+  - Polymorphism
+  - Regex
+  - Exception handling
+  - Logging
+  - File handling
+ - #### SQL
+  - Stored Procedures
   
