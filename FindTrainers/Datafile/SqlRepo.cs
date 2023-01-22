@@ -36,7 +36,15 @@ namespace Datafile
             string query1 = @$"exec sp_insert1 '{userId}','{trainer.FName}','{trainer.LName}','{trainer.Email}','{trainer.PhoneNo}','{trainer.City}','{PasswordHasher(trainer.Password)}','{trainer.Skill1}','{trainer.Skill2}','{trainer.Skill3}','{trainer.Skill4}',   
                                 '{trainer.UGCName}','{trainer.UGPYear}','{trainer.UGDegree}','{trainer.UGDept}','{trainer.HSCName}','{trainer.HSCPYear}','{trainer.HSCStream}','{trainer.HSName}','{trainer.HSPYear}'";
             SqlCommand command1 = new SqlCommand(query1, conn);
-            command1.ExecuteNonQuery();  
+
+            try
+            {
+                command1.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             
 
             Dictionary<String, String> cm = trainer.GetCompany();
@@ -63,6 +71,7 @@ namespace Datafile
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             SqlCommand command1 = new SqlCommand(query3,con);
+
              SqlDataReader reader=command1.ExecuteReader();
             if (reader.Read())
             {
@@ -170,53 +179,24 @@ namespace Datafile
 
         public void UpdateATrainer(string ? newValue, string columnName, string tableName,string trainerId)
         {
-
-           
-            string query="null";
-            switch (tableName)
-            {
-                case "trainers":
-                    query = $@"exec updateTrainers '{trainerId}','{columnName}','{newValue}' ";
-                    break;
-                case "college_ug":
-                     query = $@"exec updatecollege '{trainerId}','{columnName}','{newValue}' ";
-                    break;
-                case "highschool":
-                    query = $@"exec updatehs '{trainerId}','{columnName}','{newValue}' ";
-                    break;
-                case "highsec":
-                    query = $@"exec updatehsc '{trainerId}','{columnName}','{newValue}' ";
-                    break;
-                case "Skills":
-                    query = $@"exec updateskills '{trainerId}','{columnName}','{newValue}' ";
-                    break;
-                default:
-                    Console.WriteLine("Please input a valid response");
-                    Console.WriteLine("Please press Enter to continue");
-                    Console.ReadLine();
-                    break;
-
-
-            }
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            try
+
+            string query = @$"exec sp_updatendelete '{tableName}','{columnName}','{trainerId}','{newValue}'";
+
+            SqlCommand command = new SqlCommand(query,con);
+            command.ExecuteNonQuery();
+
+            if (newValue == "")
             {
-                SqlCommand command1 = new SqlCommand(query, con);
-                if (newValue == "")
-                {
-                    Console.WriteLine("Value Deleted successfully!");
-                }
-                else {
-                    Console.WriteLine("Value updated successfully!");
-                }
-                
-                Console.ReadLine();
+                Console.WriteLine("Value Deleted successfully!");
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Value updated successfully!");
             }
+
+            Console.ReadLine();
 
 
         }

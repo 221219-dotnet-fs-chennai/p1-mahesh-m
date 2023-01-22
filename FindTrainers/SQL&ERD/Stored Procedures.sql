@@ -93,14 +93,96 @@ end;
 
 
 
-create procedure updateskills
-@userid varchar (max),
-@columnname varchar(max),
-@value varchar(max)
+create procedure sp_updatendelete
+@tablename varchar (max),
+@column varchar (max),
+@userid varchar (900),
+@value varchar (max)
 as
 begin
-update Skills set @columnname=@value where trainerid=@userid;
+if @tablename = 'trainers'
+    begin
+	    if @column='phoneno'
+		   begin
+		      update trainers set PhoneNo=@value where TrainerId=@userid;
+		   end;
+		else If @column='city'
+		      begin
+		      update trainers set City=@value where TrainerId=@userid;
+			  end;
+	end;
+
+else if @tablename ='college_ug'
+     begin
+	 if @column = 'collegename'
+	  begin
+	    update College_UG set CollegeName=@value where trainerId=@userid;
+	 end;
+	 else if @column = 'yearpassed'
+	  begin
+	    update College_UG set YearPassed=@value where trainerId=@userid;
+	 end;
+	 else if @column = 'degree'
+	  begin
+	    update College_UG set Degree=@value where trainerId=@userid;
+	 end;
+	 else if @column = 'branch'
+	  begin
+	    update College_UG set Branch=@value where trainerId=@userid;
+	 end;
 end;
+else if @tablename ='highsec'
+     begin
+	 if @column = 'schoolname'
+	  begin
+	    update HighSec set SchoolName=@value where trainerId=@userid;
+	 end;
+	 else if @column = 'yearpassed'
+	  begin
+	    update HighSec set YearPassed=@value where trainerId=@userid;
+	 end;
+	 else if @column = 'course'
+	  begin
+	    update HighSec set Course=@value where trainerId=@userid;
+	 end;
+end;
+
+else if @tablename ='highschool'
+     begin
+	 if @column = 'schoolname'
+	  begin
+	    update HighSchool set SchoolName=@value where trainerId=@userid;
+	 end;
+	 else if @column = 'yearpassed'
+	  begin
+	    update HighSchool set YearPassed=@value where trainerId=@userid;
+	 end;
+	
+end;
+
+else if @tablename ='Skills'
+     begin
+	 if @column = 'skill_1'
+	  begin
+	    update Skills set Skill_1=@value where trainerId=@userid;
+	 end;
+	 else if @column = 'skill_2'
+	  begin
+	    update Skills set Skill_2=@value where trainerId=@userid;
+	 end;
+	 else if @column = 'skill_3'
+	  begin
+	    update Skills set Skill_3=@value where trainerId=@userid;
+	 end;
+	 else if @column = 'skill_4'
+	  begin
+	    update skills set Skill_4=@value where trainerId=@userid;
+	 end;
+end;
+end;
+
+
+
 
 create procedure sp_deleteacc
 @userid varchar(max)

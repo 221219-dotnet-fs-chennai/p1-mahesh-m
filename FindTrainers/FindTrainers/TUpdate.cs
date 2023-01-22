@@ -181,7 +181,7 @@ namespace FindTrainers
                         str = Console.ReadLine();
                     }
                     trainer.UGCName = str;
-                    repo.UpdateATrainer(trainer.UGCName, "collegeName", "colleg_ug", userId);
+                    repo.UpdateATrainer(trainer.UGCName, "collegeName", "college_ug", userId);
                     Log.Information("Trainer update his/her College Name");
                     return "Profile";
                 case "4":

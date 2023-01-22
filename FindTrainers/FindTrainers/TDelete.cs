@@ -132,7 +132,7 @@ namespace FindTrainers
                     Console.WriteLine("Are you sure?");
                     Console.WriteLine("[1] Proceed");
                     Console.WriteLine("[0] Abort");
-                    val = Console.ReadLine();
+                     val  = Console.ReadLine();
                     if (val == "1")
                     {
                         repo.UpdateATrainer("","city", "trainers", userId);
