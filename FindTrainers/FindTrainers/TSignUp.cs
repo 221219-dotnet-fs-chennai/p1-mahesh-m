@@ -103,24 +103,29 @@ namespace FindTrainers
             Console.WriteLine();
 
             Console.WriteLine("[16] Company Details and Experience in years" + "                      ");
-
-            var table = new ConsoleTable("Companies","Experience in Years");
-
-            foreach (var e in comp)
+            Console.WriteLine();
+            
+            if (comp.Count > 0)
             {
+                var table =new ConsoleTable("Companies", "Experience in Years");
+                foreach (var e in comp)
+                {
 
-                //Console.WriteLine("                                             ---------------------------");
-                //Console.WriteLine("                                             |  " + e.Key + "        |      " + e.Value + "  |  ");
-                //Console.WriteLine("                                             ---------------------------");
+                    //Console.WriteLine("                                             ---------------------------");
+                    //Console.WriteLine("                                             |  " + e.Key + "        |      " + e.Value + "  |  ");
+                    //Console.WriteLine("                                             ---------------------------");
 
-                table.AddRow(e.Key,e.Value);
-                   
-
-               
+                    table.AddRow(e.Key, e.Value);
 
 
+
+
+
+                }
+                table.Write(Format.MarkDown);
             }
-            table.Write(Format.MarkDown);
+
+           
             Console.WriteLine();
             Console.WriteLine();
 

@@ -32,6 +32,7 @@ namespace FindTrainers
             switch (userInput)
             {
                 case "0":
+
                     return "Trainer";
                 case "1":
                     Log.Information("Trainer Tries Loggin in");

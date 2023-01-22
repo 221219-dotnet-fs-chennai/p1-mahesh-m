@@ -26,6 +26,7 @@ namespace FindTrainers
                 switch (ans)
                 {
                     case "Trainer":
+                        trainer = new Datafile.TrainerDetails();
                         menu = new Trainer();
                         break;
                     case "TSignUp":

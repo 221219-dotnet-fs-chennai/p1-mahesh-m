@@ -40,9 +40,7 @@ namespace Datafile
         /// <param name="userId"></param>
         void UpdateCompanies(string newC, string newExp,string userId);
 
-        void DeleteCompanies(string userId);
 
-        //void DeleteValues(string columnName, string tableName,string trainerId);
 
         void DeleteAccount(string trainerId);
 

@@ -320,15 +320,7 @@ namespace Datafile
         }
 
 
-        //public void DeleteValues(string columnName, string tableName, string trainerId)
-        //{ string query16= $@"update {tableName} set {columnName}='' where trainerid='{trainerId}'";
-        //    using SqlConnection con = new SqlConnection(connectionString);
-        //    con.Open();
-        //    SqlCommand command1 = new SqlCommand(query16, con);
-        //    command1.ExecuteNonQuery();
-        //    Console.WriteLine("Value Deleted successfully!");
-        //    Console.ReadLine();
-        //}
+       
 
         public void DeleteAccount(string trainerId)
         {
@@ -350,7 +342,7 @@ namespace Datafile
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             List<TrainerDetails> listTrainer = new List<TrainerDetails>();
-            string query17 = $@"select firstname,lastname,phoneNo,email,skill_1,city from trainers t inner join skills s on t.TrainerId=s.TrainerId ";
+            string query17 = $@"exec sp_getall";
           
             SqlCommand command1 = new SqlCommand(query17, con);
             SqlDataReader reader1 = command1.ExecuteReader();
@@ -389,27 +381,20 @@ namespace Datafile
             Console.ReadLine();
         }
 
-        public void DeleteCompanies(string userId)
-        {
-            using SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-
-
-
-
-            string query19 = @$"delete from companies where trainerid='{userId}'";
-            SqlCommand command1 = new SqlCommand(query19, con);
-            command1.ExecuteNonQuery();
-            Console.WriteLine("Deleted successfully");
-
-
-        }
 
         public bool IsExist(string value,string column)
         {
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            string query20 = @$"select email from trainers where {column}='{value}'";
+            string query20;
+            if (column == "email")
+            {
+                query20 = $@"exec sp_isexistemail '{value}'";
+            }
+            else
+            {
+                query20= $@"exec sp_isexistphone '{value}'";
+            }
             SqlCommand cmd =new SqlCommand(query20,con);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
@@ -430,9 +415,9 @@ namespace Datafile
         {
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            string query21 = @$"update trainers set password='{PasswordHasher(pass)}' where email='{email}'";
+            string query21 = @$"exec sp_newpass '{email}','{PasswordHasher(pass)}'";
             SqlCommand cmd = new SqlCommand(query21, con);
-            SqlDataReader reader = cmd.ExecuteReader();
+            cmd.ExecuteNonQuery();
 
             Console.WriteLine("Password Changed Successfully");
             
