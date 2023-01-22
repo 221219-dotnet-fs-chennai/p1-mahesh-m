@@ -120,7 +120,7 @@ namespace FindTrainers
 
 
             }
-            table.Write();
+            table.Write(Format.MarkDown);
             Console.WriteLine();
             Console.WriteLine();
 

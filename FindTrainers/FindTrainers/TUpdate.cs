@@ -18,6 +18,8 @@ namespace FindTrainers
         IRepo repo = new SqlRepo(s[0], s[1]);
         public new void Display()
         {
+         
+           
             Console.WriteLine();
             Console.WriteLine("----------------------------------------------------- Update Page  -------------------------------------------------------");
             Console.WriteLine();
@@ -102,6 +104,8 @@ namespace FindTrainers
             Console.WriteLine("[16] Quaternary Skill" + "                    - " + trainer.Skill4);
             Console.WriteLine();
             Console.WriteLine();
+         
+         
            
 
         }

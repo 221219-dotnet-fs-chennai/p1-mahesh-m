@@ -332,7 +332,7 @@ namespace Datafile
 
         public void DeleteAccount(string trainerId)
         {
-            string query1 = $@"delete from trainers where trainerid='{trainerId}'";
+            string query1 = $@"exec sp_deleteacc {trainerId}";
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             SqlCommand command1 = new SqlCommand(query1, con);
@@ -381,11 +381,9 @@ namespace Datafile
             con.Open();
 
 
-            string query18 = @"insert into companies(trainerid,lastcompanyName,totalexp) values (@userId,@lastcompanyname,@totalexp)";
+            string query18 = @$"exec sp_updatecompanies '{userId}','{newC}','{newExp}'";
             SqlCommand command1 = new SqlCommand(query18, con);
-            command1.Parameters.AddWithValue("@userId", userId);
-            command1.Parameters.AddWithValue("@lastcompanyname", newC);
-            command1.Parameters.AddWithValue("@totalexp", newExp);
+            
             command1.ExecuteNonQuery();
             Console.WriteLine("Updated Successfully");
             Console.ReadLine();
@@ -445,7 +443,7 @@ namespace Datafile
         {
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            string query1 = @$"delete from companies where lastcompanyname='{cnmae}' and trainerid='{userid}'";
+            string query1 = @$"exec sp_deleteCompany '{userid}','{cnmae}'";
             SqlCommand cmd = new SqlCommand(query1, con);
             cmd.ExecuteNonQuery();
 

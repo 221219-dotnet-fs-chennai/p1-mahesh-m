@@ -1,4 +1,5 @@
-﻿using Datafile;
+﻿using ConsoleTables;
+using Datafile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,22 +33,32 @@ namespace FindTrainers
                 case"0":
                     return "Menu";
                 case"1":
+                    Console.Clear();
                     var listOfTrainers=repo.GetAll();
 
-                    Console.WriteLine("==========================");
-                    Console.WriteLine(listOfTrainers.Count);
+                    var table = new ConsoleTable("Nos","Name","Primary Skill", "Phone No.","Email","Location");
+                    //Console.WriteLine("==========================");
+                    //Console.WriteLine(listOfTrainers.Count);
+                    int Count = 1;
+                    Console.WriteLine("----------------------------------------------Trainers' List------------------------------------------------------------");
+
+                    Console.WriteLine();
+                    Console.WriteLine();
                     foreach (var t in listOfTrainers)
                     {
-                        Console.WriteLine(t.FName + " " + t.LName);
-                        Console.WriteLine(t.Skill1);
-                        Console.WriteLine(t.PhoneNo);
-                        Console.WriteLine(t.Email);
-                        Console.WriteLine(t.City);
-                        Console.WriteLine();
-                        Console.WriteLine("==========================");
-                        
+                        table.AddRow(Count,t.FName+" "+t.LName,t.Skill1,t.PhoneNo,t.Email,t.City);
+                       
 
+                        Count++;
                     }
+                    table.Write(Format.Alternative);
+                    Console.WriteLine();    
+            
+
+
+
+
+
                     Console.ReadLine();
 
               
