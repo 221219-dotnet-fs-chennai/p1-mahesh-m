@@ -380,7 +380,7 @@ namespace FindTrainers
                         experience = Console.ReadLine();
                     }
 
-                    trainer.SetCompany(compny.ToLower(), experience);
+                    trainer.SetCompany(compny, experience);
 
                     Console.WriteLine("Do you have any other experience? Type (Y/N)");
               

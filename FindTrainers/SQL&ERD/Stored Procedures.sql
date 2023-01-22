@@ -20,7 +20,7 @@ create procedure sp_insert1
 @hsccourse varchar(max),
 @hsschool varchar(max),
 @yps varchar(max)
-
+8123178911
 as
 begin
 insert into trainers(TrainerId,FirstName,LastName,Email,PhoneNo,City,Password) values(@userid,@fname,@lname,@email,@phone,@city,@password);
