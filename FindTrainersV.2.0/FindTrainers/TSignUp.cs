@@ -39,9 +39,14 @@ namespace FindTrainers
         
         }
 
-        public TSignUp(EntityFramework.newEntities.Trainer tra)
+        public TSignUp(EntityFramework.newEntities.Trainer tra,HighSchool hsl,HighSec hscl,List<Company>cmp,Skill sks,CollegeUg col)
         {
             tr = tra;
+            hs = hsl;
+            hsc= hscl;
+            companies=cmp;
+            sk=sks;
+            cug=col;
         }
 
 

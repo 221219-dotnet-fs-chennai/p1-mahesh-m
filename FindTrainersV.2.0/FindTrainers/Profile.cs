@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ConsoleTables;
 using Datafile;
+using EntityFramework.newEntities;
 using Serilog;
 namespace FindTrainers
 {
@@ -13,6 +14,12 @@ namespace FindTrainers
     {
        
         EntityFramework.newEntities.Trainer newTr=new EntityFramework.newEntities.Trainer();
+        internal static Skill sk = new Skill();
+        internal static HighSchool hs = new HighSchool();
+        internal static HighSec hsc = new HighSec();
+        internal static CollegeUg cug = new CollegeUg();
+        internal static Company com = new Company();
+        internal static List<Company> companies = new List<Company>();
 
         TrainerDetails newTrainer =new TrainerDetails();
 
@@ -20,16 +27,21 @@ namespace FindTrainers
         newTrainer= trainer;
         }
 
-        public Profile(EntityFramework.newEntities.Trainer tr)
+        public Profile(EntityFramework.newEntities.Trainer tra, HighSchool hsl, HighSec hscl, List<Company> cmp, Skill sks, CollegeUg col)
         {
-            newTr = tr;
+           newTr = tra;
+            hs = hsl;
+            hsc = hscl;
+            companies = cmp;
+            sk = sks;
+            cug = col;
         }
 
         public void Display()
         {
             Console.WriteLine();
             Console.WriteLine($"<-------------------------- PROFILE PAGE ----------------------------->");
-            Console.WriteLine($"Welcome {newTrainer.FName} {newTrainer.LName}");
+            Console.WriteLine($"Welcome {newTr.FirstName} {newTr.LastName}");
             Console.WriteLine("Hope you are doing good!!");
             Console.WriteLine();
             Console.WriteLine("What do you want to do?");
@@ -85,15 +97,15 @@ namespace FindTrainers
                 Console.WriteLine();
                 Console.WriteLine("Educational Details");
                 Console.WriteLine("=====================");
-                Console.WriteLine("Bachelor's College Name" + "               - " + newTrainer.UGCName);
-                Console.WriteLine("Bachelor's Year of Passing" + "            - " + newTrainer.UGPYear);
-                Console.WriteLine("Bachelor's Degree" + "                     - " + newTrainer.UGDegree);
-                Console.WriteLine("Bachelor's Specializaiton" + "             - " + newTrainer.UGDept);
-                Console.WriteLine("HigherSecSchool Name" + "                  - " + newTrainer.HSCName);
-                Console.WriteLine("HigherSecSchool Year of Passing" + "       - " + newTrainer.HSCPYear);
-                Console.WriteLine("HigherSecSchool Stream" + "                - " + newTrainer.HSCStream);
-                Console.WriteLine("HighSchool Name" + "                       - " + newTrainer.HSName);
-                Console.WriteLine("HighSchool Year of Passing" + "            - " + newTrainer.HSPYear);
+                Console.WriteLine("Bachelor's College Name" + "               - " + cug.CollegeName);
+                Console.WriteLine("Bachelor's Year of Passing" + "            - " + cug.YearPassed);
+                Console.WriteLine("Bachelor's Degree" + "                     - " + cug.Degree);
+                Console.WriteLine("Bachelor's Specializaiton" + "             - " + cug.Branch);
+                Console.WriteLine("HigherSecSchool Name" + "                  - " + hsc.SchoolName);
+                Console.WriteLine("HigherSecSchool Year of Passing" + "       - " + hsc.YearPassed);
+                Console.WriteLine("HigherSecSchool Stream" + "                - " + hsc.Course);
+                Console.WriteLine("HighSchool Name" + "                       - " + hs.SchoolName);
+                Console.WriteLine("HighSchool Year of Passing" + "            - " + hs.YearPassed);
                 Dictionary<string, string> cm = newTrainer.GetCompany();
 
                 Console.WriteLine();
@@ -103,9 +115,9 @@ namespace FindTrainers
                 var table = new ConsoleTable("Companies", "Experience in Years");
 
 
-                foreach (var e in cm)
+                foreach (var e in companies)
                 {
-                    table.AddRow(e.Key, e.Value);
+                    table.AddRow(e.LastCompanyName, e.TotalExp);
 
                 }
                 table.Write(Format.MarkDown);
@@ -116,10 +128,10 @@ namespace FindTrainers
                 Console.WriteLine();
                 Console.WriteLine("Skills Details");
                 Console.WriteLine("=====================");
-                Console.WriteLine("Primary Skill" + "                         - " + newTrainer.Skill1);
-                Console.WriteLine("Secondary Skill" + "                       - " + newTrainer.Skill2);
-                Console.WriteLine("Tertiary Skill" + "                        - " + newTrainer.Skill3);
-                Console.WriteLine("Quaternary Skill" + "                      - " + newTrainer.Skill4);
+                Console.WriteLine("Primary Skill" + "                         - " + sk.Skill1);
+                Console.WriteLine("Secondary Skill" + "                       - " + sk.Skill2);
+                Console.WriteLine("Tertiary Skill" + "                        - " + sk.Skill3);
+                Console.WriteLine("Quaternary Skill" + "                      - " + sk.Skill4);
                 Console.ReadLine();
             }
 

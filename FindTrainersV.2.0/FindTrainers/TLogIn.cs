@@ -42,7 +42,8 @@ namespace FindTrainers
                     bool res= repo.Login(email);
                     if (res)
                     {
-                        TSignUp newTrainer = new TSignUp(rp.GetTrainer(email.Split("@")[0]));
+                        string tid = email.Split("@")[0];
+                        TSignUp newTrainer = new TSignUp(rp.GetTrainer(tid),rp.GetHighSchool(tid),rp.GetHighSec(tid),rp.GetCompany(tid),rp.GetSkill(tid),rp.GetCollegeUg(tid));
                         Log.Information("Trainer has logged in Successfully");
                         return "Profile";
                     }
