@@ -22,7 +22,7 @@ namespace FindTrainers
         internal static HighSec hsc =new HighSec();
         internal static CollegeUg cug= new CollegeUg();
         internal static Company com=new Company();  
-        List<Company> companies=new List<Company>();
+       internal static List<Company> companies=new List<Company>();
 
 
         string? nameRegex = @"\w{3,50}";
@@ -38,10 +38,14 @@ namespace FindTrainers
             
         
         }
-        
+
+        public TSignUp(EntityFramework.newEntities.Trainer tra)
+        {
+            tr = tra;
+        }
 
 
-       static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
+        static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
 
         EntityFramework.IRepo repo = new EFRepo();
 
@@ -121,7 +125,7 @@ namespace FindTrainers
             Console.WriteLine("[16] Company Details and Experience in years" + "                      ");
             Console.WriteLine();
             
-            if (comp.Count > 0)
+            if (companies.Count > 0)
             {
                 var table =new ConsoleTable("Companies", "Experience in Years");
                 foreach (var e in companies)

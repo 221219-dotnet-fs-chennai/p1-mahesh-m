@@ -16,6 +16,7 @@ namespace FindTrainers
         static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
 
         IRepo repo = new SqlRepo(s[0], s[1]);
+        EntityFramework.IRepo rp=new EntityFramework.EFRepo();
         public void Display()
         {
             Console.WriteLine($"<-------------------------- LOGIN PAGE ----------------------------->");
@@ -41,7 +42,7 @@ namespace FindTrainers
                     bool res= repo.Login(email);
                     if (res)
                     {
-                        TSignUp newTrainer = new TSignUp(repo.GetATrainer(email));
+                        TSignUp newTrainer = new TSignUp(rp.GetTrainer(email.Split("@")[0]));
                         Log.Information("Trainer has logged in Successfully");
                         return "Profile";
                     }

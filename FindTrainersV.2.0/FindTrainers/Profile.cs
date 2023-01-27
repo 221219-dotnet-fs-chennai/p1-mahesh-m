@@ -12,12 +12,19 @@ namespace FindTrainers
     internal class Profile : IMenu
     {
        
+        EntityFramework.newEntities.Trainer newTr=new EntityFramework.newEntities.Trainer();
 
         TrainerDetails newTrainer =new TrainerDetails();
 
         public Profile(TrainerDetails trainer) { 
         newTrainer= trainer;
         }
+
+        public Profile(EntityFramework.newEntities.Trainer tr)
+        {
+            newTr = tr;
+        }
+
         public void Display()
         {
             Console.WriteLine();
@@ -68,11 +75,11 @@ namespace FindTrainers
                 Console.WriteLine();
                 Console.WriteLine("Basic Details");
                 Console.WriteLine("=====================");
-                Console.WriteLine("First Name" + "                            - " + newTrainer.FName);
-                Console.WriteLine("Last Name" + "                             - " + newTrainer.LName);
-                Console.WriteLine("Email ID" + "                              - " + newTrainer.Email);
-                Console.WriteLine("Phone No." + "                             - " + newTrainer.PhoneNo);
-                Console.WriteLine("City" + "                                  -" + newTrainer.City);
+                Console.WriteLine("First Name" + "                            - " + newTr.FirstName);
+                Console.WriteLine("Last Name" + "                             - " + newTr.LastName);
+                Console.WriteLine("Email ID" + "                              - " + newTr.Email);
+                Console.WriteLine("Phone No." + "                             - " + newTr.PhoneNo);
+                Console.WriteLine("City" + "                                  -" + newTr.City);
 
 
                 Console.WriteLine();

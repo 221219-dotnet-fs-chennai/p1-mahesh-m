@@ -9,6 +9,32 @@ namespace EntityFramework
 {
     public class EFRepo : IRepo
     {
+        public Trainer GetTrainer(string tId)
+        {
+            var context = new TrainerDetailsContext();
+            var trainers=context.Trainers;
+            var tr= from t in trainers
+                    where t.TrainerId== tId
+                    select t;
+            Trainer trb = new Trainer();
+            foreach (var t in tr)
+            {
+                trb = new Trainer()
+                {
+                    FirstName= t.FirstName,
+                    LastName= t.LastName,
+                    PhoneNo= t.PhoneNo,
+                    TrainerId= t.TrainerId,
+                    Email= t.Email,
+                    City= t.City,
+                    
+                };
+
+            }
+            return trb;
+
+        }
+
         public void InsertTrainers(Trainer tr, Skill sk, HighSec hsc, HighSchool hs, List<Company> com, CollegeUg ug)
         {
             var context =new  TrainerDetailsContext();
@@ -23,7 +49,8 @@ namespace EntityFramework
             }
 
             context.SaveChanges();
-
         }
+
+
     }
 }

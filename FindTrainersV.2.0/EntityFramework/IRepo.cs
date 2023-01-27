@@ -12,5 +12,7 @@ namespace EntityFramework
 
         void InsertTrainers(Trainer Tr,Skill sk,HighSec hsc,HighSchool hs,List<Company> com,CollegeUg ug);
 
+        Trainer GetTrainer(string trainerId);
+
     }
 }

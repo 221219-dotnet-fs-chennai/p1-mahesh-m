@@ -44,7 +44,7 @@ namespace FindTrainers
                         break;
                     case "Profile":
                         Log.Logger.Information("Logging into trainer profile page");
-                        menu = new Profile(trainer);
+                        menu = new Profile(tr);
                         break;
                     case "TLogIn":
                         Log.Logger.Information("Displaying Trainer Login Page");
