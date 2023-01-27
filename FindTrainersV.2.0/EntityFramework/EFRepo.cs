@@ -147,6 +147,18 @@ namespace EntityFramework
             context.SaveChanges();
         }
 
+        public void UpdateATrainer(string newVal, string table, string column, string trainerId)
+        {
+            var context =new TrainerDetailsContext();
+            var trainers=context.Trainers;
+            var tr= from t in trainers
+                    where t.TrainerId== trainerId
+                    select t;
+            foreach(var rec in tr) {
+                rec.PhoneNo = newVal;
+            }
+            context.SaveChanges();
 
+        }
     }
 }

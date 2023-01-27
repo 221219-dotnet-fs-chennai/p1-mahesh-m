@@ -15,7 +15,7 @@ namespace FindTrainers
         static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
         Dictionary<string, string> comp = trainer.GetCompany();
 
-        IRepo repo = new SqlRepo(s[0], s[1]);
+        EntityFramework.IRepo repo=new EntityFramework.EFRepo();
         public new void Display()
         {
          
@@ -135,29 +135,30 @@ namespace FindTrainers
                         Console.WriteLine("Phone No. format is invalid! Re-enter Phone No.");
                         str = Console.ReadLine();
                     }
-                    if (repo.IsExist(str, "phoneNo"))
-                    {
-                        Console.WriteLine("Phone No. is Associated with another account. Try add different phone number!");
-                        Console.ReadLine();
+                    //if (repo.IsExist(str, "phoneNo"))
+                    //{
+                    //    Console.WriteLine("Phone No. is Associated with another account. Try add different phone number!");
+                    //    Console.ReadLine();
 
 
 
-                        return "TUpdate";
+                    //    return "TUpdate";
 
-                    }
-                    else
-                    {
+                    //}
+                    //else
+                    //{
 
-                        trainer.PhoneNo = str;
-                        repo.UpdateATrainer(trainer.PhoneNo, "phoneNo", "trainers", userId);
-                        Log.Information("Trainer updated his/her phone no.");
-                        return "Profile";
+                       
 
-                    }
+                    //}
+                    tr.PhoneNo = str;
+                    repo.UpdateATrainer(tr.PhoneNo, "phoneNo", "trainers", userId);
+                    Log.Information("Trainer updated his/her phone no.");
+                    return "Profile";
 
 
 
-                    
+
 
 
                 case "2":
@@ -301,7 +302,7 @@ namespace FindTrainers
                         exp = Console.ReadLine();
                     }
                     trainer.SetCompany(newC, exp);
-                    repo.UpdateCompanies(newC,exp, userId);
+                    //repo.UpdateCompanies(newC,exp, userId);
                     Log.Information("User updates his/her Experience details");
                     return "Profile";
                 case "13":

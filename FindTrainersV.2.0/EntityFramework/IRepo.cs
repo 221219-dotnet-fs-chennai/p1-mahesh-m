@@ -18,7 +18,9 @@ namespace EntityFramework
         Skill GetSkill(string trainerId);
         List<Company> GetCompany(string trainerId);
 
-        CollegeUg GetCollegeUg(string trainerId);   
+        CollegeUg GetCollegeUg(string trainerId);
+
+        void UpdateATrainer(string newVal, string table, string column, string trainerId);
 
     }
 }
