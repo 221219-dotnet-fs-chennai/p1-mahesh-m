@@ -10,6 +10,18 @@ namespace EntityFramework
 {
     public class EFRepo : IRepo
     {
+        public void DeleteSingleCompany(string cnmae, string userid)
+        {
+            var context = new TrainerDetailsContext();
+            var com= context.Companies.FirstOrDefault(x=>x.TrainerId==userid && x.LastCompanyName==cnmae);
+            if (com!=null)
+            {
+                context.Companies.Remove(com);
+                context.SaveChanges();
+            }
+
+        }
+
         public CollegeUg GetCollegeUg(string trainerId)
         {
             var context = new TrainerDetailsContext();

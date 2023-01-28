@@ -274,8 +274,8 @@ namespace FindTrainers
                     string cname=Console.ReadLine();
 
                  
-
-                    if (trainer.GetCompany().ContainsKey(cname))
+                    var comp=companies.SingleOrDefault(x=>x.TrainerId==userId && x.LastCompanyName==cname);
+                    if (comp!=null)
                     {
                         Console.WriteLine("Are you sure?");
                         Console.WriteLine("[1] Proceed");
@@ -286,8 +286,7 @@ namespace FindTrainers
                             //repo.DeleteCompanies(userId);
                             //trainer.GetCompany().Clear();
                             repo.DeleteSingleCompany(cname, userId);
-                            trainer.GetCompany().Remove(cname);
-
+                            companies.Remove(comp);
 
                         }
 
