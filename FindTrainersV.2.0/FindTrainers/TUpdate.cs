@@ -301,9 +301,16 @@ namespace FindTrainers
                     {
                         Console.WriteLine("Give correct experience information");
                         exp = Console.ReadLine();
+                        e= Convert.ToInt32(exp);
                     }
-                    trainer.SetCompany(newC, exp);
-                    //repo.UpdateCompanies(newC,exp, userId);
+                    companies.Add(new()
+                    {
+                        TrainerId = userId,
+                        LastCompanyName = newC,
+                        TotalExp = e
+
+                    });
+                    repo.UpdateCompanies(newC, exp, userId);
                     Log.Information("User updates his/her Experience details");
                     return "Profile";
                 case "13":

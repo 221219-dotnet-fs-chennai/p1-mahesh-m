@@ -26,12 +26,8 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("Basic Details");
-            Console.WriteLine("=================");
-            Console.WriteLine();
-
-            Console.WriteLine("[1] Phone No." + "                              - " + trainer.PhoneNo);
-            Console.WriteLine("[2] City" + "                                   - " + trainer.City);
+            Console.WriteLine("[1] Phone No." + "                            - " + tr.PhoneNo);
+            Console.WriteLine("[2] City" + "                                 - " + tr.City);
             Console.WriteLine();
 
 
@@ -40,10 +36,10 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("[3] Bachelor's College Name" + "              - " + trainer.UGCName);
-            Console.WriteLine("[4] Bachelor's Year of Passing" + "           - " + trainer.UGPYear);
-            Console.WriteLine("[5] Bachelor's Degree" + "                    - " + trainer.UGDegree);
-            Console.WriteLine("[6] Bachelor's Specializaiton" + "            - " + trainer.UGDept);
+            Console.WriteLine("[3] Bachelor's College Name" + "              - " + cug.CollegeName);
+            Console.WriteLine("[4] Bachelor's Year of Passing" + "           - " + cug.YearPassed);
+            Console.WriteLine("[5] Bachelor's Degree" + "                    - " + cug.Degree);
+            Console.WriteLine("[6] Bachelor's Specializaiton" + "            - " + cug.Branch);
             Console.WriteLine();
 
 
@@ -52,9 +48,9 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("[7] HigherSecSchool Name" + "                - " + trainer.HSCName);
-            Console.WriteLine("[8] HigherSecSchool Year of Passing" + "     - " + trainer.HSCPYear);
-            Console.WriteLine("[9] HigherSecSchool Stream" + "              - " + trainer.HSCStream);
+            Console.WriteLine("[7] HigherSecSchool Name" + "                - " + hsc.SchoolName);
+            Console.WriteLine("[8] HigherSecSchool Year of Passing" + "     - " + hsc.YearPassed);
+            Console.WriteLine("[9] HigherSecSchool Stream" + "              - " + hsc.Course);
             Console.WriteLine();
 
 
@@ -64,46 +60,51 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("[10] HighSchool Name" + "                     - " + trainer.HSName);
-            Console.WriteLine("[11] HighSchool Year of Passing" + "          - " + trainer.HSPYear);
+            Console.WriteLine("[10] HighSchool Name" + "                     - " + hs.SchoolName);
+            Console.WriteLine("[11] HighSchool Year of Passing" + "          - " + hs.YearPassed);
             Console.WriteLine();
 
 
             Console.WriteLine("Experience Details");
             Console.WriteLine("=====================");
             Console.WriteLine();
+
+            Console.WriteLine("[12] Company Details and Experience in years");
+
+
+
+            Console.WriteLine();
             var table = new ConsoleTable("Companies", "Experience in Years");
 
 
-            foreach (var e in comp)
+            foreach (var e in companies)
             {
-                table.AddRow(e.Key, e.Value);
+                table.AddRow(e.LastCompanyName, e.TotalExp);
 
             }
             table.Write(Format.MarkDown);
             Console.WriteLine();
-            Console.WriteLine();
-
 
             Console.WriteLine("Skill set");
             Console.WriteLine("============");
             Console.WriteLine();
 
 
-            Console.WriteLine("[13] Primary Skill" + "                       - " + trainer.Skill1);
-            Console.WriteLine("[14] Secondary Skill" + "                     - " + trainer.Skill2);
-            Console.WriteLine("[15] Tertiary Skill" + "                      - " + trainer.Skill3);
-            Console.WriteLine("[16] Quaternary Skill" + "                    - " + trainer.Skill4);
+            Console.WriteLine("[13] Primary Skill" + "                       - " + sk.Skill1);
+            Console.WriteLine("[14] Secondary Skill" + "                     - " + sk.Skill2);
+            Console.WriteLine("[15] Tertiary Skill" + "                      - " + sk.Skill3);
+            Console.WriteLine("[16] Quaternary Skill" + "                    - " + sk.Skill4);
             Console.WriteLine();
             Console.WriteLine();
-        
+
+
 
             Console.WriteLine("[17] DELETE YOUR ACCOUNT !!!!!");
         }
 
         public new string UserChoice()
         {
-            String[] arr = trainer.Email.Split("@");
+            String[] arr = tr.Email.Split("@");
             string userId = arr[0];
             string? userInput = Console.ReadLine();
 
@@ -123,7 +124,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("","phoneNo", "trainers", userId);
                     }
-                    trainer.PhoneNo = "";
+                    tr.PhoneNo = "";
                     Log.Information("Deletes phno");
 
                     return "Profile";
@@ -137,7 +138,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("","city", "trainers", userId);
                     }
-                    trainer.City = "";
+                    tr.City = "";
                     Log.Information("Deletes City");
 
                     return "Profile";
@@ -151,7 +152,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("","collegename", "college_ug", userId);
                     }
-                    trainer.UGCName = "";
+                    cug.CollegeName = "";
                     Log.Information("Deletes UGC name");
                     return "Profile";
                 case "4":
@@ -165,7 +166,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("", "yearpassed", "college_ug", userId);
                     }
-                    trainer.UGPYear="";
+                    cug.YearPassed="";
                     Log.Information("Deletes UGP year");
                     return "Profile";
                 case "5":
@@ -178,7 +179,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("", "degree", "college_ug", userId);
                     }
-                    trainer.UGDegree = "";
+                    cug.Degree = "";
                     Log.Information("Deletes UG Degree");
 
                     return "Profile";
@@ -192,7 +193,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("", "branch", "college_ug", userId);
                     }
-                    trainer.UGDept = "";
+                    cug.Branch = "";
                     Log.Information("Deletes UG Dept");
                     return "Profile";
                 case "7":
@@ -206,7 +207,7 @@ namespace FindTrainers
                         repo.UpdateATrainer("", "Schoolname", "highsec", userId);
                     }
 
-                    trainer.HSCName = "";
+                    hsc.SchoolName= "";
                     Log.Information("Deletes HSC Name");
                
                     return "Profile";
@@ -222,7 +223,7 @@ namespace FindTrainers
                         repo.UpdateATrainer("", "yearpassed", "highsec", userId);
                     }
 
-                    trainer.HSCPYear = "";
+                    hsc.YearPassed = "";
                     Log.Information("Deletes HSCP year");
                     return "Profile";
                 case "9":
@@ -251,7 +252,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("", "schoolname", "highschool", userId);
                     }
-                    trainer.HSName = "";
+                    hs.SchoolName = "";
                     Log.Information("Deletes HS Name");
 
                     return "Profile";
@@ -265,7 +266,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("", "yearpassed", "highschool", userId);
                     }
-                    trainer.HSPYear = "";
+                    hs.YearPassed = "";
                     Log.Information("Deletes HSP year");
                     return "Profile";
                 case "12":
@@ -313,7 +314,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("", "skill_1", "Skills", userId);
                     }
-                    trainer.Skill1 = "";
+                    sk.Skill1 = "";
                     Log.Information("Deletes Skillset details");
                     return "Profile";
                 case "14":
@@ -326,7 +327,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("", "skill_2", "Skills", userId);
                     }
-                    trainer.Skill2 = "";
+                    sk.Skill2 = "";
                     Log.Information("Deletes Skillset details");
                     return "Profile";
                 case "15":
@@ -339,7 +340,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("", "skill_3", "Skills", userId);
                     }
-                    trainer.Skill3 = "";
+                   sk.Skill3 = "";
                     Log.Information("Deletes Skillset details");
                     return "Profile";
                 case "16":
@@ -352,7 +353,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("", "skill_4", "Skills", userId);
                     }
-                    trainer.Skill4 = "";
+                    sk.Skill4 = "";
                     Log.Information("Deletes Skillset details");
                     return "Profile";
                 case "17":

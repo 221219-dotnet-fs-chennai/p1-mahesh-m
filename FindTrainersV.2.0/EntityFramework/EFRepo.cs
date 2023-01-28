@@ -329,5 +329,19 @@ namespace EntityFramework
                     break;
                     }
         }
+
+        public void UpdateCompanies(string newC, string newExp, string userId)
+        {
+            var context = new TrainerDetailsContext();
+            context.Companies.Add(new Company()
+            {
+                TrainerId = userId,
+                LastCompanyName= newC,
+                TotalExp=Convert.ToInt32(newExp)
+
+
+            });
+            context.SaveChanges();
+        }
     }
 }
