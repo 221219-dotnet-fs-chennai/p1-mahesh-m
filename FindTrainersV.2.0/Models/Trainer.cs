@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityFramework.newEntities
+namespace Models
 {
-    public class TResult
+    public class Trainer
     {
         public string TrainerId { get; set; } = null!;
 
@@ -17,9 +17,10 @@ namespace EntityFramework.newEntities
         public string? PhoneNo { get; set; }
 
         public string? Email { get; set; }
-        public string? City { get; set; }
 
-        public string Skill1 { get; set; } = null!;
+        public string? Password { get; set; }
+
+        public string? City { get; set; }
 
     }
 }

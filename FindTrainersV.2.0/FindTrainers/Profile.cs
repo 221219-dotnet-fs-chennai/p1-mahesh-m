@@ -13,13 +13,13 @@ namespace FindTrainers
     internal class Profile : IMenu
     {
        
-        EntityFramework.newEntities.Trainer newTr=new EntityFramework.newEntities.Trainer();
-        internal static Skill sk = new Skill();
-        internal static HighSchool hs = new HighSchool();
-        internal static HighSec hsc = new HighSec();
-        internal static CollegeUg cug = new CollegeUg();
+        Models.Trainer newTr=new Models.Trainer();
+        internal static Models.Skill sk = new Models.Skill();
+        internal static Models.HighSchool hs = new Models.HighSchool();
+        internal static Models.HighSec hsc = new Models.HighSec();
+        internal static Models.CollegeUg cug = new Models.CollegeUg();
         internal static Company com = new Company();
-        internal static List<Company> companies = new List<Company>();
+        internal static List<Models.Company> companies = new List<Models.Company>();
 
         TrainerDetails newTrainer =new TrainerDetails();
 
@@ -27,7 +27,7 @@ namespace FindTrainers
         newTrainer= trainer;
         }
 
-        public Profile(EntityFramework.newEntities.Trainer tra, HighSchool hsl, HighSec hscl, List<Company> cmp, Skill sks, CollegeUg col)
+        public Profile(Models.Trainer tra, Models.HighSchool hsl, Models.HighSec hscl, List<Models.Company> cmp, Models.Skill sks, Models.CollegeUg col)
         {
            newTr = tra;
             hs = hsl;

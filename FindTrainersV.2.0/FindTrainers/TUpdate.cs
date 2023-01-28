@@ -256,7 +256,7 @@ namespace FindTrainers
                         str = Console.ReadLine();
                     }
                     hsc.Course=str;
-                    repo.UpdateATrainer(trainer.HSCStream, "course", "highsec", userId);
+                    repo.UpdateATrainer(hsc.Course, "course", "highsec", userId);
                     Log.Information("user updates his/her HSC stream");
                     return "Profile";
                 case "10":

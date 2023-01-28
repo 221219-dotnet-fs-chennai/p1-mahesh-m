@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 using ConsoleTables;
 using Datafile;
 using EntityFramework;
-using EntityFramework.newEntities;
+//using EntityFramework.newEntities;
+using Models;
 
 
 namespace FindTrainers
@@ -16,13 +17,13 @@ namespace FindTrainers
     {
         internal static TrainerDetails trainer = new TrainerDetails();
 
-        internal static EntityFramework.newEntities.Trainer tr =new EntityFramework.newEntities.Trainer();
-        internal static Skill sk=new Skill();
-        internal static HighSchool hs= new HighSchool();
-        internal static HighSec hsc =new HighSec();
-        internal static CollegeUg cug= new CollegeUg();
-        internal static Company com=new Company();  
-       internal static List<Company> companies=new List<Company>();
+        internal static Models.Trainer tr =new Models.Trainer();
+        internal static Models.Skill sk=new Models.Skill();
+        internal static Models.HighSchool hs= new Models.HighSchool();
+        internal static Models.HighSec hsc =new Models.HighSec();
+        internal static Models.CollegeUg cug= new Models.CollegeUg();
+        internal static Models.Company com = new Models.    Company();  
+       internal static List<Models.Company> companies=new List<Models.Company>();
 
 
         string? nameRegex = @"\w{3,50}";
@@ -39,7 +40,7 @@ namespace FindTrainers
         
         }
 
-        public TSignUp(EntityFramework.newEntities.Trainer tra,HighSchool hsl,HighSec hscl,List<Company>cmp,Skill sks,CollegeUg col)
+        public TSignUp(Models.Trainer tra,Models.HighSchool hsl,Models.HighSec hscl,List<Models.Company>cmp,Models.Skill sks,Models.CollegeUg col)
         {
             tr = tra;
             hs = hsl;

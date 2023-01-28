@@ -6,10 +6,11 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace BusinessLogic
 {
     public class EFRepo : IRepo
-    {
+    {   Mapper mapper=new Mapper();
         public void DeleteAccount(string trainerId)
         {
             var context = new TrainerDetailsContext();
@@ -35,7 +36,7 @@ namespace BusinessLogic
 
         }
 
-        public CollegeUg GetCollegeUg(string trainerId)
+        public Models.CollegeUg GetCollegeUg(string trainerId)
         {
             var context = new TrainerDetailsContext();
             var cug = context.CollegeUgs;
@@ -54,20 +55,21 @@ namespace BusinessLogic
 
                 };
             }
-            return collug;
+            return mapper.MapCollgeInv(collug);
         }
 
-        public List<Company> GetCompany(string trainerId)
+        public List<Models.Company> GetCompany(string trainerId)
         {
             var context = new TrainerDetailsContext();
             var comp = context.Companies;
             var cmp = from s in comp
                       where s.TrainerId == trainerId
-                      select s;
+                      select mapper.MapCompanyInv(s);
             return cmp.ToList();
+
         }
 
-        public HighSchool GetHighSchool(string trainerId)
+        public Models.HighSchool GetHighSchool(string trainerId)
         {
             var context = new TrainerDetailsContext();
             var hscl = context.HighSchools;
@@ -85,10 +87,10 @@ namespace BusinessLogic
 
                 };
             }
-            return highsch;
+            return mapper.MapHighSchoolInv(highsch);
         }
 
-        public HighSec GetHighSec(string trainerId)
+        public Models.HighSec GetHighSec(string trainerId)
         {
             var context = new TrainerDetailsContext();
             var hscl = context.HighSecs;
@@ -106,10 +108,10 @@ namespace BusinessLogic
 
                 };
             }
-            return highsec;
+            return mapper.MapHighSecInv(highsec);
         }
 
-        public Skill GetSkill(string tId)
+        public Models.Skill GetSkill(string tId)
         {
             var context = new TrainerDetailsContext();
             var Skills = context.Skills;
@@ -127,10 +129,10 @@ namespace BusinessLogic
                     Skill4 = s.Skill4,
                 };
             }
-            return skb;
+            return mapper.MapSkillInv(skb);
         }
 
-        public Trainer GetTrainer(string tId)
+        public Models.Trainer GetTrainer(string tId)
         {
             var context = new TrainerDetailsContext();
             var trainers = context.Trainers;
@@ -152,21 +154,21 @@ namespace BusinessLogic
                 };
 
             }
-            return trb;
+            return mapper.MapTrainerInv(trb);
 
         }
 
-        public void InsertTrainers(Trainer tr, Skill sk, HighSec hsc, HighSchool hs, List<Company> com, CollegeUg ug)
+        public void InsertTrainers(Models.Trainer tr, Models.Skill sk, Models.HighSec hsc, Models.HighSchool hs, List<Models.Company> com, Models.CollegeUg ug)
         {
             var context = new TrainerDetailsContext();
-            context.Trainers.Add(tr);
-            context.Skills.Add(sk);
-            context.HighSchools.Add(hs);
-            context.HighSecs.Add(hsc);
-            context.CollegeUgs.Add(ug);
+            context.Trainers.Add(mapper.MapTrainer(tr));
+            context.Skills.Add(mapper.MapSkill(sk));
+            context.HighSchools.Add(mapper.MapHighSchool(hs));
+            context.HighSecs.Add(mapper.MapHighSec(hsc));
+            context.CollegeUgs.Add(mapper.MapCollege(ug));
             foreach (var company in com)
             {
-                context.Companies.Add(company);
+                context.Companies.Add(mapper.MapCompany(company));
             }
 
             context.SaveChanges();
@@ -408,7 +410,7 @@ namespace BusinessLogic
 
         }
 
-        public IEnumerable<TResult> GetAll()
+        public IEnumerable<Models.TResult> GetAll()
         {
             var context= new TrainerDetailsContext();
             var trainers =context.Trainers;
@@ -417,7 +419,7 @@ namespace BusinessLogic
             var res = (from s in trainers
                       join
                      sk in skills on s.TrainerId equals sk.TrainerId
-                      select  new TResult ()
+                      select  new Models.TResult ()
                       {
                           FirstName = s.FirstName,
                           LastName = s.LastName,
@@ -430,7 +432,7 @@ namespace BusinessLogic
             return res;
         }
 
-        public IEnumerable<TResult> TrainersBySkill(string skill)
+        public IEnumerable<Models.TResult> TrainersBySkill(string skill)
         {
             var context = new TrainerDetailsContext();
             var trainers = context.Trainers;
@@ -439,7 +441,7 @@ namespace BusinessLogic
                        join
                       sk in skills on s.TrainerId equals sk.TrainerId
                        where sk.Skill1.ToLower() == skill.ToLower()
-                       select new TResult()
+                       select new Models.TResult()
                        {
                            FirstName = s.FirstName,
                            LastName = s.LastName,
@@ -451,7 +453,7 @@ namespace BusinessLogic
             return res;
         }
 
-        public IEnumerable<TResult> TrainersByLocation(string city)
+        public IEnumerable<Models.TResult> TrainersByLocation(string city)
         {
             var context = new TrainerDetailsContext();
             var trainers = context.Trainers;
@@ -460,7 +462,7 @@ namespace BusinessLogic
                        join
                       sk in skills on s.TrainerId equals sk.TrainerId
                        where s.City == city.ToLower()
-                       select new TResult()
+                       select new Models.TResult()
                        {
                            FirstName = s.FirstName,
                            LastName = s.LastName,

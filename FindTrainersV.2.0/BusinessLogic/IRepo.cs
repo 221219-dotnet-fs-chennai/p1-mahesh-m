@@ -10,15 +10,15 @@ namespace BusinessLogic
     public interface IRepo
     {
 
-        void InsertTrainers(Trainer Tr,Skill sk,HighSec hsc,HighSchool hs,List<Company> com,CollegeUg ug);
+        void InsertTrainers(Models.Trainer Tr,Models.Skill sk,Models.HighSec hsc,Models.HighSchool hs,List<Models.Company> com,Models.CollegeUg ug);
 
-        Trainer GetTrainer(string trainerId);
-        HighSchool GetHighSchool(string trainerId);
-        HighSec GetHighSec(string trainerId);
-        Skill GetSkill(string trainerId);
-        List<Company> GetCompany(string trainerId);
+        Models.Trainer GetTrainer(string trainerId);
+        Models.HighSchool GetHighSchool(string trainerId);
+        Models.HighSec GetHighSec(string trainerId);
+        Models.Skill GetSkill(string trainerId);
+        List<Models.Company> GetCompany(string trainerId);
 
-        CollegeUg GetCollegeUg(string trainerId);
+        Models.CollegeUg GetCollegeUg(string trainerId);
 
         void UpdateATrainer(string newVal, string table, string column, string trainerId);
 
@@ -27,10 +27,10 @@ namespace BusinessLogic
         void DeleteAccount(string trainerId);
         bool Login(string email);
 
-        IEnumerable<TResult> GetAll();
+        IEnumerable<Models.TResult> GetAll();
 
-        IEnumerable<TResult> TrainersBySkill(string skill);
-        IEnumerable<TResult> TrainersByLocation(string city);
+        IEnumerable<Models.TResult> TrainersBySkill(string skill);
+        IEnumerable<Models.TResult> TrainersByLocation(string city);
 
     }
 }

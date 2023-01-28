@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindTrainers", "FindTrainer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Datafile", "Datafile\Datafile.csproj", "{C637A38E-2DC1-42E3-AD7D-EB35B4220DF8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework", "EntityFramework\EntityFramework.csproj", "{5C6ABAB5-EADF-43FF-9784-EB87B3EBC52A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFluentApi", "EntityFramework\DataFluentApi.csproj", "{5C6ABAB5-EADF-43FF-9784-EB87B3EBC52A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{0EE025EC-83A9-4860-A11C-AE2B8833F8AB}"
 EndProject
