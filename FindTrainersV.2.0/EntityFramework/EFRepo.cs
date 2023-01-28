@@ -14,32 +14,32 @@ namespace EntityFramework
         {
             var context = new TrainerDetailsContext();
             var cug = context.CollegeUgs;
-            var ug= from s in cug
-                    where s.TrainerId==trainerId
-                    select s;
-            CollegeUg collug = new CollegeUg(); 
-            foreach(var s in ug)
+            var ug = from s in cug
+                     where s.TrainerId == trainerId
+                     select s;
+            CollegeUg collug = new CollegeUg();
+            foreach (var s in ug)
             {
                 collug = new CollegeUg()
                 {
-                    CollegeName= s.CollegeName,
-                    YearPassed= s.YearPassed,
-                    Branch=s.Branch,
-                    Degree  =s.Degree,
+                    CollegeName = s.CollegeName,
+                    YearPassed = s.YearPassed,
+                    Branch = s.Branch,
+                    Degree = s.Degree,
 
                 };
             }
-            return collug;  
+            return collug;
         }
 
         public List<Company> GetCompany(string trainerId)
         {
             var context = new TrainerDetailsContext();
             var comp = context.Companies;
-            var cmp= from s in comp
-                     where s.TrainerId== trainerId
-                     select s;
-            return cmp.ToList();    
+            var cmp = from s in comp
+                      where s.TrainerId == trainerId
+                      select s;
+            return cmp.ToList();
         }
 
         public HighSchool GetHighSchool(string trainerId)
@@ -56,7 +56,7 @@ namespace EntityFramework
                 {
                     SchoolName = s.SchoolName,
                     YearPassed = s.YearPassed,
-                    
+
 
                 };
             }
@@ -66,19 +66,19 @@ namespace EntityFramework
         public HighSec GetHighSec(string trainerId)
         {
             var context = new TrainerDetailsContext();
-            var hscl =  context.HighSecs;
+            var hscl = context.HighSecs;
             var hsc = from s in hscl
-                     where s.TrainerId == trainerId
-                     select s;
+                      where s.TrainerId == trainerId
+                      select s;
             HighSec highsec = new HighSec();
-            foreach (var s in hsc )
+            foreach (var s in hsc)
             {
-                highsec= new HighSec()
+                highsec = new HighSec()
                 {
-                   SchoolName= s.SchoolName,
-                   YearPassed= s.YearPassed,
-                   Course=  s.Course
-                 
+                    SchoolName = s.SchoolName,
+                    YearPassed = s.YearPassed,
+                    Course = s.Course
+
                 };
             }
             return highsec;
@@ -88,11 +88,11 @@ namespace EntityFramework
         {
             var context = new TrainerDetailsContext();
             var Skills = context.Skills;
-            var sk= from s in Skills
-                    where s.TrainerId==tId
-                    select s;
-           Skill skb=new Skill();
-            foreach(var s in sk)
+            var sk = from s in Skills
+                     where s.TrainerId == tId
+                     select s;
+            Skill skb = new Skill();
+            foreach (var s in sk)
             {
                 skb = new Skill()
                 {
@@ -108,22 +108,22 @@ namespace EntityFramework
         public Trainer GetTrainer(string tId)
         {
             var context = new TrainerDetailsContext();
-            var trainers=context.Trainers;
-            var tr= from t in trainers
-                    where t.TrainerId== tId
-                    select t;
+            var trainers = context.Trainers;
+            var tr = from t in trainers
+                     where t.TrainerId == tId
+                     select t;
             Trainer trb = new Trainer();
             foreach (var t in tr)
             {
                 trb = new Trainer()
                 {
-                    FirstName= t.FirstName,
-                    LastName= t.LastName,
-                    PhoneNo= t.PhoneNo,
-                    TrainerId= t.TrainerId,
-                    Email= t.Email,
-                    City= t.City,
-                    
+                    FirstName = t.FirstName,
+                    LastName = t.LastName,
+                    PhoneNo = t.PhoneNo,
+                    TrainerId = t.TrainerId,
+                    Email = t.Email,
+                    City = t.City,
+
                 };
 
             }
@@ -133,13 +133,13 @@ namespace EntityFramework
 
         public void InsertTrainers(Trainer tr, Skill sk, HighSec hsc, HighSchool hs, List<Company> com, CollegeUg ug)
         {
-            var context =new  TrainerDetailsContext();
+            var context = new TrainerDetailsContext();
             context.Trainers.Add(tr);
             context.Skills.Add(sk);
             context.HighSchools.Add(hs);
             context.HighSecs.Add(hsc);
             context.CollegeUgs.Add(ug);
-            foreach(var company in com)
+            foreach (var company in com)
             {
                 context.Companies.Add(company);
             }
@@ -147,18 +147,187 @@ namespace EntityFramework
             context.SaveChanges();
         }
 
-        public void UpdateATrainer(string newVal, string table, string column, string trainerId)
+        public void UpdateATrainer(string newVal, string column, string table, string trainerId)
         {
-            var context =new TrainerDetailsContext();
-            var trainers=context.Trainers;
-            var tr= from t in trainers
-                    where t.TrainerId== trainerId
-                    select t;
-            foreach(var rec in tr) {
-                rec.PhoneNo = newVal;
-            }
-            context.SaveChanges();
+            var context = new TrainerDetailsContext();
+            //var context =new TrainerDetailsContext();
+            //var trainers=context.Trainers;
+            //var tr= from t in trainers
+            //        where t.TrainerId== trainerId
+            //        select t;
+            //foreach(var rec in tr) {
+            //    rec.PhoneNo = newVal;
+            //}
+            //context.SaveChanges();
 
+            switch (table)
+            {
+                case "trainers":
+
+                    var trainers = context.Trainers;
+                    var tr = from t in trainers
+                             where t.TrainerId == trainerId
+                             select t;
+
+
+                    switch (column)
+                    {
+                        case "phoneNo":
+                            foreach (var rec in tr)
+                            {
+                                rec.PhoneNo = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+                        case "city":
+
+                            foreach (var rec in tr)
+                            {
+                                rec.City = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+
+                    }
+
+                    break;
+                case "college_ug":
+
+                    var college = context.CollegeUgs; ;
+                    var cug = from c in college
+                              where c.TrainerId == trainerId
+                              select c;
+
+                    switch (column)
+                    {
+                        case "collegeName":
+                            foreach (var c in cug)
+                            {
+                                c.CollegeName = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+
+                        case "yearpassed":
+                            foreach (var c in cug)
+                            {
+                                c.YearPassed = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+                        case "degree":
+                            foreach (var c in cug)
+                            {
+                                c.Degree = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+                        case "branch":
+                            foreach (var c in cug)
+                            {
+                                c.Branch = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+
+                    }
+                    break;
+                case "highsec":
+                    var highsec = context.HighSecs;
+                    var hs = from h in highsec
+                             where h.TrainerId == trainerId
+                             select h;
+                    switch (column)
+                    {
+                        case "schoolname":
+                            foreach (var h in hs)
+                            {
+                                h.SchoolName = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+                        case "yearpassed":
+                            foreach (var h in hs)
+                            {
+                                h.YearPassed = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+                        case "course":
+                            foreach(var h in hs)
+                            {
+                                h.Course= newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+
+                    }
+                    break;
+                case "highschool":
+                    var highschool = context.HighSchools;
+                    var hsch = from h in highschool
+                               where h.TrainerId == trainerId
+                               select h;
+                    switch (column) {
+                        case "schoolname":
+                            foreach (var h in hsch)
+                            {
+                                h.SchoolName = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+                        case "yearpassed":
+                            foreach (var h in hsch)
+                            {
+                                h.YearPassed = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+
+                    }
+
+                    break;
+
+                case "Skills":
+                    var skills= context.Skills;
+                    var sks= from sk in skills
+                             where sk.TrainerId==trainerId
+                             select sk;
+                    switch (column)
+                    {
+                        case "skill_1":
+                            foreach(var s in sks)
+                            {
+                                s.Skill1= newVal;
+                            }
+                            context.SaveChanges();
+
+                            break;
+                        case "skill_2":
+                            foreach (var s in sks)
+                            {
+                                s.Skill2 = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+                        case "skill_3":
+                            foreach (var s in sks)
+                            {
+                                s.Skill3 = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+                        case "skill_4":
+                            foreach (var s in sks)
+                            {
+                                s.Skill4 = newVal;
+                            }
+                            context.SaveChanges();
+                            break;
+                    }
+
+                    break;
+                    }
         }
     }
 }

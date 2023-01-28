@@ -169,8 +169,8 @@ namespace FindTrainers
                         Console.WriteLine("City name should be 3 to 50 characters long");
                         str = Console.ReadLine();
                     }
-                    trainer.City = str;
-                    repo.UpdateATrainer(trainer.City, "city", "trainers", userId);
+                    tr.City = str;
+                    repo.UpdateATrainer(tr.City, "city", "trainers", userId);
                     Log.Information("Trainer updated his/her City.");
                     return "Profile";
                 case "3":
@@ -181,8 +181,8 @@ namespace FindTrainers
                         Console.WriteLine("College Name should be 3 to 50 characters long");
                         str = Console.ReadLine();
                     }
-                    trainer.UGCName = str;
-                    repo.UpdateATrainer(trainer.UGCName, "collegeName", "college_ug", userId);
+                    cug.CollegeName = str;
+                    repo.UpdateATrainer(cug.CollegeName, "collegeName", "college_ug", userId);
                     Log.Information("Trainer update his/her College Name");
                     return "Profile";
                 case "4":
@@ -193,9 +193,9 @@ namespace FindTrainers
                         Console.WriteLine("Re-enter the correct year!");
                         str = Console.ReadLine();
                     }
-                    trainer.UGPYear = str;
+                    cug.YearPassed= str;
 
-                    repo.UpdateATrainer(trainer.UGPYear, "yearpassed", "college_ug", userId);
+                    repo.UpdateATrainer(cug.YearPassed, "yearpassed", "college_ug", userId);
                     Log.Information("user updates his/her UG year");
                     return "Profile";
                 case "5":
@@ -206,8 +206,8 @@ namespace FindTrainers
                         Console.WriteLine("Please use the correct format for degree");
                         str = Console.ReadLine();
                     }
-                    trainer.UGDegree = str;
-                    repo.UpdateATrainer(trainer.UGDegree, "degree", "college_ug", userId);
+                    cug.Degree= str;
+                    repo.UpdateATrainer(cug.Degree, "degree", "college_ug", userId);
                     Log.Information("user updates his/her Bachelors degree");
                     return "Profile";
                 case "6":
@@ -218,8 +218,8 @@ namespace FindTrainers
                         Console.WriteLine("Specializtion should be 3 to 50 characters long");
                         str = Console.ReadLine();
                     }
-                    trainer.UGDept = str;
-                    repo.UpdateATrainer(trainer.UGDept, "branch", "college_ug", userId);
+                    cug.Branch= str;
+                    repo.UpdateATrainer(cug.Branch, "branch", "college_ug", userId);
                     Log.Information("user updates his/her Bachelors specialization");
                     return "Profile";
                 case "7":
@@ -230,8 +230,8 @@ namespace FindTrainers
                         Console.WriteLine("Higher Secondary School Name should be 3 to 50 characters long");
                         str = Console.ReadLine();
                     }
-                    trainer.HSCName = str;
-                    repo.UpdateATrainer(trainer.HSCName, "Schoolname", "highsec", userId);
+                    hsc.SchoolName= str;
+                    repo.UpdateATrainer(hsc.SchoolName, "schoolname", "highsec", userId);
                     Log.Information("user updates his/her HSC school name");
                     return "Profile";
                 case "8":
@@ -243,7 +243,8 @@ namespace FindTrainers
                         Console.WriteLine("Re-enter the correct year!");
                         str = Console.ReadLine();
                     }
-                    trainer.HSCPYear = str;
+                    hsc.YearPassed= str;
+                    repo.UpdateATrainer(hsc.YearPassed, "yearpassed", "highsec", userId);
                     Log.Information("user updates his/her HSCP year");
                     return "Profile";
                 case "9":
@@ -254,7 +255,7 @@ namespace FindTrainers
                         Console.WriteLine("Higher Secondary Stream should be 3 to 50 characters long");
                         str = Console.ReadLine();
                     }
-                    trainer.HSCStream = str;
+                    hsc.Course=str;
                     repo.UpdateATrainer(trainer.HSCStream, "course", "highsec", userId);
                     Log.Information("user updates his/her HSC stream");
                     return "Profile";
@@ -266,8 +267,8 @@ namespace FindTrainers
                         Console.WriteLine("High School Name should be 3 to 50 characters long");
                         str = Console.ReadLine();
                     }
-                    trainer.HSName = str;
-                    repo.UpdateATrainer(trainer.HSName, "schoolname", "highschool", userId);
+                    hs.SchoolName=str;
+                    repo.UpdateATrainer(hs.SchoolName, "schoolname", "highschool", userId);
                     Log.Information("User updates his/her HS Name");
                     return "Profile";
                 case "11":
@@ -278,8 +279,8 @@ namespace FindTrainers
                         Console.WriteLine("Re-enter the correct year!");
                         str = Console.ReadLine();
                     }
-                    trainer.HSPYear = str;
-                    repo.UpdateATrainer(trainer.HSPYear, "yearpassed", "highschool", userId);
+                    hs.YearPassed = str;
+                    repo.UpdateATrainer(hs.YearPassed, "yearpassed", "highschool", userId);
                     Log.Information("user updates his/her HS Year of Passing");
                     return "Profile";
                 case "12":
@@ -313,8 +314,8 @@ namespace FindTrainers
                         Console.WriteLine("Primary Skill should be 3 to 50 characters long");
                         str = Console.ReadLine();
                     }
-                    trainer.Skill1 = str;
-                    repo.UpdateATrainer(trainer.Skill1, "skill_1", "Skills", userId);
+                    sk.Skill1= str;
+                    repo.UpdateATrainer(sk.Skill1, "skill_1", "Skills", userId);
                     Log.Information("User updates his/her Skill Details");
                     return "Profile";
                 case "14":
@@ -325,8 +326,8 @@ namespace FindTrainers
                         Console.WriteLine("Primary Skill should be 3 to 50 characters long");
                         str = Console.ReadLine();
                     }
-                    trainer.Skill2 = str;
-                    repo.UpdateATrainer(trainer.Skill2, "skill_2", "Skills", userId);
+                    sk.Skill2 = str;
+                    repo.UpdateATrainer(sk.Skill2, "skill_2", "Skills", userId);
                     Log.Information("User updates his/her Skill Details");
                     return "Profile";
                 case "15":
@@ -337,8 +338,8 @@ namespace FindTrainers
                         Console.WriteLine("Primary Skill should be 3 to 50 characters long");
                         str = Console.ReadLine();
                     }
-                    trainer.Skill3 = str;
-                    repo.UpdateATrainer(trainer.Skill3, "skill_3", "Skills", userId);
+                    sk.Skill3 = str;
+                    repo.UpdateATrainer(sk.Skill3, "skill_3", "Skills", userId);
                     Log.Information("User updates his/her Skill Details");
                     return "Profile";
                 case "16":
@@ -349,8 +350,8 @@ namespace FindTrainers
                         Console.WriteLine("Primary Skill should be 3 to 50 characters long");
                         str = Console.ReadLine();
                     }
-                    trainer.Skill4 = str;
-                    repo.UpdateATrainer(trainer.Skill4, "skill_4", "Skills", userId);
+                    sk.Skill4 = str;
+                    repo.UpdateATrainer(sk.Skill4, "skill_4", "Skills", userId);
                     Log.Information("User updates his/her Skill Details");
                     return "Profile";
 
