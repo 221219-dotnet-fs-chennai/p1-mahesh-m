@@ -12,7 +12,7 @@ namespace FindTrainers
     {
         static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
 
-        IRepo repo = new SqlRepo(s[0], s[1]);
+        BusinessLogic.IRepo repo = new BusinessLogic.EFRepo();
         Dictionary<string, string> comp = trainer.GetCompany();
 
         public new void Display()
@@ -237,7 +237,7 @@ namespace FindTrainers
                     {
                         repo.UpdateATrainer("", "course", "highsec", userId);
                     }
-                    trainer.HSCStream = "";
+                    hsc.Course = "";
                     Log.Information("Deletes HSC stream");
 
                     return "Profile";

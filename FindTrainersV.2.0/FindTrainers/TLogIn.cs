@@ -15,8 +15,8 @@ namespace FindTrainers
         string? passwordRegex = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
         static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
 
-        IRepo repo = new SqlRepo(s[0], s[1]);
-        EntityFramework.IRepo rp=new EntityFramework.EFRepo();
+        
+        BusinessLogic.IRepo rp=new BusinessLogic.EFRepo();
         public void Display()
         {
             Console.WriteLine($"<-------------------------- LOGIN PAGE ----------------------------->");

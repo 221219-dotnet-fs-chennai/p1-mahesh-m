@@ -15,7 +15,7 @@ namespace FindTrainers
         static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
         Dictionary<string, string> comp = trainer.GetCompany();
 
-        EntityFramework.IRepo repo=new EntityFramework.EFRepo();
+        BusinessLogic.IRepo repo=new BusinessLogic.EFRepo();
         public new void Display()
         {
          
