@@ -172,6 +172,30 @@ namespace EntityFramework
             context.SaveChanges();
         }
 
+        public bool Login(string email)
+        {
+
+            var context = new TrainerDetailsContext();
+            var accs = context.Trainers;
+            var acc= accs.FirstOrDefault(x=>x.Email== email);
+            if(acc!=null)
+            {
+                Console.WriteLine("Enter your password");
+                string pass=Console.ReadLine();
+                //return acc.Password==PasswordHasher(pass)? true : false;
+                if (acc.Password == PasswordHasher(pass))
+                {
+                    return true;
+                }
+                Console.WriteLine("Bad Password !! retry again!!!");
+                Console.ReadLine();
+                return false;
+            }
+            Console.WriteLine("account doesn't exist!! Sign up first!!");
+            Console.ReadLine();
+            return false;
+        }
+
         public void UpdateATrainer(string newVal, string column, string table, string trainerId)
         {
             var context = new TrainerDetailsContext();
@@ -368,5 +392,43 @@ namespace EntityFramework
             });
             context.SaveChanges();
         }
+
+        public string PasswordHasher(string password)
+        {
+            string newPassword = "";
+            char[] pass = password.ToCharArray();
+            foreach (char a in pass)
+            {
+                int asci = (int)a;
+                int newAsci = asci + 9;
+                newPassword = newPassword + "" + (char)newAsci;
+            }
+
+            return newPassword;
+
+        }
+
+        public IEnumerable<TResult> GetAll()
+        {
+            var context= new TrainerDetailsContext();
+            var trainers =context.Trainers;
+            var skills =context.Skills;
+
+            var res = (from s in trainers
+                      join
+                     sk in skills on s.TrainerId equals sk.TrainerId
+                      select  new TResult ()
+                      {
+                          FirstName = s.FirstName,
+                          LastName = s.LastName,
+                          Email = s.Email,
+                          PhoneNo = s.PhoneNo,
+                          Skill1=sk.Skill1,
+                          City=s.City,
+                      }).ToList();
+           
+            return res;
+        }
     }
-}
+    }
+

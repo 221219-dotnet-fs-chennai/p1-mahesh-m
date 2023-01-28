@@ -39,7 +39,7 @@ namespace FindTrainers
                     Log.Information("Trainer Tries Loggin in");
                     Console.WriteLine("Enter email id");
                     string? email = Console.ReadLine();
-                    bool res= repo.Login(email);
+                    bool res= rp.Login(email);
                     if (res)
                     {
                         string tid = email.Split("@")[0];
@@ -48,72 +48,74 @@ namespace FindTrainers
                         return "Profile";
                     }
                     else {
+                    
+                     
                         Log.Information("Trainer Couldn't log in");
                         return "TLogIn";
                     }
-                case"2":
-                    Console.WriteLine("Enter the email");
-                    string str= Console.ReadLine();
-                    while (!FormatChecker(str, emailRegex))
-                    {
-                        Console.WriteLine("Email format is invalid! Re-enter email");
-                        str = Console.ReadLine();
-                    }
-                    if (repo.IsExist(str, "email"))
-                    {
-                        Console.WriteLine("Enter the phone number");
-                        string str1=Console.ReadLine();
-                        while (!FormatChecker(str1, phoneRegex))
-                        {
-                            Console.WriteLine("Phone No. format is invalid! Re-enter Phone No.");
-                            str1 = Console.ReadLine();
-                        }
-                        if (repo.IsExist(str1, "phoneNo"))
-                        {
-                            Console.WriteLine("Enter the new password");
-                            string newPass=Console.ReadLine();
+                //case"2":
+                //    Console.WriteLine("Enter the email");
+                //    string str= Console.ReadLine();
+                //    while (!FormatChecker(str, emailRegex))
+                //    {
+                //        Console.WriteLine("Email format is invalid! Re-enter email");
+                //        str = Console.ReadLine();
+                //    }
+                //    if (repo.IsExist(str, "email"))
+                //    {
+                //        Console.WriteLine("Enter the phone number");
+                //        string str1=Console.ReadLine();
+                //        while (!FormatChecker(str1, phoneRegex))
+                //        {
+                //            Console.WriteLine("Phone No. format is invalid! Re-enter Phone No.");
+                //            str1 = Console.ReadLine();
+                //        }
+                //        if (repo.IsExist(str1, "phoneNo"))
+                //        {
+                //            Console.WriteLine("Enter the new password");
+                //            string newPass=Console.ReadLine();
 
-                            while (!FormatChecker(newPass, passwordRegex))
-                            {
-                                Console.WriteLine("Password min 8 characters, atleast 1 lower case,1 upper case,1 number");
-                                newPass = Console.ReadLine();
-                            }
-                            Console.WriteLine("Retype password to Confirm Password");
-                            string cPass = Console.ReadLine();
-                            while (!newPass.Equals(cPass))
-                            {
-                                Console.WriteLine("Passwords are not matching! Re type confirm password! ");
+                //            while (!FormatChecker(newPass, passwordRegex))
+                //            {
+                //                Console.WriteLine("Password min 8 characters, atleast 1 lower case,1 upper case,1 number");
+                //                newPass = Console.ReadLine();
+                //            }
+                //            Console.WriteLine("Retype password to Confirm Password");
+                //            string cPass = Console.ReadLine();
+                //            while (!newPass.Equals(cPass))
+                //            {
+                //                Console.WriteLine("Passwords are not matching! Re type confirm password! ");
                                 
-                                cPass = Console.ReadLine();
-                            }
-                            repo.NewPass(newPass, str);
+                //                cPass = Console.ReadLine();
+                //            }
+                //            repo.NewPass(newPass, str);
                            
-                            Console.ReadLine();
+                //            Console.ReadLine();
 
 
 
-                            return "TLogIn";
+                //            return "TLogIn";
 
-                        }
-                        else
-                        {
-                            Console.WriteLine("Phone no is not matching with email");
-                            Console.ReadLine();
+                //        }
+                //        else
+                //        {
+                //            Console.WriteLine("Phone no is not matching with email");
+                //            Console.ReadLine();
 
-                            return "TLogIn";
+                //            return "TLogIn";
 
 
-                        }
+                //        }
                       
-                    }
-                    else
-                    {
+                //    }
+                //    else
+                //    {
 
-                        Console.WriteLine("Can't Find your account! Retry again!!");
-                        Console.ReadLine();
-                        return "TLogIn";
+                //        Console.WriteLine("Can't Find your account! Retry again!!");
+                //        Console.ReadLine();
+                //        return "TLogIn";
 
-                    }
+                //    }
 
                     
                     

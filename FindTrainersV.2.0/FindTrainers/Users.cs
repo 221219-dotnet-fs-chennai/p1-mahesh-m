@@ -14,7 +14,8 @@ namespace FindTrainers
         static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
 
 
-        IRepo repo = new SqlRepo(s[0], s[1]);
+        //IRepo repo = new SqlRepo(s[0], s[1]);
+        EntityFramework.IRepo repo =new EntityFramework.EFRepo();
         public void Display()
         {
             Console.WriteLine("Welcome!");
@@ -46,7 +47,7 @@ namespace FindTrainers
                     Console.WriteLine();
                     foreach (var t in listOfTrainers)
                     {
-                        table.AddRow(Count,t.FName+" "+t.LName,t.Skill1,t.PhoneNo,t.Email,t.City);
+                        table.AddRow(Count,t.FirstName+" "+t.LastName,t.Skill1,t.PhoneNo,t.Email,t.City);
                        
 
                         Count++;
