@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ConsoleTables;
-using Datafile;
+
 using EntityFramework;
 //using EntityFramework.newEntities;
 using Models;
@@ -15,7 +15,7 @@ namespace FindTrainers
 {
     internal class TSignUp : IMenu
     {
-        internal static TrainerDetails trainer = new TrainerDetails();
+        
 
         internal static Models.Trainer tr =new Models.Trainer();
         internal static Models.Skill sk=new Models.Skill();
@@ -32,9 +32,7 @@ namespace FindTrainers
         string? yearRegex= @"^\d{4}$";
         string? degreeRegex = @"^B\.\w{1,6}$";
         string? passwordRegex = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
-        public TSignUp(TrainerDetails newTrainer) {
-        trainer=newTrainer;
-        }
+     
         public TSignUp() {
             
         
@@ -61,7 +59,7 @@ namespace FindTrainers
 
         {
             
-            Dictionary<string, string> comp = trainer.GetCompany();
+            
             Console.WriteLine();
             Console.WriteLine("----------------------------------------------------- Sign Up  -------------------------------------------------------");
             Console.WriteLine();

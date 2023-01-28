@@ -1,5 +1,4 @@
 ﻿using ConsoleTables;
-using Datafile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,6 @@ namespace FindTrainers
         static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
 
         BusinessLogic.IRepo repo = new BusinessLogic.EFRepo();
-        Dictionary<string, string> comp = trainer.GetCompany();
 
         public new void Display()
         {

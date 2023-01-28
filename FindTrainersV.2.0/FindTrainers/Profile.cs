@@ -5,7 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleTables;
-using Datafile;
+
 using EntityFramework.newEntities;
 using Serilog;
 namespace FindTrainers
@@ -21,11 +21,9 @@ namespace FindTrainers
         internal static Company com = new Company();
         internal static List<Models.Company> companies = new List<Models.Company>();
 
-        TrainerDetails newTrainer =new TrainerDetails();
+      
 
-        public Profile(TrainerDetails trainer) { 
-        newTrainer= trainer;
-        }
+       
 
         public Profile(Models.Trainer tra, Models.HighSchool hsl, Models.HighSec hscl, List<Models.Company> cmp, Models.Skill sks, Models.CollegeUg col)
         {
@@ -106,7 +104,7 @@ namespace FindTrainers
                 Console.WriteLine("HigherSecSchool Stream" + "                - " + hsc.Course);
                 Console.WriteLine("HighSchool Name" + "                       - " + hs.SchoolName);
                 Console.WriteLine("HighSchool Year of Passing" + "            - " + hs.YearPassed);
-                Dictionary<string, string> cm = newTrainer.GetCompany();
+                
 
                 Console.WriteLine();
                 Console.WriteLine("Company Details and Experience in years");

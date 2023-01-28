@@ -1,5 +1,4 @@
 ﻿using ConsoleTables;
-using Datafile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,7 @@ namespace FindTrainers
     internal class TUpdate : TSignUp, IMenu
     {
         static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
-        Dictionary<string, string> comp = trainer.GetCompany();
+       
 
         BusinessLogic.IRepo repo=new BusinessLogic.EFRepo();
         public new void Display()
@@ -236,7 +235,6 @@ namespace FindTrainers
                     return "Profile";
                 case "8":
                     Console.WriteLine("Enter New HigherSec School Year of Passing");
-                    repo.UpdateATrainer(trainer.HSCPYear, "yearpassed", "highsec", userId);
                     str = Console.ReadLine();
                     while (!FormatChecker(str, yearRegex) || int.Parse(str) > 2023)
                     {

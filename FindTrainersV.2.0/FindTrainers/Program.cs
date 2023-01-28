@@ -26,7 +26,12 @@ namespace FindTrainers
                 switch (ans)
                 {
                     case "Trainer":
-                        trainer = new Datafile.TrainerDetails();
+                        tr = new Models.Trainer();
+                        hs = new Models.HighSchool();
+                        hsc = new Models.HighSec();
+                        sk = new Models.Skill();
+                        cug = new Models.CollegeUg();
+                        companies = new List<Models.Company>();
                         menu = new Trainer();
                         break;
                     case "TSignUp":
@@ -39,7 +44,12 @@ namespace FindTrainers
                         break;
                     case "Menu":
                         Log.Logger.Information("Entering Main menu / Logging out");
-                        trainer=new Datafile.TrainerDetails();
+                        tr=new Models.Trainer();
+                        hs=new Models.HighSchool();
+                        hsc = new Models.HighSec();
+                        sk=new Models.Skill();
+                        cug=new Models.CollegeUg ();
+                        companies=new List<Models.Company>();
                         menu = new Menu();
                         break;
                     case "Profile":

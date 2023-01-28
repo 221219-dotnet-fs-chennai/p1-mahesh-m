@@ -4,11 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindTrainers", "FindTrainers\FindTrainers.csproj", "{BCCB1EED-3ED3-4D99-AEE7-CE7B488E392F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{C637A38E-2DC1-42E3-AD7D-EB35B4220DF8} = {C637A38E-2DC1-42E3-AD7D-EB35B4220DF8}
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Datafile", "Datafile\Datafile.csproj", "{C637A38E-2DC1-42E3-AD7D-EB35B4220DF8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFluentApi", "EntityFramework\DataFluentApi.csproj", "{5C6ABAB5-EADF-43FF-9784-EB87B3EBC52A}"
 EndProject
@@ -26,10 +21,6 @@ Global
 		{BCCB1EED-3ED3-4D99-AEE7-CE7B488E392F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCCB1EED-3ED3-4D99-AEE7-CE7B488E392F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCCB1EED-3ED3-4D99-AEE7-CE7B488E392F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C637A38E-2DC1-42E3-AD7D-EB35B4220DF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C637A38E-2DC1-42E3-AD7D-EB35B4220DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C637A38E-2DC1-42E3-AD7D-EB35B4220DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C637A38E-2DC1-42E3-AD7D-EB35B4220DF8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C6ABAB5-EADF-43FF-9784-EB87B3EBC52A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C6ABAB5-EADF-43FF-9784-EB87B3EBC52A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C6ABAB5-EADF-43FF-9784-EB87B3EBC52A}.Release|Any CPU.ActiveCfg = Release|Any CPU
