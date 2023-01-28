@@ -62,6 +62,9 @@ namespace FindTrainers
                         Log.Logger.Information("Enter into the Learner");
                         menu = new Users();
                         break;
+                    case "Filter":
+                        menu = new UFilter();
+                        break;
 
 
                     default:

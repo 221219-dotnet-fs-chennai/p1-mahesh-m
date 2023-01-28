@@ -29,5 +29,8 @@ namespace EntityFramework
 
         IEnumerable<TResult> GetAll();
 
+        IEnumerable<TResult> TrainersBySkill(string skill);
+        IEnumerable<TResult> TrainersByLocation(string city);
+
     }
 }

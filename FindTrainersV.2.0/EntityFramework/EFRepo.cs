@@ -429,6 +429,49 @@ namespace EntityFramework
            
             return res;
         }
+
+        public IEnumerable<TResult> TrainersBySkill(string skill)
+        {
+            var context = new TrainerDetailsContext();
+            var trainers = context.Trainers;
+            var skills = context.Skills;
+            var res = (from s in trainers
+                       join
+                      sk in skills on s.TrainerId equals sk.TrainerId
+                       where sk.Skill1.ToLower() == skill.ToLower()
+                       select new TResult()
+                       {
+                           FirstName = s.FirstName,
+                           LastName = s.LastName,
+                           Email = s.Email,
+                           PhoneNo = s.PhoneNo,
+                           Skill1 = sk.Skill1,
+                           City = s.City,
+                       }).ToList();
+            return res;
+        }
+
+        public IEnumerable<TResult> TrainersByLocation(string city)
+        {
+            var context = new TrainerDetailsContext();
+            var trainers = context.Trainers;
+            var skills = context.Skills;
+            var res = (from s in trainers
+                       join
+                      sk in skills on s.TrainerId equals sk.TrainerId
+                       where s.City == city.ToLower()
+                       select new TResult()
+                       {
+                           FirstName = s.FirstName,
+                           LastName = s.LastName,
+                           Email = s.Email,
+                           PhoneNo = s.PhoneNo,
+                           Skill1 = sk.Skill1,
+                           City = s.City,
+                       }).ToList();
+            return res;
+        }
     }
     }
+
 
