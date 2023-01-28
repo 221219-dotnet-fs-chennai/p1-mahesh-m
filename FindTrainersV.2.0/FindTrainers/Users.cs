@@ -21,7 +21,8 @@ namespace FindTrainers
             Console.WriteLine("Welcome!");
             Console.WriteLine();
             Console.WriteLine("[0] Go Back :)");
-            Console.WriteLine("[1] View Trainers");
+            Console.WriteLine("[1] View ll Trainers");
+            Console.WriteLine("[2] View By Filter");
     
         }
 
@@ -64,6 +65,13 @@ namespace FindTrainers
 
               
                     return "User";
+                
+                case"2":
+                    return "Filter";
+
+
+
+
                 default:
                     Console.WriteLine("Please input a valid response");
                     Console.WriteLine("Please press Enter to continue");
