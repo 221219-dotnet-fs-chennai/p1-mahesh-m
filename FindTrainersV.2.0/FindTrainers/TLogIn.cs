@@ -10,10 +10,7 @@ namespace FindTrainers
 {
     internal class TLogIn : IMenu
     {
-        string? emailRegex = @"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-z]{2,6}$";
-        string? phoneRegex = @"^[9876]\d{9}$";
-        string? passwordRegex = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
-        static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
+       
 
         
         BusinessLogic.IRepo rp=new BusinessLogic.EFRepo();
