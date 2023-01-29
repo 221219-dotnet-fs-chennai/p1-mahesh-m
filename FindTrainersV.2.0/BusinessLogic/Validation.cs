@@ -42,7 +42,7 @@ namespace BusinessLogic
                     if (!FormatChecker(str, phoneRegex))
                     {
                         Console.WriteLine("Phone No. format is invalid! Re-enter Phone No.");
-                        Console.ReadLine();
+                        //Console.ReadLine();
                         return false;
                     }
                     return true;
@@ -63,7 +63,7 @@ namespace BusinessLogic
                     }
                     return true;
                 case "passwordRegex":
-                    while (!FormatChecker(str, passwordRegex))
+                    if (!FormatChecker(str, passwordRegex))
                     {
                         Console.WriteLine("Password min 8 characters, atleast 1 lower case,1 upper case,1 number");
                         Console.ReadLine();

@@ -4,6 +4,7 @@ namespace Test_Layer
     public class Tests
     {
         IRepo repo = new EFRepo();
+        IValidator val=new Validation();
         [SetUp]
         public void Setup()
         {
@@ -55,9 +56,13 @@ namespace Test_Layer
             Random random = new Random();
             int randomNo = random.Next(0, 4);
 
-            bool res = repo.IsExist(emails[randomNo], "phoneNo");
+            bool res = repo.IsExist(emails[randomNo], "email");
 
             Assert.That(res, Is.EqualTo(emailIDs[emails[randomNo]]));
         }
+
+
+  
+
     }
 }
