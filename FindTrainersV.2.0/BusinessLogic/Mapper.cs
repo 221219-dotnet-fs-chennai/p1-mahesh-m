@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    internal class Mapper
+    public  class Mapper
     {
 
         public Trainer MapTrainer(Models.Trainer tr)
