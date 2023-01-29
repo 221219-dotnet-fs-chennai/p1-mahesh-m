@@ -37,5 +37,27 @@ namespace Test_Layer
 
             Assert.That(res, Is.EqualTo(phoneNos[ph[randomNo]]));
         }
+
+        [Test]
+        public void test_for_checking_IsExit_Email_working()
+        {
+            Dictionary<string, bool> emailIDs = new Dictionary<string, bool>();
+            emailIDs.Add("mahesh1216@gmail.com", true);
+            emailIDs.Add("vinicius@gmail.com", true);
+            emailIDs.Add("rodrygo@gm.com", false);
+            emailIDs.Add("sergioramos123@gmail.com", false);
+
+            List<string> emails = new List<string>();
+            emails.Add("mahesh1216@gmail.com");
+            emails.Add("vinicius@gmail.com");
+           emails.Add("rodrygo@gm.com");
+            emails.Add("sergioramos123@gmail.com");
+            Random random = new Random();
+            int randomNo = random.Next(0, 4);
+
+            bool res = repo.IsExist(emails[randomNo], "phoneNo");
+
+            Assert.That(res, Is.EqualTo(emailIDs[emails[randomNo]]));
+        }
     }
 }
