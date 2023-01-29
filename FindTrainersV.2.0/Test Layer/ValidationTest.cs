@@ -45,13 +45,21 @@ namespace Test_Layer
             //Assert.That(res4, Is.EqualTo(true));
         }
 
-        //[Test]
-        //public void test_for_Validator_phoneNo_NotPassinng()
-        //{
-        //    bool res3 = val.Validator("914121121121", "phoneRegex", "nothing");
-        //    Assert.That(res3, Is.EqualTo(true));
-     
-        //}
+        [Test]
+        public void test_for_Validator_Email_Working()
+        {
+            bool res1 = val.Validator("mahehs@", "emailRegex", "nothing");
+            bool res2 = val.Validator("", "emailRegex", "nothing");
+            bool res3 = val.Validator("mahesh@gm.", "emailRegex", "nothing");
+            bool res4 = val.Validator("vinicius@gmail.com", "emailRegex", "nothing");
+            bool res5 = val.Validator("asa@gm.com", "emailRegex", "nothing");
+
+            Assert.That(res1, Is.EqualTo(false));
+            Assert.That(res2, Is.EqualTo(false));
+            Assert.That(res3, Is.EqualTo(false));
+            Assert.That(res4, Is.EqualTo(true));
+            Assert.That(res5, Is.EqualTo(true));
+        }
 
     }
     }

@@ -34,7 +34,7 @@ namespace BusinessLogic
                     if (!FormatChecker(str, emailRegex))
                     {
                         Console.WriteLine("Email format is invalid! Re-enter email");
-                        Console.ReadLine();
+                        //Console.ReadLine();
                         return false;
                     }
                     return true;
