@@ -16,7 +16,7 @@ namespace FindTrainers
 {
     internal class TSignUp : IMenu
     {
-        BusinessLogic.Validation val = new BusinessLogic.Validation();
+        BusinessLogic.IValidator val = new BusinessLogic.Validation();
 
         internal static Models.Trainer tr = new Models.Trainer();
         internal static Models.Skill sk = new Models.Skill();

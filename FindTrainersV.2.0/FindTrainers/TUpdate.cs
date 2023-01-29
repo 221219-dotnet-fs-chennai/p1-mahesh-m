@@ -13,7 +13,7 @@ namespace FindTrainers
     internal class TUpdate : TSignUp, IMenu
     {
        
-       BusinessLogic.Validation val=new Validation();
+       BusinessLogic.IValidator val=new Validation();
 
         BusinessLogic.IRepo repo=new BusinessLogic.EFRepo();
         public new void Display()
