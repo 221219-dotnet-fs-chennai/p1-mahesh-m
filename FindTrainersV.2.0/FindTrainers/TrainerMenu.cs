@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FindTrainers
 {
-    internal class Trainer : IMenu
+    internal class TrainerMenu : IMenu
     { 
         public void Display()
         {

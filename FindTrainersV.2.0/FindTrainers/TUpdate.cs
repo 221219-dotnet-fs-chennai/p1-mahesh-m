@@ -6,13 +6,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ConsoleTables;
+using BusinessLogic;
 
 namespace FindTrainers
 {
     internal class TUpdate : TSignUp, IMenu
     {
-        static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
        
+       BusinessLogic.Validation val=new Validation();
 
         BusinessLogic.IRepo repo=new BusinessLogic.EFRepo();
         public new void Display()
@@ -129,11 +130,14 @@ namespace FindTrainers
                 case "1":
                     Console.WriteLine("Enter New Phone No.");
                     string str= Console.ReadLine();
-                    while (!FormatChecker(str, phoneRegex))
+                    bool regVal = val.Validator(str, "phoneRegex", "email");
+                    if (regVal)
                     {
-                        Console.WriteLine("Phone No. format is invalid! Re-enter Phone No.");
-                        str = Console.ReadLine();
+                        tr.PhoneNo = str;
+                        repo.UpdateATrainer(tr.PhoneNo, "phoneNo", "trainers", userId);
+                        Log.Information("Trainer updated his/her phone no.");
                     }
+                 
                     //if (repo.IsExist(str, "phoneNo"))
                     //{
                     //    Console.WriteLine("Phone No. is Associated with another account. Try add different phone number!");
@@ -147,12 +151,11 @@ namespace FindTrainers
                     //else
                     //{
 
-                       
+
 
                     //}
-                    tr.PhoneNo = str;
-                    repo.UpdateATrainer(tr.PhoneNo, "phoneNo", "trainers", userId);
-                    Log.Information("Trainer updated his/her phone no.");
+                   
+                 
                     return "Profile";
 
 
@@ -163,201 +166,242 @@ namespace FindTrainers
                 case "2":
                     Console.WriteLine("Enter New City");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, nameRegex))
+                    regVal = val.Validator(str, "nameRegex", "City");
+                    if (regVal)
                     {
-                        Console.WriteLine("City name should be 3 to 50 characters long");
-                        str = Console.ReadLine();
+                        tr.City = str;
+                        repo.UpdateATrainer(tr.City, "city", "trainers", userId);
+                        Log.Information("Trainer updated his/her City.");
                     }
-                    tr.City = str;
-                    repo.UpdateATrainer(tr.City, "city", "trainers", userId);
-                    Log.Information("Trainer updated his/her City.");
                     return "Profile";
+
+
                 case "3":
                     Console.WriteLine("Enter New Bachelor's College Name");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, nameRegex))
+                    regVal = val.Validator(str, "nameRegex", "College Name");
+                    if (regVal)
                     {
-                        Console.WriteLine("College Name should be 3 to 50 characters long");
-                        str = Console.ReadLine();
+                        cug.CollegeName = str;
+                        repo.UpdateATrainer(cug.CollegeName, "collegeName", "college_ug", userId);
+                        Log.Information("Trainer update his/her College Name");
                     }
-                    cug.CollegeName = str;
-                    repo.UpdateATrainer(cug.CollegeName, "collegeName", "college_ug", userId);
-                    Log.Information("Trainer update his/her College Name");
+                 
                     return "Profile";
+
+
+
                 case "4":
                     Console.WriteLine("Enter New Bachelor's Year of Passing");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, yearRegex) || int.Parse(str) > 2023)
+                     regVal = val.Validator(str, "yearRegex", "year of passing");
+                    if (regVal)
                     {
-                        Console.WriteLine("Re-enter the correct year!");
-                        str = Console.ReadLine();
+                        cug.YearPassed = str;
+                        repo.UpdateATrainer(cug.YearPassed, "yearpassed", "college_ug", userId);
+                        Log.Information("user updates his/her UG year");
                     }
-                    cug.YearPassed= str;
 
-                    repo.UpdateATrainer(cug.YearPassed, "yearpassed", "college_ug", userId);
-                    Log.Information("user updates his/her UG year");
+                 
                     return "Profile";
+
+
+
                 case "5":
                     Console.WriteLine("Enter New Bachelor's Degree");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, degreeRegex))
+                    regVal = val.Validator(str, "degreeRegex", "College Name");
+                    if (regVal)
                     {
-                        Console.WriteLine("Please use the correct format for degree");
-                        str = Console.ReadLine();
+                        cug.Degree = str;
+                        repo.UpdateATrainer(cug.Degree, "degree", "college_ug", userId);
+                        Log.Information("user updates his/her Bachelors degree");
                     }
-                    cug.Degree= str;
-                    repo.UpdateATrainer(cug.Degree, "degree", "college_ug", userId);
-                    Log.Information("user updates his/her Bachelors degree");
+                 
                     return "Profile";
+
+
+
                 case "6":
                     Console.WriteLine("Enter New Bachelor's Specialization");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, nameRegex))
+                    regVal = val.Validator(str, "nameRegex", "Specialization");
+                    if (regVal)
                     {
-                        Console.WriteLine("Specializtion should be 3 to 50 characters long");
-                        str = Console.ReadLine();
+                        cug.Branch = str;
+
+                        repo.UpdateATrainer(cug.Branch, "branch", "college_ug", userId);
+                        Log.Information("user updates his/her Bachelors specialization");
                     }
-                    cug.Branch= str;
-                    repo.UpdateATrainer(cug.Branch, "branch", "college_ug", userId);
-                    Log.Information("user updates his/her Bachelors specialization");
+               
                     return "Profile";
+
+
                 case "7":
                     Console.WriteLine("Enter New HigherSec School Name");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, nameRegex))
+                    regVal = val.Validator(str, "nameRegex", "School Name");
+                    if (regVal)
                     {
-                        Console.WriteLine("Higher Secondary School Name should be 3 to 50 characters long");
-                        str = Console.ReadLine();
+                        hsc.SchoolName = str;
+                        repo.UpdateATrainer(hsc.SchoolName, "schoolname", "highsec", userId);
+                        Log.Information("user updates his/her HSC school name");
                     }
-                    hsc.SchoolName= str;
-                    repo.UpdateATrainer(hsc.SchoolName, "schoolname", "highsec", userId);
-                    Log.Information("user updates his/her HSC school name");
+
                     return "Profile";
+
+
                 case "8":
                     Console.WriteLine("Enter New HigherSec School Year of Passing");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, yearRegex) || int.Parse(str) > 2023)
+                    regVal = val.Validator(str, "yearRegex", "year of passing");
+                    if (regVal)
                     {
-                        Console.WriteLine("Re-enter the correct year!");
-                        str = Console.ReadLine();
+                        hsc.YearPassed = str;
+                        repo.UpdateATrainer(hsc.YearPassed, "yearpassed", "highsec", userId);
+                        Log.Information("user updates his/her HSCP year");
                     }
-                    hsc.YearPassed= str;
-                    repo.UpdateATrainer(hsc.YearPassed, "yearpassed", "highsec", userId);
-                    Log.Information("user updates his/her HSCP year");
+              
                     return "Profile";
+
+
                 case "9":
                     Console.WriteLine("Enter New HigherSec School Stream");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, nameRegex))
+                    regVal = val.Validator(str, "nameRegex", "Stream");
+                    if (regVal)
                     {
-                        Console.WriteLine("Higher Secondary Stream should be 3 to 50 characters long");
-                        str = Console.ReadLine();
+                        hsc.Course = str;
+                        repo.UpdateATrainer(hsc.Course, "course", "highsec", userId);
+                        Log.Information("user updates his/her HSC stream");
                     }
-                    hsc.Course=str;
-                    repo.UpdateATrainer(hsc.Course, "course", "highsec", userId);
-                    Log.Information("user updates his/her HSC stream");
+
+                
                     return "Profile";
+
+
                 case "10":
                     Console.WriteLine("Enter New High School Name");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, nameRegex))
+                    regVal = val.Validator(str, "nameRegex", "Stream");
+                    if (regVal)
                     {
-                        Console.WriteLine("High School Name should be 3 to 50 characters long");
-                        str = Console.ReadLine();
+                        hs.SchoolName = str;
+                        repo.UpdateATrainer(hs.SchoolName, "schoolname", "highschool", userId);
+                        Log.Information("User updates his/her HS Name");
                     }
-                    hs.SchoolName=str;
-                    repo.UpdateATrainer(hs.SchoolName, "schoolname", "highschool", userId);
-                    Log.Information("User updates his/her HS Name");
+        
                     return "Profile";
+
+
                 case "11":
                     Console.WriteLine("Enter New High School Year of Passing");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, yearRegex) || int.Parse(str) > 2023)
+                    regVal = val.Validator(str, "yearRegex", "year of passing");
+                    if (regVal)
                     {
-                        Console.WriteLine("Re-enter the correct year!");
-                        str = Console.ReadLine();
+                        hs.YearPassed = str;
+                        repo.UpdateATrainer(hs.YearPassed, "yearpassed", "highschool", userId);
+                        Log.Information("user updates his/her HS Year of Passing");
                     }
-                    hs.YearPassed = str;
-                    repo.UpdateATrainer(hs.YearPassed, "yearpassed", "highschool", userId);
-                    Log.Information("user updates his/her HS Year of Passing");
+                   
                     return "Profile";
+
+
                 case "12":
                  
                     Console.WriteLine("Enter the new company name");
-                    string newC = Console.ReadLine();
+                    string compny = Console.ReadLine();
 
-                    while (!FormatChecker(newC, nameRegex))
+                    regVal = val.Validator(compny, "nameRegex", "Company name");
+                    string? experience;
+                    int e;
+                    if (regVal)
                     {
-                        Console.WriteLine("Company name should be 3 to 50 characters long");
-                        newC = Console.ReadLine();
+
+                        Console.WriteLine("Enter your experience in years");
+                        experience = Console.ReadLine();
+                        if (experience.Length > 0)
+                        {
+
+                            e = Convert.ToInt32(experience);
+                            while (e < 1 || e > 30)
+                            {
+                                Console.WriteLine("Give correct experience information");
+                                experience = Console.ReadLine();
+                                while (experience.Length <= 0)
+                                {
+                                    Console.WriteLine("Experience can't be null! Re enter the experience in years");
+                                    experience = Console.ReadLine();
+                                }
+                                e = Convert.ToInt32(experience);
+                            }
+
+
+                            companies.Add(new Models.Company()
+                            {
+                                TrainerId = tr.Email.Split("@")[0],
+                                LastCompanyName = compny,
+                                TotalExp = e
+                            });
+
+
+                        }
+                        repo.UpdateCompanies(compny, experience, userId);
+                        Log.Information("User updates his/her Experience details");
                     }
-
-                    Console.WriteLine("Enter the experience to that company");
-                    string exp= Console.ReadLine();
-                    int e = Convert.ToInt32(exp);
-                    while (e < 1 || e > 30)
-                    {
-                        Console.WriteLine("Give correct experience information");
-                        exp = Console.ReadLine();
-                        e= Convert.ToInt32(exp);
-                    }
-                    companies.Add(new()
-                    {
-                        TrainerId = userId,
-                        LastCompanyName = newC,
-                        TotalExp = e
-
-                    });
-                    repo.UpdateCompanies(newC, exp, userId);
-                    Log.Information("User updates his/her Experience details");
+                 
                     return "Profile";
                 case "13":
                     Console.WriteLine("Enter New your Primary Skill");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, nameRegex))
+                    regVal = val.Validator(str, "nameRegex", "Skill");
+                    if (regVal)
                     {
-                        Console.WriteLine("Primary Skill should be 3 to 50 characters long");
-                        str = Console.ReadLine();
+                        sk.Skill1 = str;
+                        repo.UpdateATrainer(sk.Skill1, "skill_1", "Skills", userId);
+                        Log.Information("User updates his/her Skill Details");
                     }
-                    sk.Skill1= str;
-                    repo.UpdateATrainer(sk.Skill1, "skill_1", "Skills", userId);
-                    Log.Information("User updates his/her Skill Details");
+
+                    
                     return "Profile";
+
                 case "14":
                     Console.WriteLine("Enter New your Secondary Skill");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, nameRegex))
+                    regVal = val.Validator(str, "nameRegex", "Skill");
+                    if (regVal)
                     {
-                        Console.WriteLine("Primary Skill should be 3 to 50 characters long");
-                        str = Console.ReadLine();
+                        sk.Skill2 = str;
+                        repo.UpdateATrainer(sk.Skill2, "skill_2", "Skills", userId);
+                        Log.Information("User updates his/her Skill Details");
                     }
-                    sk.Skill2 = str;
-                    repo.UpdateATrainer(sk.Skill2, "skill_2", "Skills", userId);
-                    Log.Information("User updates his/her Skill Details");
+                   
                     return "Profile";
+
                 case "15":
                     Console.WriteLine("Enter New your Tertiary Skill");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, nameRegex))
+                    regVal = val.Validator(str, "nameRegex", "Skill");
+                    if (regVal)
                     {
-                        Console.WriteLine("Primary Skill should be 3 to 50 characters long");
-                        str = Console.ReadLine();
+                        sk.Skill3 = str;
+                        repo.UpdateATrainer(sk.Skill3, "skill_3", "Skills", userId);
+                        Log.Information("User updates his/her Skill Details");
                     }
-                    sk.Skill3 = str;
-                    repo.UpdateATrainer(sk.Skill3, "skill_3", "Skills", userId);
-                    Log.Information("User updates his/her Skill Details");
+                 
                     return "Profile";
                 case "16":
                     Console.WriteLine("Enter New your Quaternary Skill");
                     str = Console.ReadLine();
-                    while (!FormatChecker(str, nameRegex))
+                    regVal = val.Validator(str, "nameRegex", "Skill");
+                    if (regVal)
                     {
-                        Console.WriteLine("Primary Skill should be 3 to 50 characters long");
-                        str = Console.ReadLine();
+                        sk.Skill4 = str;
+                        repo.UpdateATrainer(sk.Skill4, "skill_4", "Skills", userId);
+                        Log.Information("User updates his/her Skill Details");
                     }
-                    sk.Skill4 = str;
-                    repo.UpdateATrainer(sk.Skill4, "skill_4", "Skills", userId);
-                    Log.Information("User updates his/her Skill Details");
+                   
                     return "Profile";
 
                 default:

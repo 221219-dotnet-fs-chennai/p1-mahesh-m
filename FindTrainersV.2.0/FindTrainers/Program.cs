@@ -32,7 +32,7 @@ namespace FindTrainers
                         sk = new Models.Skill();
                         cug = new Models.CollegeUg();
                         companies = new List<Models.Company>();
-                        menu = new Trainer();
+                        menu = new TrainerMenu();
                         break;
                     case "TSignUp":
                         Log.Logger.Information("Trying to get into Sign Up Page");

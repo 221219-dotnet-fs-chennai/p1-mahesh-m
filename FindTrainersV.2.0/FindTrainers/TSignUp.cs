@@ -16,51 +16,43 @@ namespace FindTrainers
 {
     internal class TSignUp : IMenu
     {
-        BusinessLogic.Validation val=new BusinessLogic.Validation();
+        BusinessLogic.Validation val = new BusinessLogic.Validation();
 
-        internal static Models.Trainer tr =new Models.Trainer();
-        internal static Models.Skill sk=new Models.Skill();
-        internal static Models.HighSchool hs= new Models.HighSchool();
-        internal static Models.HighSec hsc =new Models.HighSec();
-        internal static Models.CollegeUg cug= new Models.CollegeUg();
-        internal static Models.Company com = new Models.    Company();  
-       internal static List<Models.Company> companies=new List<Models.Company>();
+        internal static Models.Trainer tr = new Models.Trainer();
+        internal static Models.Skill sk = new Models.Skill();
+        internal static Models.HighSchool hs = new Models.HighSchool();
+        internal static Models.HighSec hsc = new Models.HighSec();
+        internal static Models.CollegeUg cug = new Models.CollegeUg();
+        internal static Models.Company com = new Models.Company();
+        internal static List<Models.Company> companies = new List<Models.Company>();
 
 
-        string? nameRegex = @"\w{3,50}";
-        string? emailRegex = @"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-z]{2,6}$";
-        string? phoneRegex = @"^[9876]\d{9}$";
-        string? yearRegex= @"^\d{4}$";
-        string? degreeRegex = @"^B\.\w{1,6}$";
-        string? passwordRegex = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
-     
-        public TSignUp() {
-            
-        
+        public TSignUp()
+        {
+
+
         }
-
-        public TSignUp(Models.Trainer tra,Models.HighSchool hsl,Models.HighSec hscl,List<Models.Company>cmp,Models.Skill sks,Models.CollegeUg col)
+        
+        public TSignUp(Models.Trainer tra, Models.HighSchool hsl, Models.HighSec hscl, List<Models.Company> cmp, Models.Skill sks, Models.CollegeUg col)
         {
             tr = tra;
             hs = hsl;
-            hsc= hscl;
-            companies=cmp;
-            sk=sks;
-            cug=col;
+            hsc = hscl;
+            companies = cmp;
+            sk = sks;
+            cug = col;
         }
 
 
-        static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
 
         BusinessLogic.IRepo repo = new BusinessLogic.EFRepo();
 
 
-        //IRepo repo = new SqlRepo(s[0], s[1]);
+
         public void Display()
 
         {
-            
-            
+
             Console.WriteLine();
             Console.WriteLine("----------------------------------------------------- Sign Up  -------------------------------------------------------");
             Console.WriteLine();
@@ -77,11 +69,11 @@ namespace FindTrainers
             Console.WriteLine();
 
 
-            Console.WriteLine("[2] First Name" + "                           - "+ tr.FirstName);
+            Console.WriteLine("[2] First Name" + "                           - " + tr.FirstName);
             Console.WriteLine("[3] Last Name" + "                            - " + tr.LastName);
             Console.WriteLine("[4] Email ID" + "                             - " + tr.Email);
             Console.WriteLine("[5] Phone No." + "                            - " + tr.PhoneNo);
-            Console.WriteLine("[6] City"+"                                   - "+ tr.City) ;
+            Console.WriteLine("[6] City" + "                                   - " + tr.City);
             Console.WriteLine();
 
             Log.Logger.Information("Trainer basic details entered");
@@ -129,28 +121,20 @@ namespace FindTrainers
 
             Console.WriteLine("[16] Company Details and Experience in years" + "                      ");
             Console.WriteLine();
-            
+
             if (companies.Count > 0)
             {
-                var table =new ConsoleTable("Companies", "Experience in Years");
+                var table = new ConsoleTable("Companies", "Experience in Years");
                 foreach (var e in companies)
                 {
 
-                    //Console.WriteLine("                                             ---------------------------");
-                    //Console.WriteLine("                                             |  " + e.Key + "        |      " + e.Value + "  |  ");
-                    //Console.WriteLine("                                             ---------------------------");
-
-                    table.AddRow(e.LastCompanyName,e.TotalExp);
-
-
-
-
+                    table.AddRow(e.LastCompanyName, e.TotalExp);
 
                 }
                 table.Write(Format.MarkDown);
             }
 
-           
+
             Console.WriteLine();
             Console.WriteLine();
 
@@ -165,14 +149,14 @@ namespace FindTrainers
             Console.WriteLine("[18] Secondary Skill" + "                     - " + sk.Skill2);
             Console.WriteLine("[19] Tertiary Skill" + "                      - " + sk.Skill3);
             Console.WriteLine("[20] Quaternary Skill" + "                    - " + sk.Skill4);
-            
+
 
             Console.WriteLine();
             Log.Logger.Information("Trainer Skillset has been entered!");
 
             Console.WriteLine();
 
-            Console.WriteLine("[21] Password" );
+            Console.WriteLine("[21] Password");
 
         }
 
@@ -180,7 +164,7 @@ namespace FindTrainers
         public string UserChoice()
         {
 
-          
+
             string? userInput = Console.ReadLine();
             Console.WriteLine();
 
@@ -195,8 +179,8 @@ namespace FindTrainers
 
                 case "2":
                     Console.WriteLine("Enter First Name");
-                    string ? str = Console.ReadLine();
-                   bool regVal=val.Validator(str, "nameRegex", "First Name");
+                    string? str = Console.ReadLine();
+                    bool regVal = val.Validator(str, "nameRegex", "First Name");
                     if (regVal)
                     {
                         tr.FirstName = str;
@@ -207,8 +191,8 @@ namespace FindTrainers
 
                 case "3":
                     Console.WriteLine("Enter Last Name");
-                     str = Console.ReadLine();
-                     regVal = val.Validator(str, "nameRegex", "Last Name");
+                    str = Console.ReadLine();
+                    regVal = val.Validator(str, "nameRegex", "Last Name");
                     if (regVal)
                     {
                         tr.LastName = str;
@@ -219,7 +203,7 @@ namespace FindTrainers
 
                 case "4":
                     Console.WriteLine("Enter Email ID");
-                    str= Console.ReadLine();
+                    str = Console.ReadLine();
                     regVal = val.Validator(str, "emailRegex", "email");
                     if (regVal)
                     {
@@ -247,7 +231,7 @@ namespace FindTrainers
                 case "6":
                     Console.WriteLine("Enter City name");
                     str = Console.ReadLine();
-                     regVal = val.Validator(str, "nameRegex", "City");
+                    regVal = val.Validator(str, "nameRegex", "City");
                     if (regVal)
                     {
                         tr.City = str;
@@ -260,13 +244,13 @@ namespace FindTrainers
                     regVal = val.Validator(str, "nameRegex", "College Name");
                     if (regVal)
                     {
-                        cug.CollegeName= str;
+                        cug.CollegeName = str;
                     }
                     return "TSignUp";
-                    
+
                 case "8":
                     Console.WriteLine("Enter Bachelor's Year of Passing");
-                     str = Console.ReadLine();
+                    str = Console.ReadLine();
                     regVal = val.Validator(str, "yearRegex", "year of passing");
                     if (regVal)
                     {
@@ -288,57 +272,58 @@ namespace FindTrainers
 
                 case "10":
                     Console.WriteLine("Enter Bachelor's Specialization");
-                    str= Console.ReadLine();
+                    str = Console.ReadLine();
                     regVal = val.Validator(str, "nameRegex", "Specialization");
                     if (regVal)
                     {
                         cug.Branch = str;
                     }
-                    //trainer.UGDept = str;
-                   
+
                     return "TSignUp";
+
+
                 case "11":
                     Console.WriteLine("Enter HigherSec School Name");
-                    str= Console.ReadLine();
+                    str = Console.ReadLine();
                     regVal = val.Validator(str, "nameRegex", "School Name");
                     if (regVal)
                     {
                         hsc.SchoolName = str;
                     }
-                    //trainer.HSCName= str;
+
                     return "TSignUp";
 
 
                 case "12":
                     Console.WriteLine("Enter HigherSec School Year of Passing");
-                    str= Console.ReadLine();
+                    str = Console.ReadLine();
                     regVal = val.Validator(str, "yearRegex", "year of passing");
                     if (regVal)
                     {
                         hsc.YearPassed = str;
                     }
-                    
+
                     return "TSignUp";
 
 
                 case "13":
                     Console.WriteLine("Enter HigherSec School Stream");
-            
+
                     str = Console.ReadLine();
                     regVal = val.Validator(str, "nameRegex", "Stream");
                     if (regVal)
                     {
                         hsc.Course = str;
                     }
-                    //trainer.HSCStream = str;
-                   
+                 
+
                     return "TSignUp";
 
 
                 case "14":
                     Console.WriteLine("Enter High School Name");
                     str = Console.ReadLine();
-                    regVal = val.Validator(str, "nameRegex", "Stream");
+                    regVal = val.Validator(str, "nameRegex", "School Name");
                     if (regVal)
                     {
                         hs.SchoolName = str;
@@ -359,7 +344,7 @@ namespace FindTrainers
 
                 case "16":
                     Console.WriteLine("Enter Company Name");
-                    string compny= Console.ReadLine();
+                    string compny = Console.ReadLine();
 
                     regVal = val.Validator(compny, "nameRegex", "Company name");
                     string? experience;
@@ -369,7 +354,7 @@ namespace FindTrainers
 
                         Console.WriteLine("Enter your experience in years");
                         experience = Console.ReadLine();
-                        if(experience.Length>0)
+                        if (experience.Length > 0)
                         {
 
                             e = Convert.ToInt32(experience);
@@ -377,10 +362,15 @@ namespace FindTrainers
                             {
                                 Console.WriteLine("Give correct experience information");
                                 experience = Console.ReadLine();
+                                while (experience.Length <= 0)
+                                {
+                                    Console.WriteLine("Experience can't be null! Re enter the experience in years");
+                                    experience = Console.ReadLine();
+                                }
                                 e = Convert.ToInt32(experience);
                             }
 
-                            //trainer.SetCompany(compny, experience);
+                  
                             companies.Add(new Models.Company()
                             {
                                 TrainerId = tr.Email.Split("@")[0],
@@ -402,17 +392,22 @@ namespace FindTrainers
 
                                     Console.WriteLine("Enter your experience in years");
                                     experience = Console.ReadLine();
-                                    if (experience.Length>0)
+                                    if (experience.Length > 0)
                                     {
                                         e = Convert.ToInt32(experience);
                                         while (e < 1 || e > 30)
                                         {
                                             Console.WriteLine("Give correct experience information");
                                             experience = Console.ReadLine();
+                                            while (experience.Length <= 0)
+                                            {
+                                                Console.WriteLine("Experience can't be null! Re enter the experience in years");
+                                                experience = Console.ReadLine();
+                                            }
                                             e = Convert.ToInt32(experience);
                                         }
 
-                                        //trainer.SetCompany(compny, experience);
+
                                         companies.Add(new Models.Company()
                                         {
                                             TrainerId = tr.Email.Split("@")[0],
@@ -427,7 +422,7 @@ namespace FindTrainers
                                         Console.ReadLine();
 
                                     }
-                                  
+
 
                                 }
 
@@ -444,23 +439,23 @@ namespace FindTrainers
                             Console.WriteLine("Experience can't be null!");
                             Console.ReadLine();
                         }
-                      
+
 
                     }
 
 
                     return "TSignUp";
-         
+
                 case "17":
                     Console.WriteLine("Enter your Primary Skill");
-                    str= Console.ReadLine();
+                    str = Console.ReadLine();
                     regVal = val.Validator(str, "nameRegex", "Skill");
                     if (regVal)
                     {
                         sk.Skill1 = str;
                     }
-                    //trainer.Skill1 = str;
-                    
+                 
+
                     return "TSignUp";
                 case "18":
                     Console.WriteLine("Enter your Secondary Skill");
@@ -470,7 +465,7 @@ namespace FindTrainers
                     {
                         sk.Skill2 = str;
                     }
-                    
+
                     return "TSignUp";
                 case "19":
                     Console.WriteLine("Enter your Tertiary Skill");
@@ -481,7 +476,7 @@ namespace FindTrainers
                         sk.Skill3 = str;
                     }
 
-                    
+
                     return "TSignUp";
                 case "20":
                     Console.WriteLine("Enter your Quaternary Skill");
@@ -508,8 +503,8 @@ namespace FindTrainers
                         }
                         tr.Password = str;
                     }
-                    //trainer.Password = str;
-                   
+                  
+
                     return "TSignUp";
 
                 default:
@@ -520,21 +515,7 @@ namespace FindTrainers
 
             }
         }
-        
-        public bool FormatChecker(string str,string regex)
-        {
-            Regex r = new Regex(regex);
-            if (r.IsMatch(str))
-            {
-                return true;
 
-            }
-            else
-            {
-                return false;
-            }
 
-          
-        }
     }
 }
