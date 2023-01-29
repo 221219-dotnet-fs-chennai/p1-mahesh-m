@@ -207,12 +207,20 @@ namespace FindTrainers
                     regVal = val.Validator(str, "emailRegex", "email");
                     if (regVal)
                     {
-                        tr.Email = str;
-                        tr.TrainerId = str.Split("@")[0];
-                        hs.TrainerId = tr.TrainerId;
-                        hsc.TrainerId = tr.TrainerId;
-                        cug.TrainerId = tr.TrainerId;
-                        sk.TrainerId = tr.TrainerId;
+                        if (!repo.IsExist(str, "PhoneNo"))
+                        {
+                            tr.PhoneNo = str;
+                            tr.Email = str;
+                            tr.TrainerId = str.Split("@")[0];
+                            hs.TrainerId = tr.TrainerId;
+                            hsc.TrainerId = tr.TrainerId;
+                            cug.TrainerId = tr.TrainerId;
+                            sk.TrainerId = tr.TrainerId;
+                            return "TSignUp";
+                        }
+                        Console.WriteLine("Email Id is associated with another account!! try with new Email");
+                        Console.ReadLine();
+            
                     }
                     return "TSignUp";
 
@@ -222,7 +230,13 @@ namespace FindTrainers
                     regVal = val.Validator(str, "phoneRegex", "email");
                     if (regVal)
                     {
-                        tr.PhoneNo = str;
+                        if(!repo.IsExist(str, "PhoneNo"))
+                        {
+                            tr.PhoneNo = str;
+                                return "TSignUp";
+                        }
+                        Console.WriteLine("Phone No. is associated with another account!! try with new Phone number");
+                        Console.ReadLine();
                     }
                     return "TSignUp";
 

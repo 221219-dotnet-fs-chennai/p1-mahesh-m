@@ -32,5 +32,7 @@ namespace BusinessLogic
         IEnumerable<Models.TResult> TrainersBySkill(string skill);
         IEnumerable<Models.TResult> TrainersByLocation(string city);
 
+        bool IsExist(string str, string type);
+
     }
 }

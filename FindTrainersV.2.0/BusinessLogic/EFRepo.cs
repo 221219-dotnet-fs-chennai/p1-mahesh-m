@@ -473,6 +473,24 @@ namespace BusinessLogic
                        }).ToList();
             return res;
         }
+
+        public bool IsExist(string str, string type)
+        {
+            var context = new TrainerDetailsContext();
+            var accs = context.Trainers;
+            bool exist= false;
+            if (type == "email")
+            {
+                exist=accs.Any(x => x.Email == str);
+            }
+            else
+            {
+                exist = accs.Any(x => x.PhoneNo == str);
+            }
+
+            return exist;
+
+        }
     }
     }
 

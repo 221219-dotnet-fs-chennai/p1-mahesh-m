@@ -131,13 +131,19 @@ namespace FindTrainers
                     Console.WriteLine("Enter New Phone No.");
                     string str= Console.ReadLine();
                     bool regVal = val.Validator(str, "phoneRegex", "email");
+               
                     if (regVal)
                     {
-                        tr.PhoneNo = str;
-                        repo.UpdateATrainer(tr.PhoneNo, "phoneNo", "trainers", userId);
-                        Log.Information("Trainer updated his/her phone no.");
+                        if (!repo.IsExist(str, "PhoneNo"))
+                        {
+                            tr.PhoneNo = str;
+                            repo.UpdateATrainer(tr.PhoneNo, "phoneNo", "trainers", userId);
+                            Log.Information("Trainer updated his/her phone no.");
+                            return "Profile";
+                        }
+                        Console.WriteLine("Phone No. is associated with another account!! try with new Phone number");
+                        Console.ReadLine();
                     }
-                 
                     //if (repo.IsExist(str, "phoneNo"))
                     //{
                     //    Console.WriteLine("Phone No. is Associated with another account. Try add different phone number!");
@@ -154,8 +160,8 @@ namespace FindTrainers
 
 
                     //}
-                   
-                 
+
+
                     return "Profile";
 
 
@@ -173,6 +179,7 @@ namespace FindTrainers
                         repo.UpdateATrainer(tr.City, "city", "trainers", userId);
                         Log.Information("Trainer updated his/her City.");
                     }
+
                     return "Profile";
 
 
@@ -186,7 +193,7 @@ namespace FindTrainers
                         repo.UpdateATrainer(cug.CollegeName, "collegeName", "college_ug", userId);
                         Log.Information("Trainer update his/her College Name");
                     }
-                 
+                    Console.ReadLine();
                     return "Profile";
 
 
@@ -202,7 +209,7 @@ namespace FindTrainers
                         Log.Information("user updates his/her UG year");
                     }
 
-                 
+                    Console.ReadLine();
                     return "Profile";
 
 
@@ -217,6 +224,7 @@ namespace FindTrainers
                         repo.UpdateATrainer(cug.Degree, "degree", "college_ug", userId);
                         Log.Information("user updates his/her Bachelors degree");
                     }
+                    Console.ReadLine();
                  
                     return "Profile";
 
@@ -233,7 +241,7 @@ namespace FindTrainers
                         repo.UpdateATrainer(cug.Branch, "branch", "college_ug", userId);
                         Log.Information("user updates his/her Bachelors specialization");
                     }
-               
+                    Console.ReadLine();
                     return "Profile";
 
 
@@ -247,7 +255,7 @@ namespace FindTrainers
                         repo.UpdateATrainer(hsc.SchoolName, "schoolname", "highsec", userId);
                         Log.Information("user updates his/her HSC school name");
                     }
-
+                    Console.ReadLine();
                     return "Profile";
 
 
@@ -261,7 +269,7 @@ namespace FindTrainers
                         repo.UpdateATrainer(hsc.YearPassed, "yearpassed", "highsec", userId);
                         Log.Information("user updates his/her HSCP year");
                     }
-              
+                    Console.ReadLine();
                     return "Profile";
 
 
@@ -275,8 +283,8 @@ namespace FindTrainers
                         repo.UpdateATrainer(hsc.Course, "course", "highsec", userId);
                         Log.Information("user updates his/her HSC stream");
                     }
+                    Console.ReadLine();
 
-                
                     return "Profile";
 
 
@@ -290,7 +298,7 @@ namespace FindTrainers
                         repo.UpdateATrainer(hs.SchoolName, "schoolname", "highschool", userId);
                         Log.Information("User updates his/her HS Name");
                     }
-        
+                    Console.ReadLine();
                     return "Profile";
 
 
@@ -304,7 +312,8 @@ namespace FindTrainers
                         repo.UpdateATrainer(hs.YearPassed, "yearpassed", "highschool", userId);
                         Log.Information("user updates his/her HS Year of Passing");
                     }
-                   
+                    Console.ReadLine();
+
                     return "Profile";
 
 
@@ -350,7 +359,8 @@ namespace FindTrainers
                         repo.UpdateCompanies(compny, experience, userId);
                         Log.Information("User updates his/her Experience details");
                     }
-                 
+                    Console.ReadLine();
+
                     return "Profile";
                 case "13":
                     Console.WriteLine("Enter New your Primary Skill");
@@ -363,7 +373,7 @@ namespace FindTrainers
                         Log.Information("User updates his/her Skill Details");
                     }
 
-                    
+                    Console.ReadLine();
                     return "Profile";
 
                 case "14":
@@ -376,7 +386,8 @@ namespace FindTrainers
                         repo.UpdateATrainer(sk.Skill2, "skill_2", "Skills", userId);
                         Log.Information("User updates his/her Skill Details");
                     }
-                   
+
+                    Console.ReadLine();
                     return "Profile";
 
                 case "15":
@@ -389,7 +400,8 @@ namespace FindTrainers
                         repo.UpdateATrainer(sk.Skill3, "skill_3", "Skills", userId);
                         Log.Information("User updates his/her Skill Details");
                     }
-                 
+
+                    Console.ReadLine();
                     return "Profile";
                 case "16":
                     Console.WriteLine("Enter New your Quaternary Skill");
@@ -401,7 +413,7 @@ namespace FindTrainers
                         repo.UpdateATrainer(sk.Skill4, "skill_4", "Skills", userId);
                         Log.Information("User updates his/her Skill Details");
                     }
-                   
+                    Console.ReadLine();
                     return "Profile";
 
                 default:
