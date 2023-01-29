@@ -25,7 +25,7 @@ namespace BusinessLogic
                      if (!FormatChecker(str, nameRegex))
                     {
                         Console.WriteLine($"{field} should be 3 to 50 characters long! Retry !!");
-                        Console.ReadLine();
+                        //Console.ReadLine();
                         return false;
                     }
                     return true;

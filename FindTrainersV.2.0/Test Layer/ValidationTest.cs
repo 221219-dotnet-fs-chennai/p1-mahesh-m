@@ -60,6 +60,24 @@ namespace Test_Layer
             Assert.That(res4, Is.EqualTo(true));
             Assert.That(res5, Is.EqualTo(true));
         }
+        [Test]
+        public void test_for_nameortext_Working()
+        {
+
+            bool res1 = val.Validator("m", "nameRegex", "nothing");
+            bool res2 = val.Validator("", "nameRegex", "nothing");
+            bool res3 = val.Validator("ma", "nameRegex", "nothing");
+            bool res4 = val.Validator("Mahesh", "nameRegex", "nothing");
+            bool res5 = val.Validator("Vinicius", "nameRegex", "nothing");
+
+            Assert.That(res1, Is.EqualTo(false));
+            Assert.That(res2, Is.EqualTo(false));
+            Assert.That(res3, Is.EqualTo(false));
+            Assert.That(res4, Is.EqualTo(true));
+            Assert.That(res5, Is.EqualTo(true));
+        }
+
+
 
     }
     }
