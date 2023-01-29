@@ -77,6 +77,57 @@ namespace Test_Layer
             Assert.That(res5, Is.EqualTo(true));
         }
 
+        [Test]
+
+        public void test_for_year_format_validator()
+        {
+            bool res1 = val.Validator("20010", "yearRegex", "nothing");
+            bool res2 = val.Validator("", "yearRegex", "nothing");
+            bool res3 = val.Validator("2031", "yearRegex", "nothing");
+            bool res4 = val.Validator("2019", "yearRegex", "nothing");
+            bool res5 = val.Validator("2010", "yearRegex", "nothing");
+
+            Assert.That(res1, Is.EqualTo(false));
+            Assert.That(res2, Is.EqualTo(false));
+            Assert.That(res3, Is.EqualTo(false));
+            Assert.That(res4, Is.EqualTo(true));
+            Assert.That(res5, Is.EqualTo(true));
+        }
+
+        [Test]
+        public void test_for_Degree_Format_Validator()
+        {
+            bool res1 = val.Validator("M.tech", "degreeRegex", "nothing");
+            bool res2 = val.Validator("", "degreeRegex", "nothing");
+            bool res3 = val.Validator("mtech", "degreeRegex", "nothing");
+            bool res4 = val.Validator("B.sc", "degreeRegex", "nothing");
+            bool res5 = val.Validator("B.arc", "degreeRegex", "nothing");
+                
+
+            Assert.That(res1, Is.EqualTo(false));
+            Assert.That(res2, Is.EqualTo(false));
+            Assert.That(res3, Is.EqualTo(false));
+            Assert.That(res4, Is.EqualTo(true));
+            Assert.That(res5, Is.EqualTo(true));
+        }
+
+        [Test]
+        public void test_for_password_format_validator()
+        {
+            bool res1 = val.Validator("password", "passwordRegex", "nothing");
+            bool res2 = val.Validator("", "passwordRegex", "nothing");
+            bool res3 = val.Validator("password123", "passwordRegex", "nothing");
+            bool res4 = val.Validator("Password123", "passwordRegex", "nothing");
+            bool res5 = val.Validator("123Mahesh", "passwordRegex", "nothing");
+
+
+            Assert.That(res1, Is.EqualTo(false));
+            Assert.That(res2, Is.EqualTo(false));
+            Assert.That(res3, Is.EqualTo(false));
+            Assert.That(res4, Is.EqualTo(true));
+            Assert.That(res5, Is.EqualTo(true));
+
+        }
 
 
     }

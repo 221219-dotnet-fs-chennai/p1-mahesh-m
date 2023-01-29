@@ -50,7 +50,7 @@ namespace BusinessLogic
                     if(!FormatChecker(str, yearRegex) || int.Parse(str) > 2023)
                     {
                         Console.WriteLine("Re-enter the correct year!");
-                        Console.ReadLine();
+                        //Console.ReadLine();
                         return false;
                     }
                     return true;
@@ -58,7 +58,7 @@ namespace BusinessLogic
                     if (!FormatChecker(str, degreeRegex))
                     {
                         Console.WriteLine("Please use the correct format for degree");
-                        Console.ReadLine();
+                        //Console.ReadLine();
                         return false;
                     }
                     return true;
@@ -66,7 +66,7 @@ namespace BusinessLogic
                     if (!FormatChecker(str, passwordRegex))
                     {
                         Console.WriteLine("Password min 8 characters, atleast 1 lower case,1 upper case,1 number");
-                        Console.ReadLine();
+                        //Console.ReadLine();
                         return false;
                     }
                     return true;
