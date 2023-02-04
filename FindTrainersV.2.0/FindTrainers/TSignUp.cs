@@ -45,7 +45,7 @@ namespace FindTrainers
 
 
 
-        BusinessLogic.IRepo repo = new BusinessLogic.EFRepo();
+        BusinessLogic.ILogic repo = new BusinessLogic.Logic();
 
 
 

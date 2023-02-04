@@ -1,5 +1,4 @@
-﻿using EntityFramework.newEntities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public interface IRepo
+    public interface ILogic
     {
-
-        void InsertTrainers(Models.Trainer Tr,Models.Skill sk,Models.HighSec hsc,Models.HighSchool hs,List<Models.Company> com,Models.CollegeUg ug);
+        void InsertTrainers(Models.Trainer Tr, Models.Skill sk, Models.HighSec hsc, Models.HighSchool hs, List<Models.Company> com, Models.CollegeUg ug);
 
         Models.Trainer GetTrainer(string trainerId);
         Models.HighSchool GetHighSchool(string trainerId);
@@ -33,6 +31,5 @@ namespace BusinessLogic
         IEnumerable<Models.TResult> TrainersByLocation(string city);
 
         bool IsExist(string str, string type);
-
     }
 }

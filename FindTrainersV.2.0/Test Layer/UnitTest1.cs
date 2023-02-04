@@ -3,7 +3,7 @@ namespace Test_Layer
 {
     public class Tests
     {
-        IRepo repo = new EFRepo();
+        ILogic repo = new Logic();
         IValidator val=new Validation();
         [SetUp]
         public void Setup()

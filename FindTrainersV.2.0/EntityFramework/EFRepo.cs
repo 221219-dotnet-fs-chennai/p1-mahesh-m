@@ -7,10 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace BusinessLogic
+namespace EntityFramework
 {
     public class EFRepo : IRepo
-    {   Mapper mapper=new Mapper();
+    {   
         public void DeleteAccount(string trainerId)
         {
             var context = new TrainerDetailsContext();
@@ -36,7 +36,7 @@ namespace BusinessLogic
 
         }
 
-        public Models.CollegeUg GetCollegeUg(string trainerId)
+        public CollegeUg GetCollegeUg(string trainerId)
         {
             var context = new TrainerDetailsContext();
             var cug = context.CollegeUgs;
@@ -55,21 +55,21 @@ namespace BusinessLogic
 
                 };
             }
-            return mapper.MapCollgeInv(collug);
+            return collug;
         }
 
-        public List<Models.Company> GetCompany(string trainerId)
+        public List<Company> GetCompany(string trainerId)
         {
             var context = new TrainerDetailsContext();
             var comp = context.Companies;
             var cmp = from s in comp
                       where s.TrainerId == trainerId
-                      select mapper.MapCompanyInv(s);
+                      select s;
             return cmp.ToList();
 
         }
 
-        public Models.HighSchool GetHighSchool(string trainerId)
+        public HighSchool GetHighSchool(string trainerId)
         {
             var context = new TrainerDetailsContext();
             var hscl = context.HighSchools;
@@ -87,10 +87,10 @@ namespace BusinessLogic
 
                 };
             }
-            return mapper.MapHighSchoolInv(highsch);
+            return highsch;
         }
 
-        public Models.HighSec GetHighSec(string trainerId)
+        public HighSec GetHighSec(string trainerId)
         {
             var context = new TrainerDetailsContext();
             var hscl = context.HighSecs;
@@ -108,10 +108,10 @@ namespace BusinessLogic
 
                 };
             }
-            return mapper.MapHighSecInv(highsec);
+            return highsec;
         }
 
-        public Models.Skill GetSkill(string tId)
+        public Skill GetSkill(string tId)
         {
             var context = new TrainerDetailsContext();
             var Skills = context.Skills;
@@ -129,10 +129,10 @@ namespace BusinessLogic
                     Skill4 = s.Skill4,
                 };
             }
-            return mapper.MapSkillInv(skb);
+            return skb;
         }
 
-        public Models.Trainer GetTrainer(string tId)
+        public Trainer GetTrainer(string tId)
         {
             var context = new TrainerDetailsContext();
             var trainers = context.Trainers;
@@ -154,21 +154,21 @@ namespace BusinessLogic
                 };
 
             }
-            return mapper.MapTrainerInv(trb);
+            return trb;
 
         }
 
-        public void InsertTrainers(Models.Trainer tr, Models.Skill sk, Models.HighSec hsc, Models.HighSchool hs, List<Models.Company> com, Models.CollegeUg ug)
+        public void InsertTrainers(Trainer tr, Skill sk, HighSec hsc, HighSchool hs, List<Company> com, CollegeUg ug)
         {
             var context = new TrainerDetailsContext();
-            context.Trainers.Add(mapper.MapTrainer(tr));
-            context.Skills.Add(mapper.MapSkill(sk));
-            context.HighSchools.Add(mapper.MapHighSchool(hs));
-            context.HighSecs.Add(mapper.MapHighSec(hsc));
-            context.CollegeUgs.Add(mapper.MapCollege(ug));
+            context.Trainers.Add(tr);
+            context.Skills.Add(sk);
+            context.HighSchools.Add(hs);
+            context.HighSecs.Add(hsc);
+            context.CollegeUgs.Add(ug);
             foreach (var company in com)
             {
-                context.Companies.Add(mapper.MapCompany(company));
+                context.Companies.Add(company);
             }
 
             context.SaveChanges();

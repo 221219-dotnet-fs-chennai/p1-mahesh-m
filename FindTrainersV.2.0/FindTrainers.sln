@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{2D28B040-9532-445D-A687-0D85AB3B96E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Layer", "Test Layer\Test Layer.csproj", "{029DEE13-51D2-4B7E-BB76-30183C2DD9EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test Layer", "Test Layer\Test Layer.csproj", "{029DEE13-51D2-4B7E-BB76-30183C2DD9EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{CADB4C0A-79BC-4611-B171-A33000F0D090}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{029DEE13-51D2-4B7E-BB76-30183C2DD9EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{029DEE13-51D2-4B7E-BB76-30183C2DD9EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{029DEE13-51D2-4B7E-BB76-30183C2DD9EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CADB4C0A-79BC-4611-B171-A33000F0D090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CADB4C0A-79BC-4611-B171-A33000F0D090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CADB4C0A-79BC-4611-B171-A33000F0D090}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CADB4C0A-79BC-4611-B171-A33000F0D090}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

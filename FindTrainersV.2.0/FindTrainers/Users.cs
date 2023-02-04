@@ -14,7 +14,7 @@ namespace FindTrainers
 
 
         //IRepo repo = new SqlRepo(s[0], s[1]);
-        BusinessLogic.IRepo repo =new BusinessLogic.EFRepo();
+        BusinessLogic.ILogic repo = new BusinessLogic.Logic();
         public void Display()
         {
             Console.WriteLine("Welcome!");

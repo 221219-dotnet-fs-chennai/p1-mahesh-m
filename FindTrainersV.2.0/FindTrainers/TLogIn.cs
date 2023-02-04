@@ -13,7 +13,7 @@ namespace FindTrainers
        
 
         
-        BusinessLogic.IRepo rp=new BusinessLogic.EFRepo();
+        BusinessLogic.ILogic rp=new BusinessLogic.Logic();
         public void Display()
         {
             Console.WriteLine($"<-------------------------- LOGIN PAGE ----------------------------->");

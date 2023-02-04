@@ -11,7 +11,7 @@ namespace FindTrainers
     {
         static string[] s = File.ReadAllLines(@"C:\Users\Maheshabi\newRepo\p1-mahesh-m\FindTrainers\Datafile\Connection.txt");
 
-        BusinessLogic.IRepo repo = new BusinessLogic.EFRepo();
+        BusinessLogic.ILogic repo = new BusinessLogic.Logic();
 
         public new void Display()
         {

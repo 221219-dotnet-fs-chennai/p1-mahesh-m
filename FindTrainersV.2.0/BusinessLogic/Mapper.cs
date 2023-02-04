@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public  class Mapper
+    public class Mapper
     {
 
-        public Trainer MapTrainer(Models.Trainer tr)
+        public static   Trainer MapTrainer(Models.Trainer tr)
         {
             return new Trainer()
             { FirstName=tr.FirstName, 
@@ -22,7 +22,7 @@ namespace BusinessLogic
             };
         }
 
-        public Skill MapSkill(Models.Skill skill)
+        public static  Skill MapSkill(Models.Skill skill)
         {
             return new Skill()
             {
@@ -34,7 +34,7 @@ namespace BusinessLogic
             };
         }
 
-        public HighSchool MapHighSchool(Models.HighSchool highSchool)
+        public static  HighSchool MapHighSchool(Models.HighSchool highSchool)
         {
             return new HighSchool()
             {
@@ -44,7 +44,7 @@ namespace BusinessLogic
 
             };
         }
-        public HighSec MapHighSec(Models.HighSec highSec)
+        public static  HighSec MapHighSec(Models.HighSec highSec)
         {
             return new HighSec()
             {
@@ -56,7 +56,7 @@ namespace BusinessLogic
 
         }
 
-        public CollegeUg MapCollege(Models.CollegeUg college)
+        public static  CollegeUg MapCollege(Models.CollegeUg college)
         {
             return new CollegeUg() {
             
@@ -69,7 +69,7 @@ namespace BusinessLogic
 
         }
 
-        public Company MapCompany (Models.Company company)
+        public static  Company MapCompany (Models.Company company)
         {
             return new Company()
             {
@@ -86,7 +86,7 @@ namespace BusinessLogic
 
 
 
-        public Models.CollegeUg MapCollgeInv (CollegeUg college)
+        public static  Models.CollegeUg MapCollgeInv (CollegeUg college)
         {
             return new Models.CollegeUg() { 
             
@@ -99,7 +99,7 @@ namespace BusinessLogic
 
         }
 
-        public Models.Trainer MapTrainerInv(Trainer tr)
+        public static  Models.Trainer MapTrainerInv(Trainer tr)
         {
             return new Models.Trainer()
             {
@@ -113,7 +113,7 @@ namespace BusinessLogic
         }
 
 
-        public Models.Skill MapSkillInv(Skill skill) {
+        public static  Models.Skill MapSkillInv(Skill skill) {
 
             return new Models.Skill()
             {
@@ -125,7 +125,7 @@ namespace BusinessLogic
         
         }
 
-        public Models.HighSchool MapHighSchoolInv (HighSchool hs)
+        public static  Models.HighSchool MapHighSchoolInv (HighSchool hs)
         {
             return new Models.HighSchool()
             {
@@ -135,7 +135,7 @@ namespace BusinessLogic
             };
         }
 
-        public Models.HighSec MapHighSecInv (HighSec hs)
+        public static  Models.HighSec MapHighSecInv (HighSec hs)
         {
             return new Models.HighSec()
             {
@@ -145,7 +145,7 @@ namespace BusinessLogic
             };
         }
 
-        public Models.Company MapCompanyInv (Company company)
+        public static  Models.Company MapCompanyInv (Company company)
         {
             return new Models.Company()
             {

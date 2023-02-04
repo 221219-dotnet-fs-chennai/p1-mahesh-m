@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace FindTrainers
 {
     internal class UFilter : IMenu
-    { BusinessLogic.IRepo repo = new BusinessLogic.EFRepo();
+    { BusinessLogic.ILogic repo = new BusinessLogic.Logic();
         public void Display()
         {
             Console.WriteLine("Hello User, Choose your filter!");
