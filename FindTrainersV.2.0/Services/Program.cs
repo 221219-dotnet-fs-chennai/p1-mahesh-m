@@ -1,3 +1,8 @@
+using EntityFramework.newEntities;
+using Microsoft.EntityFrameworkCore;
+using EntityFramework;
+using BusinessLogic;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +12,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var config = builder.Configuration.GetConnectionString("TrainerDB");
+builder.Services.AddDbContext<TrainerDetailsContext>(options=>options.UseSqlServer(config));
+builder.Services.AddScoped<ILogic, Logic>();
+
+
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -15,6 +28,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+
 
 app.UseHttpsRedirection();
 
