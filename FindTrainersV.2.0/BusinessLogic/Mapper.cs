@@ -13,12 +13,12 @@ namespace BusinessLogic
         public static   Trainer MapTrainer(Models.Trainer tr)
         {
             return new Trainer()
-            { FirstName=tr.FirstName, 
-              LastName=tr.LastName,
-              Password=tr.Password,
-              TrainerId=tr.TrainerId,
-              PhoneNo=tr.PhoneNo,
-              City=tr.City
+            { FirstName=tr.T_FirstName, 
+              LastName=tr.T_LastName,
+              Password=tr.T_Password,
+              TrainerId=tr.T_TrainerId,
+              PhoneNo=tr.T_PhoneNo,
+              City=tr.T_City
             };
         }
 
@@ -26,11 +26,11 @@ namespace BusinessLogic
         {
             return new Skill()
             {
-                TrainerId = skill.TrainerId,
-                Skill1 = skill.Skill1,
-                Skill2 = skill.Skill2,
-                Skill3 = skill.Skill3,
-                Skill4 = skill.Skill4,
+                TrainerId = skill.SK_TrainerId,
+                Skill1 = skill.SK_Skill1,
+                Skill2 = skill.SK_Skill2,
+                Skill3 = skill.SK_Skill3,
+                Skill4 = skill.SK_Skill4,
             };
         }
 
@@ -38,9 +38,9 @@ namespace BusinessLogic
         {
             return new HighSchool()
             {
-                TrainerId = highSchool.TrainerId,
-                SchoolName = highSchool.SchoolName,
-                YearPassed = highSchool.YearPassed,
+                TrainerId = highSchool.HS_TrainerId,
+                SchoolName = highSchool.HS_SchoolName,
+                YearPassed = highSchool.HS_YearPassed,
 
             };
         }
@@ -48,10 +48,10 @@ namespace BusinessLogic
         {
             return new HighSec()
             {
-                TrainerId = highSec.TrainerId,
-                SchoolName = highSec.SchoolName,
-                YearPassed = highSec.YearPassed,
-                Course = highSec.Course,
+                TrainerId = highSec.HSC_TrainerId,
+                SchoolName = highSec.HSC_SchoolName,
+                YearPassed = highSec.HSC_YearPassed,
+                Course = highSec.HSC_Course,
             };
 
         }
@@ -60,9 +60,9 @@ namespace BusinessLogic
         {
             return new CollegeUg() {
             
-                CollegeName= college.CollegeName,
-                YearPassed= college.YearPassed,
-                Degree= college.Degree,
+                CollegeName= college.UG_CollegeName,
+                YearPassed= college.UG_YearPassed,
+                Degree= college.UG_Degree,
                 Branch= college.Branch,
             
             };
@@ -73,9 +73,9 @@ namespace BusinessLogic
         {
             return new Company()
             {
-                TrainerId = company.TrainerId,
-                LastCompanyName = company.LastCompanyName,
-                TotalExp = company.TotalExp,
+                TrainerId = company.C_TrainerId,
+                LastCompanyName = company.C_LastCompanyName,
+                TotalExp = company.C_TotalExp,
 
             };
         }
@@ -90,10 +90,10 @@ namespace BusinessLogic
         {
             return new Models.CollegeUg() { 
             
-                CollegeName= college.CollegeName,
-                YearPassed = college.YearPassed,
+                UG_CollegeName= college.CollegeName,
+                UG_YearPassed = college.YearPassed,
                 Branch= college.Branch,
-                Degree= college.Degree,
+                UG_Degree= college.Degree,
 
             };
 
@@ -103,12 +103,12 @@ namespace BusinessLogic
         {
             return new Models.Trainer()
             {
-                FirstName = tr.FirstName,
-                LastName = tr.LastName,
-                PhoneNo = tr.PhoneNo,
-                City = tr.City,
-                Email = tr.Email,
-                TrainerId = tr.TrainerId,
+                T_FirstName = tr.FirstName,
+                T_LastName = tr.LastName,
+                T_PhoneNo = tr.PhoneNo,
+                T_City = tr.City,
+                T_Email = tr.Email,
+                T_TrainerId = tr.TrainerId,
             };
         }
 
@@ -117,10 +117,10 @@ namespace BusinessLogic
 
             return new Models.Skill()
             {
-                Skill1 = skill.Skill1,
-                Skill2 = skill.Skill2,
-                Skill3 = skill.Skill3,
-                Skill4 = skill.Skill4,
+                SK_Skill1 = skill.Skill1,
+                SK_Skill2 = skill.Skill2,
+                SK_Skill3 = skill.Skill3,
+                SK_Skill4 = skill.Skill4,
             };
         
         }
@@ -129,8 +129,8 @@ namespace BusinessLogic
         {
             return new Models.HighSchool()
             {
-                SchoolName = hs.SchoolName,
-                YearPassed = hs.YearPassed,
+                HS_SchoolName = hs.SchoolName,
+                HS_YearPassed = hs.YearPassed,
 
             };
         }
@@ -139,9 +139,9 @@ namespace BusinessLogic
         {
             return new Models.HighSec()
             {
-                SchoolName = hs.SchoolName,
-                YearPassed = hs.YearPassed,
-                Course = hs.Course,
+                HSC_SchoolName = hs.SchoolName,
+                HSC_YearPassed = hs.YearPassed,
+                HSC_Course = hs.Course,
             };
         }
 
@@ -149,8 +149,8 @@ namespace BusinessLogic
         {
             return new Models.Company()
             {
-                LastCompanyName = company.LastCompanyName,
-                TotalExp = company.TotalExp,
+                C_LastCompanyName = company.LastCompanyName,
+                C_TotalExp = company.TotalExp,
             };
         }
 

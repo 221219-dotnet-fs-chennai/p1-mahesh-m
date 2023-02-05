@@ -8,19 +8,20 @@ namespace Models
 {
     public class Trainer
     {
-        public string TrainerId { get; set; } = null!;
+        public string T_TrainerId { get; set; } = null!;
 
-        public string? FirstName { get; set; }
+        public string? T_FirstName { get; set; }
 
-        public string? LastName { get; set; }
+        public string? T_LastName { get; set; }
 
-        public string? PhoneNo { get; set; }
+        public string? T_PhoneNo { get; set; }
 
-        public string? Email { get; set; }
+        public string? T_Email { get; set; }
 
-        public string? Password { get; set; }
 
-        public string? City { get; set; }
+        public string? T_Password { get; set; }
+
+        public string? T_City { get; set; }
 
     }
 }

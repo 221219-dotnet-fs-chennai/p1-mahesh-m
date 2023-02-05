@@ -158,7 +158,7 @@ namespace EntityFramework
 
         }
 
-        public void InsertTrainers(Trainer tr, Skill sk, HighSec hsc, HighSchool hs, List<Company> com, CollegeUg ug)
+        public bool InsertTrainers(Trainer tr, Skill sk, HighSec hsc, HighSchool hs, List<Company> com, CollegeUg ug)
         {
             var context = new TrainerDetailsContext();
             context.Trainers.Add(tr);
@@ -172,6 +172,7 @@ namespace EntityFramework
             }
 
             context.SaveChanges();
+            return true;
         }
 
         public bool Login(string email,string password)

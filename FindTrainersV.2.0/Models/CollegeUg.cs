@@ -9,13 +9,13 @@ namespace Models
     public class CollegeUg
     {
 
-        public string TrainerId { get; set; } = null!;
+        public string UG_TrainerId { get; set; } = null!;
 
-        public string? CollegeName { get; set; }
+        public string? UG_CollegeName { get; set; }
 
-        public string? YearPassed { get; set; }
+        public string? UG_YearPassed { get; set; }
 
-        public string? Degree { get; set; }
+        public string? UG_Degree { get; set; }
 
         public string? Branch { get; set; }
 

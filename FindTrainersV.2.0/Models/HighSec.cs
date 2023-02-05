@@ -8,12 +8,12 @@ namespace Models
 {
     public  class HighSec
     {
-        public string TrainerId { get; set; } = null!;
+        public string HSC_TrainerId { get; set; } = null!;
 
-        public string? SchoolName { get; set; }
+        public string? HSC_SchoolName { get; set; }
 
-        public string? YearPassed { get; set; }
+        public string? HSC_YearPassed { get; set; }
 
-        public string? Course { get; set; }
+        public string? HSC_Course { get; set; }
     }
 }

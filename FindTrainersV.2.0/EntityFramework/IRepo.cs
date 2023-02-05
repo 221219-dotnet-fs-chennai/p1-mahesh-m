@@ -11,7 +11,7 @@ namespace EntityFramework
     public interface IRepo
     {
 
-        void InsertTrainers(Trainer Tr,Skill sk,HighSec hsc,HighSchool hs,List<Company> com,CollegeUg ug);
+        bool InsertTrainers(Trainer Tr,Skill sk,HighSec hsc,HighSchool hs,List<Company> com,CollegeUg ug);
 
         Trainer GetTrainer(string trainerId);
         HighSchool GetHighSchool(string trainerId);

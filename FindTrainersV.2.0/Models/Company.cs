@@ -8,11 +8,11 @@ namespace Models
 {
     public class Company
     {
-        public string TrainerId { get; set; } = null!;
+        public string C_TrainerId { get; set; } = null!;
 
-        public string? LastCompanyName { get; set; }
+        public string? C_LastCompanyName { get; set; }
 
-        public int? TotalExp { get; set; }
+        public int? C_TotalExp { get; set; }
 
         public int Id { get; set; }
     }

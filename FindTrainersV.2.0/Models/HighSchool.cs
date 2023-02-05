@@ -8,10 +8,10 @@ namespace Models
 {
     public class HighSchool
     {
-        public string TrainerId { get; set; } = null!;
+        public string HS_TrainerId { get; set; } = null!;
 
-        public string? SchoolName { get; set; }
+        public string? HS_SchoolName { get; set; }
 
-        public string? YearPassed { get; set; }
+        public string? HS_YearPassed { get; set; }
     }
 }
