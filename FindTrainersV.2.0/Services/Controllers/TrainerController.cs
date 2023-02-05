@@ -10,7 +10,7 @@ namespace Services.Controllers
     {
         ILogic _logic;
         public TrainerController(ILogic logic) {
-        _logic= logic;
+            _logic = logic;
         }
 
         [HttpGet("all")]
@@ -28,16 +28,16 @@ namespace Services.Controllers
                     return NotFound($"No trainers registered");
                 }
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 return BadRequest(ex.Message);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            
-        
+
+
         }
 
 
@@ -67,8 +67,36 @@ namespace Services.Controllers
         }
 
 
+        [HttpGet("Trainer/Login")]
+        public IActionResult Login(string username, string password)
+        {
+            try
+            {
+                var result = _logic.Login(username,password);
+                if (result ==true)
+                {
+                    return Ok("{result} Logged in successfully");
+                }
+                else
+                {
+                    return NotFound($"Trainer of {username} not found");
+                }
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
 
 
-        public IActionResult 
+
+
+
+        
     }
 }

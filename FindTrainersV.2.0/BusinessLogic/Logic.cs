@@ -78,10 +78,10 @@ namespace BusinessLogic
             repo.InsertTrainers(Mapper.MapTrainer(tr), Mapper.MapSkill(sk), Mapper.MapHighSec(hsc), Mapper.MapHighSchool(hs), companies, Mapper.MapCollege(ug));
         }
 
-        public bool Login(string email)
+        public bool Login(string email,string password)
         {
 
-            return repo.Login(email);   
+            return repo.Login(email,password);   
         }
 
         public void UpdateATrainer(string newVal, string column, string table, string trainerId)

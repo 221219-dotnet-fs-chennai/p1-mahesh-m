@@ -12,8 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var config = builder.Configuration.GetConnectionString("TrainerDB");
-builder.Services.AddDbContext<TrainerDetailsContext>(options=>options.UseSqlServer(config));
+var config = builder.Configuration.GetConnectionString("TrainerDetails");
+builder.Services.AddDbContext<TrainerDetailsContext>(options => options.UseSqlServer(config));
 builder.Services.AddScoped<ILogic, Logic>();
 
 

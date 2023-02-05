@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace EntityFramework.newEntities;
 
@@ -14,6 +16,9 @@ public partial class TrainerDetailsContext : DbContext
         : base(options)
     {
     }
+
+   
+
 
     public virtual DbSet<CollegeUg> CollegeUgs { get; set; }
 

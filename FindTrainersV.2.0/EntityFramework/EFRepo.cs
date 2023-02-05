@@ -174,7 +174,7 @@ namespace EntityFramework
             context.SaveChanges();
         }
 
-        public bool Login(string email)
+        public bool Login(string email,string password)
         {
 
             var context = new TrainerDetailsContext();
@@ -183,18 +183,18 @@ namespace EntityFramework
             if(acc!=null)
             {
                 Console.WriteLine("Enter your password");
-                string pass=Console.ReadLine();
+                string pass = password;
                 //return acc.Password==PasswordHasher(pass)? true : false;
                 if (acc.Password == PasswordHasher(pass))
                 {
                     return true;
                 }
                 Console.WriteLine("Bad Password !! retry again!!!");
-                Console.ReadLine();
+                
                 return false;
             }
             Console.WriteLine("account doesn't exist!! Sign up first!!");
-            Console.ReadLine();
+          
             return false;
         }
 
@@ -420,7 +420,7 @@ namespace EntityFramework
                       join
                      sk in skills on s.TrainerId equals sk.TrainerId
                       select  new Models.TResult ()
-                      {
+                      {   TrainerId=s.TrainerId,
                           FirstName = s.FirstName,
                           LastName = s.LastName,
                           Email = s.Email,

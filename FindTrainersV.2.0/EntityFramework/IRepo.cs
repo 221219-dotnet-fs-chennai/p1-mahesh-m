@@ -26,7 +26,7 @@ namespace EntityFramework
         public void UpdateCompanies(string newC, string newExp, string userId);
         public void DeleteSingleCompany(string cnmae, string userid);
         void DeleteAccount(string trainerId);
-        bool Login(string email);
+        bool Login(string email,string password);
 
         IEnumerable<Models.TResult> GetAll();
 
