@@ -139,6 +139,7 @@ namespace EntityFramework
             var tr = from t in trainers
                      where t.TrainerId == tId
                      select t;
+           
             Trainer trb = new Trainer();
             foreach (var t in tr)
             {
@@ -197,7 +198,7 @@ namespace EntityFramework
             return false;
         }
 
-        public void UpdateATrainer(string newVal, string column, string table, string trainerId)
+        public bool UpdateATrainer(string newVal, string column, string table, string trainerId)
         {
             switch (table)
             {
@@ -207,8 +208,9 @@ namespace EntityFramework
                     var tr = from t in trainers
                              where t.TrainerId == trainerId
                              select t;
+                    
 
-
+                   
                     switch (column)
                     {
                         case "phoneNo":
@@ -217,7 +219,7 @@ namespace EntityFramework
                                 rec.PhoneNo = newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
                         case "city":
 
                             foreach (var rec in tr)
@@ -225,11 +227,15 @@ namespace EntityFramework
                                 rec.City = newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
+                        default:
+                            return false;
 
+                      
                     }
 
-                    break;
+                
+                   
                 case "college_ug":
 
                     var college = context.CollegeUgs; ;
@@ -245,7 +251,7 @@ namespace EntityFramework
                                 c.CollegeName = newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
 
                         case "yearpassed":
                             foreach (var c in cug)
@@ -253,24 +259,25 @@ namespace EntityFramework
                                 c.YearPassed = newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
                         case "degree":
                             foreach (var c in cug)
                             {
                                 c.Degree = newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
                         case "branch":
                             foreach (var c in cug)
                             {
                                 c.Branch = newVal;
                             }
                             context.SaveChanges();
-                            break;
-
+                            return true;
+                        default:
+                            return false;
                     }
-                    break;
+                    
                 case "highsec":
                     var highsec = context.HighSecs;
                     var hs = from h in highsec
@@ -284,24 +291,26 @@ namespace EntityFramework
                                 h.SchoolName = newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
                         case "yearpassed":
                             foreach (var h in hs)
                             {
                                 h.YearPassed = newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
                         case "course":
                             foreach(var h in hs)
                             {
                                 h.Course= newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
+                        default:
+                            return false;
 
                     }
-                    break;
+                   
                 case "highschool":
                     var highschool = context.HighSchools;
                     var hsch = from h in highschool
@@ -314,14 +323,16 @@ namespace EntityFramework
                                 h.SchoolName = newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
                         case "yearpassed":
                             foreach (var h in hsch)
                             {
                                 h.YearPassed = newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
+                        default:
+                            return false;
 
                     }
 
@@ -341,32 +352,36 @@ namespace EntityFramework
                             }
                             context.SaveChanges();
 
-                            break;
+                            return true;
                         case "skill_2":
                             foreach (var s in sks)
                             {
                                 s.Skill2 = newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
                         case "skill_3":
                             foreach (var s in sks)
                             {
                                 s.Skill3 = newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
                         case "skill_4":
                             foreach (var s in sks)
                             {
                                 s.Skill4 = newVal;
                             }
                             context.SaveChanges();
-                            break;
+                            return true;
+                        default:
+                            return false;
                     }
 
-                    break;
+                   
                     }
+
+            return false;
         }
 
         public void UpdateCompanies(string newC, string newExp, string userId)

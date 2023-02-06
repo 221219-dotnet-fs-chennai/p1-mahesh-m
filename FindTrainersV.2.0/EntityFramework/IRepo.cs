@@ -21,7 +21,7 @@ namespace EntityFramework
 
         CollegeUg GetCollegeUg(string trainerId);
 
-        void UpdateATrainer(string newVal, string table, string column, string trainerId);
+        bool UpdateATrainer(string newVal, string table, string column, string trainerId);
 
         public void UpdateCompanies(string newC, string newExp, string userId);
         public void DeleteSingleCompany(string cnmae, string userid);

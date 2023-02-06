@@ -1,4 +1,5 @@
 ﻿using BusinessLogic;
+using EntityFramework.newEntities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Models;
@@ -51,7 +52,7 @@ namespace Services.Controllers
             try
             {
                 var trainers = _logic.GetTrainer(id);
-                if (trainers != null)
+                if (trainers.T_TrainerId!=null)
                 {
                     return Ok(trainers);
                 }
@@ -98,7 +99,7 @@ namespace Services.Controllers
         }
 
         [HttpPost("Trainer/SignUp")]
-        public IActionResult SignUp([FromForm] Trainer tr, [FromForm] CollegeUg cug, [FromForm] HighSec hsc, [FromForm] HighSchool hs, [FromForm] Company com, [FromForm] Skill sk)
+        public IActionResult SignUp([FromForm] Models.Trainer tr, [FromForm] Models.CollegeUg cug, [FromForm] Models.HighSec hsc, [FromForm] Models.HighSchool hs, [FromForm] Models.Company com, [FromForm] Models.Skill sk)
         {
             try
             {
@@ -130,7 +131,7 @@ namespace Services.Controllers
                 }
                 else
                 {
-                    List<Company> cp = new List<Company>();
+                    List<Models.Company> cp = new List<Models.Company>();
                     cp.Add(com);
                     _logic.InsertTrainers(tr, sk, hsc, hs, cp, cug);
                     return Ok("Trainer Registered Succ");
@@ -145,10 +146,87 @@ namespace Services.Controllers
           
         }
 
+        [HttpPut("Trainer/Update/PhoneNo")]
+        public IActionResult UpdatePh([FromForm]string NewValue, [FromForm]string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                if (_validator.Validator(NewValue, "phoneRegex", "phone") && !_logic.IsExist(NewValue, "phoneNo"))
+                {
+
+                    try
+                    {
+                        if (_logic.UpdateATrainer(NewValue, "phoneNo", "trainers", email.Split("@")[0]))
+                        {
+                            return Ok("Phone No updated Successfully!");
+                        }
+                        else
+                        {
+                            return BadRequest("Updation of value failed!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        return BadRequest(ex.Message);
+                    }
+                }
+                else
+                {
+                    return BadRequest("Updation of value failed!");
+                }
+            }
+            else
+            {
+                return BadRequest("Updation of value failed!");
+            }
+
+        }
+
+        [HttpPut("Trainer/Update/City")]
+        public IActionResult UpdateCity([FromForm] string NewValue, [FromForm] string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                if (_validator.Validator(NewValue, "nameRegex", "city"))
+                {
+
+                    try
+                    {
+                        if (_logic.UpdateATrainer(NewValue, "city", "trainers", email.Split("@")[0]))
+                        {
+                            return Ok("Phone No updated Successfully!");
+                        }
+                        else
+                        {
+                            return BadRequest("Updation of value failed!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        return BadRequest(ex.Message);
+                    }
+                }
+                else
+                {
+                    return BadRequest("Updation of value failed!");
+                }
+            }
+            else
+            {
+                return BadRequest("Updation of value failed!");
+            }
+
+        }
 
 
 
 
-        
+
     }
+
+
+
+
 }

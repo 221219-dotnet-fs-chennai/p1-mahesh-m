@@ -95,9 +95,9 @@ namespace BusinessLogic
             return repo.Login(email,password);   
         }
 
-        public void UpdateATrainer(string newVal, string column, string table, string trainerId)
+        public bool UpdateATrainer(string newVal, string column, string table, string trainerId)
         {
-           repo.UpdateATrainer(newVal, column, table, trainerId);   
+           return repo.UpdateATrainer(newVal, column, table, trainerId);   
         }
 
         public void UpdateCompanies(string newC, string newExp, string userId)
