@@ -14,6 +14,6 @@ namespace Models
 
         public int? C_TotalExp { get; set; }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
     }
 }

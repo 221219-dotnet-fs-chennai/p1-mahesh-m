@@ -4,18 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityFramework;
 
 namespace BusinessLogic
 {
     public class Mapper
     {
+        IRepo _repo;
+    
 
         public static   Trainer MapTrainer(Models.Trainer tr)
         {
             return new Trainer()
             { FirstName=tr.T_FirstName, 
               LastName=tr.T_LastName,
-              Password=tr.T_Password,
+              Password = PasswordHasher(tr.T_Password),
+              Email=tr.T_Email,
               TrainerId=tr.T_TrainerId,
               PhoneNo=tr.T_PhoneNo,
               City=tr.T_City
@@ -59,11 +63,11 @@ namespace BusinessLogic
         public static  CollegeUg MapCollege(Models.CollegeUg college)
         {
             return new CollegeUg() {
-            
+               TrainerId=college.UG_TrainerId,
                 CollegeName= college.UG_CollegeName,
                 YearPassed= college.UG_YearPassed,
                 Degree= college.UG_Degree,
-                Branch= college.Branch,
+                Branch= college.UG_Branch,
             
             };
 
@@ -89,10 +93,10 @@ namespace BusinessLogic
         public static  Models.CollegeUg MapCollgeInv (CollegeUg college)
         {
             return new Models.CollegeUg() { 
-            
+                UG_TrainerId=college.TrainerId,
                 UG_CollegeName= college.CollegeName,
                 UG_YearPassed = college.YearPassed,
-                Branch= college.Branch,
+                UG_Branch= college.Branch,
                 UG_Degree= college.Degree,
 
             };
@@ -152,6 +156,21 @@ namespace BusinessLogic
                 C_LastCompanyName = company.LastCompanyName,
                 C_TotalExp = company.TotalExp,
             };
+        }
+
+        public static string PasswordHasher(string password)
+        {
+            string newPassword = "";
+            char[] pass = password.ToCharArray();
+            foreach (char a in pass)
+            {
+                int asci = (int)a;
+                int newAsci = asci + 9;
+                newPassword = newPassword + "" + (char)newAsci;
+            }
+
+            return newPassword;
+
         }
 
 

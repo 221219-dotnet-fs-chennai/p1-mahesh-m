@@ -17,7 +17,7 @@ namespace Models
 
         public string? UG_Degree { get; set; }
 
-        public string? Branch { get; set; }
+        public string? UG_Branch { get; set; }
 
     }
 }

@@ -102,7 +102,7 @@ namespace Services.Controllers
         {
             try
             {
-                if (!_validator.Validator(tr.T_FirstName, "nameRegex", "firstName") || !_validator.Validator(tr.T_LastName, "nameRegex", "LastName") || !_validator.Validator(tr.T_City, "nameRegex", "City") || !_validator.Validator(cug.UG_CollegeName, "nameRegex", "CollegeName") || !_validator.Validator(cug.Branch, "nameRegex", "BranchName") || !_validator.Validator(hsc.HSC_SchoolName, "nameRegex", "firstName") || !_validator.Validator(hsc.HSC_Course, "nameRegex", "firstName") || !_validator.Validator(hs.HS_SchoolName, "nameRegex", "firstName") || !_validator.Validator(com.C_LastCompanyName, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill1, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill2, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill3, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill4, "nameRegex", "firstName"))
+                if (!_validator.Validator(tr.T_FirstName, "nameRegex", "firstName") || !_validator.Validator(tr.T_LastName, "nameRegex", "LastName") || !_validator.Validator(tr.T_City, "nameRegex", "City") || !_validator.Validator(cug.UG_CollegeName, "nameRegex", "CollegeName") || !_validator.Validator(cug.UG_Branch, "nameRegex", "BranchName") || !_validator.Validator(hsc.HSC_SchoolName, "nameRegex", "firstName") || !_validator.Validator(hsc.HSC_Course, "nameRegex", "firstName") || !_validator.Validator(hs.HS_SchoolName, "nameRegex", "firstName") || !_validator.Validator(com.C_LastCompanyName, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill1, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill2, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill3, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill4, "nameRegex", "firstName"))
                 {
                     return BadRequest("Values should be 3 to 50 characters length");
                     ;
@@ -120,7 +120,7 @@ namespace Services.Controllers
                     return BadRequest("Incorrect phone no format");
 
                 }
-                else if (_logic.IsExist(tr.T_PhoneNo, "email"))
+                else if (_logic.IsExist(tr.T_PhoneNo, "phoneNo"))
                 {
                     return BadRequest("Phone No already registered");
                 }
