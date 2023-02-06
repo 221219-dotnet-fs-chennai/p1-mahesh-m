@@ -10,10 +10,15 @@ using System.Threading.Tasks;
 namespace EntityFramework
 {
     public class EFRepo : IRepo
-    {   
+    {
+        TrainerDetailsContext context;
+        public EFRepo(TrainerDetailsContext con)
+        {
+            context=con;
+        }
         public void DeleteAccount(string trainerId)
         {
-            var context = new TrainerDetailsContext();
+            //var context = new TrainerDetailsContext();
             var accs = context.Trainers;
             var acc=accs.FirstOrDefault(x=>x.TrainerId== trainerId);
 
@@ -26,7 +31,7 @@ namespace EntityFramework
 
         public void DeleteSingleCompany(string cnmae, string userid)
         {
-            var context = new TrainerDetailsContext();
+            //var context = new TrainerDetailsContext();
             var com= context.Companies.FirstOrDefault(x=>x.TrainerId==userid && x.LastCompanyName==cnmae);
             if (com!=null)
             {
@@ -38,7 +43,7 @@ namespace EntityFramework
 
         public CollegeUg GetCollegeUg(string trainerId)
         {
-            var context = new TrainerDetailsContext();
+            //var context = new TrainerDetailsContext();
             var cug = context.CollegeUgs;
             var ug = from s in cug
                      where s.TrainerId == trainerId
@@ -60,7 +65,6 @@ namespace EntityFramework
 
         public List<Company> GetCompany(string trainerId)
         {
-            var context = new TrainerDetailsContext();
             var comp = context.Companies;
             var cmp = from s in comp
                       where s.TrainerId == trainerId
@@ -71,7 +75,6 @@ namespace EntityFramework
 
         public HighSchool GetHighSchool(string trainerId)
         {
-            var context = new TrainerDetailsContext();
             var hscl = context.HighSchools;
             var hsc = from s in hscl
                       where s.TrainerId == trainerId
@@ -92,7 +95,6 @@ namespace EntityFramework
 
         public HighSec GetHighSec(string trainerId)
         {
-            var context = new TrainerDetailsContext();
             var hscl = context.HighSecs;
             var hsc = from s in hscl
                       where s.TrainerId == trainerId
@@ -113,7 +115,6 @@ namespace EntityFramework
 
         public Skill GetSkill(string tId)
         {
-            var context = new TrainerDetailsContext();
             var Skills = context.Skills;
             var sk = from s in Skills
                      where s.TrainerId == tId
@@ -134,7 +135,6 @@ namespace EntityFramework
 
         public Trainer GetTrainer(string tId)
         {
-            var context = new TrainerDetailsContext();
             var trainers = context.Trainers;
             var tr = from t in trainers
                      where t.TrainerId == tId
@@ -160,7 +160,6 @@ namespace EntityFramework
 
         public bool InsertTrainers(Trainer tr, Skill sk, HighSec hsc, HighSchool hs, List<Company> com, CollegeUg ug)
         {
-            var context = new TrainerDetailsContext();
             context.Trainers.Add(tr);
             context.Skills.Add(sk);
             context.HighSchools.Add(hs);
@@ -178,7 +177,6 @@ namespace EntityFramework
         public bool Login(string email,string password)
         {
 
-            var context = new TrainerDetailsContext();
             var accs = context.Trainers;
             var acc= accs.FirstOrDefault(x=>x.Email== email);
             if(acc!=null)
@@ -201,17 +199,6 @@ namespace EntityFramework
 
         public void UpdateATrainer(string newVal, string column, string table, string trainerId)
         {
-            var context = new TrainerDetailsContext();
-            //var context =new TrainerDetailsContext();
-            //var trainers=context.Trainers;
-            //var tr= from t in trainers
-            //        where t.TrainerId== trainerId
-            //        select t;
-            //foreach(var rec in tr) {
-            //    rec.PhoneNo = newVal;
-            //}
-            //context.SaveChanges();
-
             switch (table)
             {
                 case "trainers":
@@ -384,7 +371,7 @@ namespace EntityFramework
 
         public void UpdateCompanies(string newC, string newExp, string userId)
         {
-            var context = new TrainerDetailsContext();
+         
             context.Companies.Add(new Company()
             {
                 TrainerId = userId,
@@ -413,7 +400,6 @@ namespace EntityFramework
 
         public IEnumerable<Models.TResult> GetAll()
         {
-            var context= new TrainerDetailsContext();
             var trainers =context.Trainers;
             var skills =context.Skills;
 
@@ -435,7 +421,6 @@ namespace EntityFramework
 
         public IEnumerable<Models.TResult> TrainersBySkill(string skill)
         {
-            var context = new TrainerDetailsContext();
             var trainers = context.Trainers;
             var skills = context.Skills;
             var res = (from s in trainers
@@ -456,7 +441,6 @@ namespace EntityFramework
 
         public IEnumerable<Models.TResult> TrainersByLocation(string city)
         {
-            var context = new TrainerDetailsContext();
             var trainers = context.Trainers;
             var skills = context.Skills;
             var res = (from s in trainers
@@ -477,7 +461,6 @@ namespace EntityFramework
 
         public bool IsExist(string str, string type)
         {
-            var context = new TrainerDetailsContext();
             var accs = context.Trainers;
             bool exist= false;
             if (type == "email")

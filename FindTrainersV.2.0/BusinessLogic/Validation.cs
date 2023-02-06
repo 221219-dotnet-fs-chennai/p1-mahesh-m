@@ -16,6 +16,8 @@ namespace BusinessLogic
         string? degreeRegex = @"^B\.\w{1,6}$";
         string? passwordRegex = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
 
+      
+        public Validation() { }
 
         public bool Validator(string str,string type,string field)
         {

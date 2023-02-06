@@ -34,6 +34,7 @@ namespace EntityFramework
         IEnumerable<Models.TResult> TrainersByLocation(string city);
 
         bool IsExist(string str, string type);
+        public string PasswordHasher(string password);
 
     }
 }

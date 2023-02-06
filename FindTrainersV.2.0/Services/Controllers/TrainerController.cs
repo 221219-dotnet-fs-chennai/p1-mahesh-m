@@ -79,7 +79,7 @@ namespace Services.Controllers
                 var result = _logic.Login(username,password);
                 if (result ==true)
                 {
-                    return Ok("{result} Logged in successfully");
+                    return Ok($"{result} Logged in successfully");
                 }
                 else
                 {

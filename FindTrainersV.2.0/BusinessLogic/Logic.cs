@@ -12,8 +12,19 @@ namespace BusinessLogic
 {  
 
     public class Logic: ILogic
-    {   
-        EFRepo repo=new EFRepo();
+    {
+      
+        IRepo repo;
+       
+        public Logic(IRepo _repo)
+        {
+            repo = _repo;
+        }
+
+        public Logic()
+        {
+
+        }
 
         public void DeleteAccount(string trainerId)
         {
