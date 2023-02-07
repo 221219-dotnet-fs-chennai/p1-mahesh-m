@@ -120,7 +120,7 @@ namespace BusinessLogic
         public static  Models.Skill MapSkillInv(Skill skill) {
 
             return new Models.Skill()
-            {
+            {  SK_TrainerId=skill.TrainerId,
                 SK_Skill1 = skill.Skill1,
                 SK_Skill2 = skill.Skill2,
                 SK_Skill3 = skill.Skill3,
@@ -132,7 +132,7 @@ namespace BusinessLogic
         public static  Models.HighSchool MapHighSchoolInv (HighSchool hs)
         {
             return new Models.HighSchool()
-            {
+            {   HS_TrainerId=hs.TrainerId,
                 HS_SchoolName = hs.SchoolName,
                 HS_YearPassed = hs.YearPassed,
 
@@ -142,7 +142,7 @@ namespace BusinessLogic
         public static  Models.HighSec MapHighSecInv (HighSec hs)
         {
             return new Models.HighSec()
-            {
+            {   HSC_TrainerId=hs.TrainerId,
                 HSC_SchoolName = hs.SchoolName,
                 HSC_YearPassed = hs.YearPassed,
                 HSC_Course = hs.Course,
@@ -152,7 +152,7 @@ namespace BusinessLogic
         public static  Models.Company MapCompanyInv (Company company)
         {
             return new Models.Company()
-            {
+            {  C_TrainerId= company.TrainerId,
                 C_LastCompanyName = company.LastCompanyName,
                 C_TotalExp = company.TotalExp,
             };
