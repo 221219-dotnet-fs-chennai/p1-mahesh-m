@@ -52,7 +52,7 @@ namespace EntityFramework
             foreach (var s in ug)
             {
                 collug = new CollegeUg()
-                {
+                {   TrainerId = s.TrainerId,
                     CollegeName = s.CollegeName,
                     YearPassed = s.YearPassed,
                     Branch = s.Branch,
@@ -84,6 +84,7 @@ namespace EntityFramework
             {
                 highsch = new HighSchool()
                 {
+                    TrainerId = s.TrainerId,
                     SchoolName = s.SchoolName,
                     YearPassed = s.YearPassed,
 
@@ -104,6 +105,7 @@ namespace EntityFramework
             {
                 highsec = new HighSec()
                 {
+                    TrainerId = s.TrainerId,
                     SchoolName = s.SchoolName,
                     YearPassed = s.YearPassed,
                     Course = s.Course
@@ -123,7 +125,7 @@ namespace EntityFramework
             foreach (var s in sk)
             {
                 skb = new Skill()
-                {
+                {   TrainerId = s.TrainerId,    
                     Skill1 = s.Skill1,
                     Skill2 = s.Skill2,
                     Skill3 = s.Skill3,

@@ -9,7 +9,7 @@ namespace Services.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TrainerController : Controller
+    public class TrainerController : ControllerBase
     {
         ILogic _logic;
         IValidator _validator;
