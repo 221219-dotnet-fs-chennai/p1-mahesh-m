@@ -197,5 +197,127 @@ namespace Services.Controllers
 
         }
 
+
+
+        [HttpDelete("Skill/Delete/Skill1")]
+        public IActionResult DeleteSkill1([FromForm] string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                try
+                {
+                    if (_logic.UpdateATrainer("", "skill_1", "Skills", email.Split("@")[0]))
+                    {
+                        return Ok("primary skill deleted Successfully!");
+                    }
+                    else
+                    {
+                        return BadRequest("deletion of value failed!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+            }
+            else
+            {
+                return BadRequest("deletion of value failed!");
+            }
+
+        }
+
+        [HttpDelete("Skill/Delete/Skill2")]
+        public IActionResult DeleteSkill2([FromForm] string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                try
+                {
+                    if (_logic.UpdateATrainer("", "skill_2", "Skills", email.Split("@")[0]))
+                    {
+                        return Ok("Secondary skill deleted Successfully!");
+                    }
+                    else
+                    {
+                        return BadRequest("deletion of value failed!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+            }
+            else
+            {
+                return BadRequest("deletion of value failed!");
+            }
+
+        }
+
+        [HttpDelete("Skill/Delete/Skill3")]
+        public IActionResult DeleteSkill3([FromForm] string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                try
+                {
+                    if (_logic.UpdateATrainer("", "skill_3", "Skills", email.Split("@")[0]))
+                    {
+                        return Ok("Tertiary skill deleted Successfully!");
+                    }
+                    else
+                    {
+                        return BadRequest("deletion of value failed!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+            }
+            else
+            {
+                return BadRequest("deletion of value failed!");
+            }
+
+        }
+
+        [HttpDelete("Skill/Delete/Skill4")]
+        public IActionResult DeleteSkill4([FromForm] string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                try
+                {
+                    if (_logic.UpdateATrainer("", "skill_4", "Skills", email.Split("@")[0]))
+                    {
+                        return Ok("Quarternary skill deleted Successfully!");
+                    }
+                    else
+                    {
+                        return BadRequest("deletion of value failed!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+            }
+            else
+            {
+                return BadRequest("deletion of value failed!");
+            }
+
+        }
+
     }
 }

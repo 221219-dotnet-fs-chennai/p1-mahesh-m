@@ -220,6 +220,67 @@ namespace Services.Controllers
 
         }
 
+        [HttpDelete("Trainer/Delete/City")]
+        public IActionResult DeleteCity([FromForm] string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                    try
+                    {
+                        if (_logic.UpdateATrainer("", "city", "trainers", email.Split("@")[0]))
+                        {
+                            return Ok("City deleted Successfully!");
+                        }
+                        else
+                        {
+                            return BadRequest("Updation of value failed!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        return BadRequest(ex.Message);
+                    }
+             
+            }
+            else
+            {
+                return BadRequest("Updation of value failed!");
+            }
+
+        }
+
+        [HttpDelete("Trainer/Delete/PhoneNo")]
+        public IActionResult DeletePhone([FromForm] string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                try
+                {
+                    if (_logic.UpdateATrainer("", "phoneNo", "trainers", email.Split("@")[0]))
+                    {
+                        return Ok("Phone no deleted Successfully!");
+                    }
+                    else
+                    {
+                        return BadRequest("deletion of value failed!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+            }
+            else
+            {
+                return BadRequest("deletion of value failed!");
+            }
+
+        }
+
+
 
 
 
