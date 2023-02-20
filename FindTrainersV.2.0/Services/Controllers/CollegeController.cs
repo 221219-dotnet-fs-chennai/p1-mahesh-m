@@ -49,7 +49,7 @@ namespace Services.Controllers
 
 
         [HttpPut("College/Update/name")]
-        public IActionResult UpdateCollege([FromForm] string NewValue, [FromForm] string email)
+        public IActionResult UpdateCollege(string NewValue, string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -87,7 +87,7 @@ namespace Services.Controllers
 
 
         [HttpPut("College/Update/year")]
-        public IActionResult UpdateYearPassed([FromForm] string NewValue, [FromForm] string email)
+        public IActionResult UpdateYearPassed(string NewValue, string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -126,7 +126,7 @@ namespace Services.Controllers
 
 
         [HttpPut("College/Update/degree")]
-        public IActionResult UpdateYearDegree([FromForm] string NewValue, [FromForm] string email)
+        public IActionResult UpdateYearDegree(string NewValue, string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -166,7 +166,7 @@ namespace Services.Controllers
 
 
         [HttpPut("College/Update/branch")]
-        public IActionResult UpdateBranch([FromForm] string NewValue, [FromForm] string email)
+        public IActionResult UpdateBranch(string NewValue,string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -201,6 +201,130 @@ namespace Services.Controllers
             }
 
         }
+
+        [HttpDelete("College/Delete/branch")]
+        public IActionResult DeleteBranch(string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                    try
+                    {
+                        if (_logic.UpdateATrainer("", "branch", "college_ug", email.Split("@")[0]))
+                        {
+                            return Ok("Branch updated Successfully!");
+                        }
+                        else
+                        {
+                            return BadRequest("Updation of value failed!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        return BadRequest(ex.Message);
+                    }
+               
+            }
+            else
+            {
+                return BadRequest("Updation of value failed!");
+            }
+
+        }
+
+        [HttpDelete("College/Delete/name")]
+        public IActionResult DeleteName(string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                try
+                {
+                    if (_logic.UpdateATrainer("", "collegeName", "college_ug", email.Split("@")[0]))
+                    {
+                        return Ok("Branch updated Successfully!");
+                    }
+                    else
+                    {
+                        return BadRequest("Updation of value failed!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+            }
+            else
+            {
+                return BadRequest("Updation of value failed!");
+            }
+
+        }
+
+        [HttpDelete("College/Delete/yearpassed")]
+        public IActionResult Deleteyear(string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                try
+                {
+                    if (_logic.UpdateATrainer("", "yearpassed", "college_ug", email.Split("@")[0]))
+                    {
+                        return Ok("Branch updated Successfully!");
+                    }
+                    else
+                    {
+                        return BadRequest("Updation of value failed!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+            }
+            else
+            {
+                return BadRequest("Updation of value failed!");
+            }
+
+        }
+
+        [HttpDelete("College/Delete/degree")]
+        public IActionResult DeleteDegree(string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                try
+                {
+                    if (_logic.UpdateATrainer("", "degree", "college_ug", email.Split("@")[0]))
+                    {
+                        return Ok("Branch updated Successfully!");
+                    }
+                    else
+                    {
+                        return BadRequest("Updation of value failed!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+            }
+            else
+            {
+                return BadRequest("Updation of value failed!");
+            }
+
+        }
+
+
+
+
 
 
 

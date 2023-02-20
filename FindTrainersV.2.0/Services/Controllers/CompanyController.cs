@@ -21,10 +21,10 @@ namespace Services.Controllers
             try
             {
                 var company = _logic.GetCompany(trainerid);
-                if (company.Count>0)
+                if (company.Count > 0)
                 {
                     return Ok(company);
-                   
+
                 }
                 else
                 {
@@ -45,7 +45,7 @@ namespace Services.Controllers
 
 
         [HttpPut("Company/update")]
-        public IActionResult UpdateCompany([FromForm] string company, [FromForm] int exp, [FromForm]string email)
+        public IActionResult UpdateCompany(string company, int exp, string email)
         {
             try
             {
@@ -66,20 +66,46 @@ namespace Services.Controllers
                     return BadRequest("Company can't be updated!");
                 }
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 return BadRequest(ex.Message);
             }
-            catch(Exception ex)
-            { return BadRequest(ex.Message); }  
+            catch (Exception ex)
+            { return BadRequest(ex.Message); }
+
+        }
+
+        [HttpDelete("Company/delete")]
+        public IActionResult DeleteCompany(string company, string email)
+        {
+            try
+            {
+                if (_logic.IsExist(email, "email"))
+                {
+                    _logic.DeleteSingleCompany(company, email.Split("@")[0]);
+                    return Ok("Deleted successfully");
+                }
+                else
+                {
+                    return BadRequest("company doesn't exist");
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+
+        }
+
+
+
 
     }
-
-
-
-    }
-
-
-
-
 }

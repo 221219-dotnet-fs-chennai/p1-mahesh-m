@@ -44,7 +44,7 @@ namespace Services.Controllers
 
 
         [HttpPut("Skill/Update/skill1")]
-        public IActionResult UpdatePrimarySkill([FromForm] string NewValue, [FromForm] string email)
+        public IActionResult UpdatePrimarySkill(string NewValue, string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -82,7 +82,7 @@ namespace Services.Controllers
 
 
         [HttpPut("Skill/Update/skill2")]
-        public IActionResult UpdateSecondarySkill([FromForm] string NewValue, [FromForm] string email)
+        public IActionResult UpdateSecondarySkill(string NewValue, string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -122,7 +122,7 @@ namespace Services.Controllers
 
 
         [HttpPut("Skill/Update/skill3")]
-        public IActionResult UpdateTertiarySkill([FromForm] string NewValue, [FromForm] string email)
+        public IActionResult UpdateTertiarySkill(string NewValue, string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -161,7 +161,7 @@ namespace Services.Controllers
 
 
         [HttpPut("Skill/Update/skill4")]
-        public IActionResult UpdateQuarternarySkill([FromForm] string NewValue, [FromForm] string email)
+        public IActionResult UpdateQuarternarySkill( string NewValue,  string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -200,7 +200,7 @@ namespace Services.Controllers
 
 
         [HttpDelete("Skill/Delete/Skill1")]
-        public IActionResult DeleteSkill1([FromForm] string email)
+        public IActionResult DeleteSkill1(string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -230,7 +230,7 @@ namespace Services.Controllers
         }
 
         [HttpDelete("Skill/Delete/Skill2")]
-        public IActionResult DeleteSkill2([FromForm] string email)
+        public IActionResult DeleteSkill2(string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -260,7 +260,7 @@ namespace Services.Controllers
         }
 
         [HttpDelete("Skill/Delete/Skill3")]
-        public IActionResult DeleteSkill3([FromForm] string email)
+        public IActionResult DeleteSkill3( string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -290,7 +290,7 @@ namespace Services.Controllers
         }
 
         [HttpDelete("Skill/Delete/Skill4")]
-        public IActionResult DeleteSkill4([FromForm] string email)
+        public IActionResult DeleteSkill4(string email)
         {
             if (_logic.IsExist(email, "email"))
             {

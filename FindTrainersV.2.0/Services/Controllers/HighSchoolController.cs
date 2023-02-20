@@ -44,7 +44,7 @@ namespace Services.Controllers
         }
 
         [HttpPut("HighSchool/Update/year")]
-        public IActionResult UpdateYearPassed([FromForm] string NewValue, [FromForm] string email)
+        public IActionResult UpdateYearPassed(string NewValue, string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -83,7 +83,7 @@ namespace Services.Controllers
 
 
         [HttpPut("HighSchool/Update/name")]
-        public IActionResult UpdateSchoolName([FromForm] string NewValue, [FromForm] string email)
+        public IActionResult UpdateSchoolName(string NewValue, string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -115,6 +115,67 @@ namespace Services.Controllers
             else
             {
                 return BadRequest("Updation of value failed!");
+            }
+
+        }
+
+
+        [HttpDelete("HighSchool/Delete/schoolname")]
+        public IActionResult DeleteSchoolName(string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                try
+                {
+                    if (_logic.UpdateATrainer("", "schoolname", "highschool", email.Split("@")[0]))
+                    {
+                        return Ok("School name deleted Successfully!");
+                    }
+                    else
+                    {
+                        return BadRequest("deletion of value failed!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+            }
+            else
+            {
+                return BadRequest("deletion of value failed!");
+            }
+
+        }
+
+        [HttpDelete("HighSchool/Delete/yearpassed")]
+        public IActionResult DeleteYear(string email)
+        {
+            if (_logic.IsExist(email, "email"))
+            {
+
+                try
+                {
+                    if (_logic.UpdateATrainer("", "yearpassed", "highschool", email.Split("@")[0]))
+                    {
+                        return Ok("School name deleted Successfully!");
+                    }
+                    else
+                    {
+                        return BadRequest("deletion of value failed!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+            }
+            else
+            {
+                return BadRequest("deletion of value failed!");
             }
 
         }

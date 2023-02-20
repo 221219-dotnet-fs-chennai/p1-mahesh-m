@@ -79,8 +79,11 @@ namespace Services.Controllers
             {
                 var result = _logic.Login(username,password);
                 if (result ==true)
-                {
-                    return Ok($"{result} Logged in successfully");
+                {  
+                    Dictionary <string,string> dict = new Dictionary<string,string>();  
+                    dict.Add("username", username);
+                    dict.Add("password", password);
+                    return Ok(dict);
                 }
                 else
                 {
@@ -99,11 +102,68 @@ namespace Services.Controllers
         }
 
         [HttpPost("Trainer/SignUp")]
-        public IActionResult SignUp([FromForm] Models.Trainer tr, [FromForm] Models.CollegeUg cug, [FromForm] Models.HighSec hsc, [FromForm] Models.HighSchool hs, [FromForm] Models.Company com, [FromForm] Models.Skill sk)
+        public ActionResult SignUp(string T_FirstName, string T_LastName,string T_PhoneNo,string T_Email,string T_Password,string T_City, string SK_Skill1, string SK_Skill2, string SK_Skill3, string SK_Skill4,string HSC_SchoolName, string HSC_YearPassed,string HSC_Course,string HS_SchoolName,string HS_YearPassed,string C_LastCompanyName ,int C_TotalExp, string UG_CollegeName,string UG_YearPassed,string UG_Degree,string UG_Branch) //[/*FromForm] Models.Trainer tr, [FromForm] Models.CollegeUg cug, [FromForm] Models.HighSec hsc, [FromForm] Models.HighSchool hs, [FromForm] Models.Company com, [FromForm] Models.Skill sk*/ )
         {
+           
+
+
+            Models.Trainer tr = new Models.Trainer()
+            {
+                T_TrainerId =T_Email.Split("@")[0],
+                T_Email=T_Email,
+                T_City=T_City,
+                T_FirstName=T_FirstName,
+                T_LastName=T_LastName,
+                T_Password=T_Password,
+                T_PhoneNo=T_PhoneNo,
+
+            };
+
+            Models.CollegeUg cug = new Models.CollegeUg()
+            {
+                UG_CollegeName =UG_CollegeName,
+                UG_Branch =UG_Branch,
+                UG_Degree =UG_Degree,
+                UG_TrainerId =T_Email.Split("@")[0],
+                UG_YearPassed =UG_YearPassed,
+
+            };
+
+            Models.HighSchool hs = new Models.HighSchool()
+            {
+                HS_SchoolName = HS_SchoolName,
+                HS_TrainerId =T_Email.Split("@")[0],
+                HS_YearPassed = HS_YearPassed,
+
+            };
+            Models.HighSec hsc = new Models.HighSec()
+            {
+                HSC_Course = HSC_Course,
+                HSC_SchoolName =HSC_SchoolName,
+                HSC_TrainerId =T_Email.Split("@")[0],
+                HSC_YearPassed =HSC_YearPassed,
+            };
+
+            Models.Skill sk= new Models.Skill()
+            {
+                SK_Skill1 = SK_Skill1,
+                SK_Skill2 = SK_Skill2,
+                SK_Skill3 = SK_Skill3,
+                SK_Skill4 = SK_Skill4,
+                SK_TrainerId =T_Email.Split("@")[0]
+            };
+
+            Models.Company company = new Models.Company()
+            {
+                C_LastCompanyName = C_LastCompanyName,
+                C_TotalExp = C_TotalExp,
+                C_TrainerId =T_Email.Split("@")[0]
+            };
+
+
             try
             {
-                if (!_validator.Validator(tr.T_FirstName, "nameRegex", "firstName") || !_validator.Validator(tr.T_LastName, "nameRegex", "LastName") || !_validator.Validator(tr.T_City, "nameRegex", "City") || !_validator.Validator(cug.UG_CollegeName, "nameRegex", "CollegeName") || !_validator.Validator(cug.UG_Branch, "nameRegex", "BranchName") || !_validator.Validator(hsc.HSC_SchoolName, "nameRegex", "firstName") || !_validator.Validator(hsc.HSC_Course, "nameRegex", "firstName") || !_validator.Validator(hs.HS_SchoolName, "nameRegex", "firstName") || !_validator.Validator(com.C_LastCompanyName, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill1, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill2, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill3, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill4, "nameRegex", "firstName"))
+                if (!_validator.Validator(tr.T_FirstName, "nameRegex", "firstName") || !_validator.Validator(tr.T_LastName, "nameRegex", "LastName") || !_validator.Validator(tr.T_City, "nameRegex", "City") || !_validator.Validator(cug.UG_CollegeName, "nameRegex", "CollegeName") || !_validator.Validator(cug.UG_Branch, "nameRegex", "BranchName") || !_validator.Validator(hsc.HSC_SchoolName, "nameRegex", "firstName") || !_validator.Validator(hsc.HSC_Course, "nameRegex", "firstName") || !_validator.Validator(hs.HS_SchoolName, "nameRegex", "firstName") || !_validator.Validator(company.C_LastCompanyName, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill1, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill2, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill3, "nameRegex", "firstName") || !_validator.Validator(sk.SK_Skill4, "nameRegex", "firstName"))
                 {
                     return BadRequest("Values should be 3 to 50 characters length");
                     ;
@@ -132,22 +192,20 @@ namespace Services.Controllers
                 else
                 {
                     List<Models.Company> cp = new List<Models.Company>();
-                    cp.Add(com);
+                    cp.Add(company);
                     _logic.InsertTrainers(tr, sk, hsc, hs, cp, cug);
                     return Ok("Trainer Registered Succ");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            
 
-          
         }
 
         [HttpPut("Trainer/Update/PhoneNo")]
-        public IActionResult UpdatePh([FromForm]string NewValue, [FromForm]string email)
+        public IActionResult UpdatePh(string NewValue, string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -184,7 +242,7 @@ namespace Services.Controllers
         }
 
         [HttpPut("Trainer/Update/City")]
-        public IActionResult UpdateCity([FromForm] string NewValue, [FromForm] string email)
+        public IActionResult UpdateCity(string NewValue,string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -221,7 +279,7 @@ namespace Services.Controllers
         }
 
         [HttpDelete("Trainer/Delete/City")]
-        public IActionResult DeleteCity([FromForm] string email)
+        public IActionResult DeleteCity(string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -251,7 +309,7 @@ namespace Services.Controllers
         }
 
         [HttpDelete("Trainer/Delete/PhoneNo")]
-        public IActionResult DeletePhone([FromForm] string email)
+        public IActionResult DeletePhone(string email)
         {
             if (_logic.IsExist(email, "email"))
             {
@@ -278,6 +336,18 @@ namespace Services.Controllers
                 return BadRequest("deletion of value failed!");
             }
 
+        }
+
+        [HttpDelete("Trainer/Delete/account")]
+        public IActionResult DeleteAccount(string trainerid)
+        {
+            try
+            {
+                _logic.DeleteAccount(trainerid);
+                return Ok("account deleted successfully");
+            }
+            catch(Exception ex) { 
+            return BadRequest(ex.Message); }
         }
 
 

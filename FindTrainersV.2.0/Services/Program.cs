@@ -2,6 +2,7 @@ using EntityFramework.newEntities;
 using Microsoft.EntityFrameworkCore;
 using EntityFramework;
 using BusinessLogic;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,10 @@ builder.Services.AddDbContext<TrainerDetailsContext>(options => options.UseSqlSe
 builder.Services.AddScoped<ILogic, Logic>();
 builder.Services.AddScoped<IRepo,EFRepo>();
 builder.Services.AddScoped<IValidator, Validation>();
+builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
+{
+    build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
 
 
 
@@ -29,11 +34,13 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    
 }
 
+app.UseCors("corspolicy");
 
-
-
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
