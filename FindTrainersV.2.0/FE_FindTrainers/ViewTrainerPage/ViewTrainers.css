@@ -1,0 +1,44 @@
+@media screen and (max-width:768px) {
+    img {
+        width: 100%;
+    }
+}
+
+.cb {
+    background-color: black;
+
+    margin-top: 200px;
+    border: none;
+}
+
+.card-group {
+    border: none;
+}
+
+.card {
+    margin: auto;
+    padding: 1;
+}
+
+.bar-nav:hover::after {
+    content: '';
+    height: 3px;
+    width: 100%;
+    background-color: #5c11f2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bar-nav {
+    transition: all 0.2ms;
+    position: relative;
+}
+
+.bi-eye-fill{
+    float: right;
+}
+
+.bi-eye-fill:hover{
+    color: limegreen;
+}

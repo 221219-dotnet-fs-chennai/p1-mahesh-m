@@ -1,0 +1,96 @@
+.login{
+    margin-top: 20px;
+    margin-bottom: auto;
+    width: 480px;
+    height: auto;
+    background-color:#f2f2f2;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+
+label{
+    padding-top: 20px;
+}
+
+
+
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited {
+    margin-top: 20px;
+        margin-bottom: 20px;
+        width: 120px;
+        background-color: #5c11f2 !important;
+   font-family: 'Montserrat'; 
+   font-weight: 400;
+   border-radius: 0;
+   border: none;
+   outline: none;
+   box-shadow: none;
+}
+.btn-primary:hover{
+    background-color: transparent !important;
+    color: #5c11f2;
+    border: #5c11f2 1px solid;
+    outline: none;
+    box-shadow: none;
+}
+.btn-primary:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+h2{
+   
+    padding-top: 20px;
+}
+
+.LoginHeader{
+    margin-top: 100px;
+        margin-bottom: auto;
+        width: 480px;
+        height: auto;
+
+}
+
+.signuptext{
+    margin-top: 10px;
+    font-family: 'Montserrat';
+}
+
+.signuptext a{
+    text-decoration: none;
+}
+
+.form-group.success input{
+    outline: limegreen solid 2px;
+}
+
+.form-control:focus {
+    border-color:transparent;
+    box-shadow: none;
+}
+
+.form-group.error input{
+    outline: red solid 2px;
+}
+
+.form-group .error{
+    color:red;
+}
+
+.bar-nav:hover::after {
+    content: '';
+    height: 3px;
+    width: 100%;
+    background-color: #5c11f2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bar-nav {
+    transition: all 0.2ms;
+    position: relative;
+}

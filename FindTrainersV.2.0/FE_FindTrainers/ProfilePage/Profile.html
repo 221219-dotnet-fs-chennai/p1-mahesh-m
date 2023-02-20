@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="Profile.css">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-5" href="../HomePage/HomePage.html">Find Trainers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav ms-auto mb-6 mb-lg-0 me-4">
+    
+                    <a class="nav-link me-3 bar-nav" href="../Login/LoginPage.html">Logout</a>
+                    <a class="nav-link active me-2 bar-nav" aria-current="page" href="#">Profile</a>
+                    <!-- <a class="nav-link me-2 bar-nav" href="#">Features</a>
+                        <a class="nav-link me-2 bar-nav" href="#">Pricing</a> -->
+    
+                </ul>
+            </div>
+        </div>
+    </nav>
+   
+    <div class="container my-5 ms-auto">
+    <div class="row">
+        <div class="col-sm">
+            <div class="card profile" style="width:18rem;height:410px;">
+                <img src="../Assets/Userprofile.png" class="card-img-top" alt="" width="100px">
+                <div class="card-body" style="border-radius:20%;">
+                    <h4 class="card-title ms-3 mb-2" id="b_name">Mahesh</h4>
+                    <p class="card-text text-muted ms-3 mb-2" id="skillpr">Web Developer</p>
+                    <i class="bi bi-trash-fill ps-3" onclick="deleteAccount()"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm ms-auto">
+          <div class="row my-2">
+            <div class="card basic" style="width:18rem">
+                <div class="card-body">
+                    <h4 class="card-title my-2">
+                        Basic details
+                    </h4>
+                    <p class="card-title" style="font-weight: bold"> Phone: <span class="card-text" id="b_phone">9361098885</span>
+                    </p>
+                    <p class="card-title" style="font-weight: bold"> City: <span class="card-text" id="b_city">Chennai</span></p>
+                    <i class="bi bi-pencil-fill" onclick=" RedirecToEditBasic()"></i>
+                </div>
+            </div>
+            <div class="row my-2 ms-1">
+            <div class="card edu" style="width:18rem">
+                <div class="card-body">
+                    <h4 class="card-title mb-2">
+                        College Details
+                    </h4>
+                    <p class="card-title" style="font-weight: bold"> College: <span class="card-text text-muted "
+                            id="c_college">KCT</span></p>
+                    <p class="card-title" style="font-weight: bold"> Branch: <span class="card-text text-muted"
+                            id="c_branch">Information Technology</span></p>
+                    <p class="card-title" style="font-weight: bold"> Degree: <span class="card-text text-muted"
+                            id="c_degree"></span></p>
+                    <p class="card-title" style="font-weight: bold">Year: <span class="card-text text-muted" id="c_year"></span></p>
+                            <i class="bi bi-pencil-fill" onclick="RedirectToEditCollege()"></i>
+            
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="row">
+            <div class="card hscedu" style="width:18rem">
+                <div class="card-body">
+                    <h4 class="card-title mb-2">
+                        High Secondary Details
+                    </h4>
+                    <p class="card-title" style="font-weight: bold"> School: <span class="card-text text-muted "
+                            id="hsc_school">KCT</span></p>
+                    <p class="card-title" style="font-weight: bold"> Course: <span class="card-text text-muted"
+                            id="hsc_course">Information Technology</span></p>
+                    <p class="card-title" style="font-weight: bold"> Year: <span class="card-text text-muted" id="hsc_year"></span>
+                    </p>
+                    <i class="bi bi-pencil-fill" onclick="RedirectToEditHighSec()"></i>
+            
+                </div>
+            </div>
+            <div class="row my-2 ms-1">
+              <div class="card hsedu" style="width:18rem">
+                <div class="card-body">
+                    <h4 class="card-title mb-2">
+                        High School Details
+                    </h4>
+                    <p class="card-title" style="font-weight: bold"> School: <span class="card-text text-muted "
+                            id="hs_school">KCT</span></p>
+                    <p class="card-title" style="font-weight: bold"> Year: <span class="card-text text-muted" id="hs_year"></span>
+                    </p>
+                    <i class="bi bi-pencil-fill" onclick="RedirectToEditHighSchool()"></i>
+                
+                </div>
+
+              </div>
+            </div>
+          </div>
+           
+        </div>
+
+        
+    </div>
+
+    <div class="row my-2 ms-2">
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm"></div>
+        <div class="card skills" style="width:18rem">
+            <div class="card-body">
+                <h4 class="card-title mb-2">
+                    Skillsets
+                </h4>
+                <p class="card-title" style="font-weight: bold"> Primary Skill: <span class="card-text text-muted "
+                        id="skill1">KCT</span></p>
+                <p class="card-title" style="font-weight: bold"> Secondary Skill: <span class="card-text text-muted" id="skill2"></span>
+                </p>
+
+                <p class="card-title" style="font-weight: bold"> Tertiary Skill: <span class="card-text text-muted" id="skill3"></span>
+                </p>
+
+                <p class="card-title" style="font-weight: bold"> Quarternary Skill: <span class="card-text text-muted" id="skill4"></span>
+                </p>
+                <i class="bi bi-pencil-fill" onclick="RedirectToEditSkills()"></i>
+        
+            </div>
+        
+        </div>
+       
+        <div class="col-sm-1"></div> 
+
+        <div class="col-sm my-2" id="expcard">
+           
+            
+        </div>
+
+    </div>
+    </div>
+
+
+
+
+</body>
+<script src="Profile.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</html>

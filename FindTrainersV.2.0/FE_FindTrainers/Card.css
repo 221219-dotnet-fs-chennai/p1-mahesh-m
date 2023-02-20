@@ -1,0 +1,21 @@
+@media screen and (max-width:768px) {
+    img {
+        width: 100%;
+    }
+}
+
+.cb{
+   background-color: black;
+    
+    margin-top: 200px;
+    border: none;
+}
+
+.card-group{
+    border: none;
+}
+
+.card{
+   margin: auto;
+   padding: 1;
+}

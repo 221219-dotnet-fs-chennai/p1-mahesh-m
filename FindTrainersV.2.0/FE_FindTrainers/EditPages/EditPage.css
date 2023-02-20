@@ -1,0 +1,57 @@
+
+.bi-pencil-fill{
+    color:limegreen; 
+}
+
+.bi-pencil-fill:hover{
+    color: green;
+}
+
+.bi-trash-fill{
+    color:orangered;
+}
+
+.bi-trash-fill:hover{
+    color: red;
+}
+
+.btn-danger,
+.btn-danger:active,
+.btn-danger:visited {
+    margin-top: 40px;
+    margin-left: 20px;
+    background-color: #5c11f2 !important;
+    border-radius: 0;
+}
+
+.btn-danger:hover {
+    background-color: transparent !important;
+    border: 1px solid #5c11f2;
+    color: #5c11f2;
+}
+
+.btn-danger a {
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    color: #ededed;
+}
+
+.btn-danger a:hover {
+    color: red;
+}
+
+.bar-nav:hover::after {
+    content: '';
+    height: 3px;
+    width: 100%;
+    background-color: #5c11f2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bar-nav {
+    transition: all 0.2ms;
+    position: relative;
+}
